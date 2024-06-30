@@ -36,6 +36,14 @@ What I want:
 |layouts|Some tags should be tiled in fancy directions, some should be monocle|
 |…      |\<things I depend on but haven’t noticed yet>                        |
 
+[wideriver] is a great layout engine, providing the main layouts I rely on.
+I may well end up changing to one of the scriptable replacements at some point
+though, both [river-luatile] and [riverguile] look enticing.
+
+The main thing I’m missing right now is per-tag default layouts, but you can
+work around that by issuing a heap of commands at startup(before any views are
+created to prevent flicker).
+
 ### foot (replacing `alacritty`)
 
 [foot] is amazing.  If I’d known it was available before it may have been the
@@ -58,6 +66,9 @@ that come with accompanying text.
 [river]: https://codeberg.org/river/river
 [dwl]: https://codeberg.org/dwl/dwl.git
 [sway]: https://github.com/swaywm/sway/
+[wideriver]: https://github.com/alex-courtis/wideriver
+[river-luatile]: https://github.com/MaxVerevkin/river-luatile
+[riverguile]: https://git.sr.ht/~leon_plickat/riverguile
 [awesomewm]: https://awesomewm.org/
 [foot]: https://codeberg.org/dnkl/foot
 [sandbar]: https://github.com/kolunmi/sandbar
