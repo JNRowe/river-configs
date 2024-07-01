@@ -154,6 +154,13 @@ if [[ $HOST == corale ]] {
     riverctl input pointer-2-14-ETPS/2_Elantech_Touchpad tap enabled
     riverctl input pointer-2-14-ETPS/2_Elantech_Touchpad pointer-accel 0.8
 }
+
+if [[ $HOST == corale ]] {
+    riverctl map normal Super P input pointer-2-14-ETPS/2_Elantech_Touchpad \
+        events disabled
+    riverctl map normal Super+Shift P input \
+        pointer-2-14-ETPS/2_Elantech_Touchpad events enabled
+}
 # }}}
 
 # Window rules {{{
