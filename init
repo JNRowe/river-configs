@@ -114,6 +114,11 @@ riverctl input pointer-2-14-ETPS/2_Elantech_Touchpad pointer-accel 0.8
 # Window rules {{{
 riverctl focus-follows-cursor normal
 
+# Allow some rules to be stored outside default init to make it easier to share
+# across different machines.  For example, I *need* conflicting rules for
+# outputs depending on location.
+[[ -f $0:a:h/local_rules ]] && source $0:a:h/local_rules
+
 riverctl rule-add -app-id "chromium" tags $(tag_mask 2)
 riverctl rule-add -app-id "firefox-esr" tags $(tag_mask 2)
 riverctl rule-add -app-id "mpv" tags $(tag_mask 3)
@@ -146,6 +151,8 @@ riverctl set-focused-tags $(tag_mask 4)
 riverctl send-layout-cmd wideriver "--layout monocle"
 riverctl set-focused-tags $(tag_mask 1)
 # }}}
+
+[[ -f $0:a:h/local_init ]] && source $0:a:h/local_init
 
 # Show sandbar.  Sandbar is spawned hidden to allow us to issue per-tag layout
 # changes or default applications without all the bar flashes that would result.
