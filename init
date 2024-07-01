@@ -1,4 +1,4 @@
-#! /bin/zsh
+#! /bin/zsh -x
 
 setopt err_exit extended_glob no_unset warn_create_global
 
