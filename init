@@ -1,0 +1,152 @@
+#! /bin/zsh
+
+setopt err_exit extended_glob no_unset warn_create_global
+
+# Utility functions {{{
+ALL_TAGS=$((2**32 - 1))
+tag_mask() {
+    integer r n
+    for n ($@) {
+        r+=$((1 << (n-1)))
+    }
+    echo $r
+}
+# }}}
+
+# Configure environment {{{
+systemctl --user set-environment \
+    XDG_SESSION_TYPE=wayland \
+    XDG_{CURRENT,SESSION}_DESKTOP=river
+
+systemctl --user import-environment \
+    PATH \
+    WAYLAND_DISPLAY
+# }}}
+
+# Run background services {{{
+systemctl --user start swaybg@$WAYLAND_DISPLAY
+
+systemctl --user start foot-server@$WAYLAND_DISPLAY.socket
+
+systemctl --user start sandbar@$WAYLAND_DISPLAY.socket
+sandbar_pipe=$(systemctl --user show sandbar@$WAYLAND_DISPLAY.socket \
+    --property=Listen |
+    sed 's,.*=\(.*\) .*,\1,')
+systemctl --user start sandbar_status@$WAYLAND_DISPLAY.service
+
+systemctl --user start swayidle@$WAYLAND_DISPLAY.service
+
+systemctl --user start wideriver@$WAYLAND_DISPLAY.service
+
+systemctl --user start wob@$WAYLAND_DISPLAY.socket
+# }}}
+
+# Keybindings {{{
+riverctl map normal Super+Shift Q exit
+
+riverctl map normal Super Page_Up focus-output next
+riverctl map normal Super Page_Down focus-output previous
+
+# Tag management {{{
+for tag ({1..9}) {
+    tag_id=$(tag_mask $tag)
+
+    riverctl map normal Super $tag set-focused-tags $tag_id
+    riverctl map normal Super+Shift $tag set-view-tags $tag_id
+    riverctl map normal Super+Control $tag toggle-focused-tags $tag_id
+    riverctl map normal Super+Shift+Control $tag toggle-view-tags $tag_id
+}
+
+# Show all; treat it like Apple’s Exposé
+riverctl map normal Super 0 set-focused-tags $ALL_TAGS
+# }}}
+
+# Window management {{{
+riverctl map normal Super+Shift Return zoom
+riverctl map normal Super+Shift C close
+riverctl map normal Super+Shift 0 set-view-tags $ALL_TAGS
+
+riverctl map normal Super+Control Space toggle-float
+riverctl map normal Super F toggle-fullscreen
+
+riverctl map normal Super Tab focus-view next
+riverctl map normal Super+Shift Tab focus-view previous
+
+riverctl map normal Super+Control Tab swap next
+riverctl map normal Super+Control+Shift Tab swap previous
+
+riverctl map normal Super+Shift Page_up send-to-output next
+riverctl map normal Super+Shift Page_down send-to-output previous
+# }}}
+
+# Common applications {{{
+riverctl map normal Super Return spawn "footclient --no-wait"
+riverctl map normal Super Z spawn "exec firefox"
+# }}}
+
+riverctl map normal Super B spawn "echo all toggle-visibility >>$sandbar_pipe"
+# }}}
+
+# Theming {{{
+riverctl background-color 0x1b1d1e
+riverctl border-color-focused 0xa6e22e
+riverctl border-color-unfocused 0x75715e
+riverctl border-color-urgent 0xf92672
+# }}}
+
+# Input devices  {{{
+riverctl set-repeat 50 300
+
+declare -A kbd_opts=(
+    [caps]=escape_shifted_capslock
+    [compose]=paus
+    [keypad]=future
+    [parens]=swap_brackets
+)
+riverctl keyboard-layout \
+    -options ${(kj:,:)kbd_opts/(#m)*/$MATCH:$kbd_opts[$MATCH]} \
+    gb
+
+riverctl input pointer-2-14-ETPS/2_Elantech_Touchpad tap enabled
+riverctl input pointer-2-14-ETPS/2_Elantech_Touchpad pointer-accel 0.8
+# }}}
+
+# Window rules {{{
+riverctl focus-follows-cursor normal
+
+riverctl rule-add -app-id "chromium" tags $(tag_mask 2)
+riverctl rule-add -app-id "firefox-esr" tags $(tag_mask 2)
+riverctl rule-add -app-id "mpv" tags $(tag_mask 3)
+# }}}
+
+# Layout {{{
+riverctl default-layout wideriver
+
+riverctl map normal Super M send-layout-cmd wideriver "--layout monocle"
+riverctl map normal Super T send-layout-cmd wideriver "--layout left"
+riverctl map normal Super+Shift T send-layout-cmd wideriver "--layout wide"
+riverctl map normal Super+Control T send-layout-cmd wideriver "--layout right"
+riverctl map normal Super Space send-layout-cmd wideriver "--layout-toggle"
+
+riverctl map normal Super E send-layout-cmd wideriver "--stack even"
+riverctl map normal Super W send-layout-cmd wideriver "--stack dwindle"
+riverctl map normal Super I send-layout-cmd wideriver "--stack diminish"
+
+riverctl map normal Super Equal send-layout-cmd wideriver "--ratio 0.52"
+riverctl map normal Super H send-layout-cmd wideriver "--ratio +0.05"
+riverctl map normal Super L send-layout-cmd wideriver "--ratio -0.05"
+
+riverctl map normal Super+Shift Equal send-layout-cmd wideriver "--count 1"
+riverctl map normal Super+Shift H send-layout-cmd wideriver "--count +1"
+riverctl map normal Super+Shift L send-layout-cmd wideriver "--count -1"
+
+riverctl set-focused-tags $(tag_mask 2)
+riverctl send-layout-cmd wideriver "--layout monocle"
+riverctl set-focused-tags $(tag_mask 4)
+riverctl send-layout-cmd wideriver "--layout monocle"
+riverctl set-focused-tags $(tag_mask 1)
+# }}}
+
+# Show sandbar.  Sandbar is spawned hidden to allow us to issue per-tag layout
+# changes or default applications without all the bar flashes that would result.
+echo all show >>$sandbar_pipe
