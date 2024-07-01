@@ -44,6 +44,21 @@ The main thing I’m missing right now is per-tag default layouts, but you can
 work around that by issuing a heap of commands at startup(before any views are
 created to prevent flicker).
 
+#### Other candidates
+
+`dwl` is close to perfect as a [dwm] replacement, but there a few rough edges
+that need ironing out.  I’d recommend it to others who want a `dwm` experience.
+
+`sway` is popular with lots of support, but fails on every count.  Its workspace
+implementation is ferociously under-featured.  Its layout splitting feels like
+a chore.  Custom layouts require endless scripting after making everything
+float.  Even seemingly simple things like window switching across branches
+become a chore requiring heaps of code, even including implementing locks to
+make sure keys aren’t swallowed when you execute commands quickly.
+
+[vivarium] feels very promising.  It features most of the layouts I’ve become
+accustomed to, but its stability wasn’t great for me.
+
 ### foot (replacing `alacritty`)
 
 [foot] is amazing.  If I’d known it was available before it may have been the
@@ -75,4 +90,6 @@ that come with accompanying text.
 [wob]: https://github.com/francma/wob
 [drop me a note]: mailto:jnrowe@gmail.com
 [dzen2]: https://github.com/robm/dzen
+[dwm]: http://dwm.suckless.org/
+[vivarium]: https://github.com/inclement/vivarium
 
