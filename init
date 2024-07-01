@@ -81,6 +81,15 @@ for mode (normal locked) {
 riverctl map normal Super Page_Up focus-output next
 riverctl map normal Super Page_Down focus-output previous
 
+# Passthrough mode for testing configuration {{{
+# A really great idea from the example river init file giving a quick toggle to
+# make all keys a no-op for testing nested compositors.
+riverctl declare-mode passthrough
+
+riverctl map normal Super F11 enter-mode passthrough
+riverctl map passthrough Super F11 enter-mode normal
+# }}}
+
 # Tag management {{{
 for tag ({1..9}) {
     tag_id=$(tag_mask $tag)
