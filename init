@@ -3,7 +3,6 @@
 setopt err_exit extended_glob no_unset warn_create_global
 
 # Utility functions {{{
-ALL_TAGS=$((2**32 - 1))
 tag_mask() {
     integer r n
     for n ($@) {
@@ -11,6 +10,7 @@ tag_mask() {
     }
     echo $r
 }
+ALL_TAGS=$(tag_mask {1..32})
 # }}}
 
 # Configure environment {{{
