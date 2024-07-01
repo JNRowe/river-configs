@@ -143,23 +143,27 @@ riverctl rule-add -app-id "mpv" tags $(tag_mask 3)
 # Layout {{{
 riverctl default-layout wideriver
 
-riverctl map normal Super M send-layout-cmd wideriver "--layout monocle"
-riverctl map normal Super T send-layout-cmd wideriver "--layout left"
-riverctl map normal Super+Shift T send-layout-cmd wideriver "--layout wide"
-riverctl map normal Super+Control T send-layout-cmd wideriver "--layout right"
-riverctl map normal Super Space send-layout-cmd wideriver "--layout-toggle"
+riverctl declare-mode layout
+riverctl map normal Super L enter-mode layout
+riverctl map layout None Escape enter-mode normal
 
-riverctl map normal Super E send-layout-cmd wideriver "--stack even"
-riverctl map normal Super W send-layout-cmd wideriver "--stack dwindle"
-riverctl map normal Super I send-layout-cmd wideriver "--stack diminish"
+riverctl map layout None M send-layout-cmd wideriver "--layout monocle"
+riverctl map layout None T send-layout-cmd wideriver "--layout left"
+riverctl map layout Shift T send-layout-cmd wideriver "--layout wide"
+riverctl map layout Control T send-layout-cmd wideriver "--layout right"
+riverctl map layout None Space send-layout-cmd wideriver "--layout-toggle"
 
-riverctl map normal Super Equal send-layout-cmd wideriver "--ratio 0.52"
-riverctl map normal Super H send-layout-cmd wideriver "--ratio +0.05"
-riverctl map normal Super L send-layout-cmd wideriver "--ratio -0.05"
+riverctl map layout None E send-layout-cmd wideriver "--stack even"
+riverctl map layout None W send-layout-cmd wideriver "--stack dwindle"
+riverctl map layout None I send-layout-cmd wideriver "--stack diminish"
 
-riverctl map normal Super+Shift Equal send-layout-cmd wideriver "--count 1"
-riverctl map normal Super+Shift H send-layout-cmd wideriver "--count +1"
-riverctl map normal Super+Shift L send-layout-cmd wideriver "--count -1"
+riverctl map layout None Equal send-layout-cmd wideriver "--ratio 0.52"
+riverctl map layout None H send-layout-cmd wideriver "--ratio +0.05"
+riverctl map layout None L send-layout-cmd wideriver "--ratio -0.05"
+
+riverctl map layout Shift Equal send-layout-cmd wideriver "--count 1"
+riverctl map layout Shift H send-layout-cmd wideriver "--count +1"
+riverctl map layout Shift L send-layout-cmd wideriver "--count -1"
 
 riverctl set-focused-tags $(tag_mask 2)
 riverctl send-layout-cmd wideriver "--layout monocle"
