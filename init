@@ -44,6 +44,22 @@ systemctl --user start wob@$WAYLAND_DISPLAY.socket
 # Keybindings {{{
 riverctl map normal Super+Shift Q exit
 
+# Extended keys {{{
+for mode (normal locked) {
+    riverctl map $mode None XF86MonBrightnessUp spawn "brightness_toggle up"
+    riverctl map $mode None XF86MonBrightnessDown spawn "brightness_toggle down"
+
+    riverctl map $mode None XF86AudioPlay spawn "dtas-ctl play_pause"
+    riverctl map $mode None XF86AudioNext spawn "dtas-ctl skip"
+
+    riverctl map $mode None XF86AudioMute spawn "amixer sset Master toggle"
+    riverctl map -repeat $mode None XF86AudioRaiseVolume \
+        spawn "amixer sset Master 5%+"
+    riverctl map -repeat $mode None XF86AudioLowerVolume \
+        spawn "amixer sset Master 5%-"
+}
+# }}}
+
 riverctl map normal Super Page_Up focus-output next
 riverctl map normal Super Page_Down focus-output previous
 
