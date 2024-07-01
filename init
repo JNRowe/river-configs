@@ -150,8 +150,10 @@ riverctl keyboard-layout \
     -options ${(kj:,:)kbd_opts/(#m)*/$MATCH:$kbd_opts[$MATCH]} \
     gb
 
-riverctl input pointer-2-14-ETPS/2_Elantech_Touchpad tap enabled
-riverctl input pointer-2-14-ETPS/2_Elantech_Touchpad pointer-accel 0.8
+if [[ $HOST == corale ]] {
+    riverctl input pointer-2-14-ETPS/2_Elantech_Touchpad tap enabled
+    riverctl input pointer-2-14-ETPS/2_Elantech_Touchpad pointer-accel 0.8
+}
 # }}}
 
 # Window rules {{{
