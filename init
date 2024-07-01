@@ -2,7 +2,26 @@
 
 setopt err_exit extended_glob no_unset warn_create_global
 
+autoload -Uz add-zsh-hook
+
 # Utility functions {{{
+find_socket() {
+    systemctl --user show $1@$WAYLAND_DISPLAY.socket --property=Listen |
+        sed 's,.*=\(.*\) .*,\1,'
+}
+
+LINES=$(wc -l $0 | awk '{print $1}')
+_progress() {
+    # If wob is available, we’ll update a progress bar with our position through
+    # this file.
+    setopt local_options no_xtrace
+    [[ -z ${wob_pipe:-} ]] && return
+    float line=${funcfiletrace[1]##*:}
+    integer pcnt=$(((line - 1) / LINES * 100))
+    echo $pcnt >>$wob_pipe
+}
+add-zsh-hook preexec _progress
+
 tag_mask() {
     integer r n
     for n ($@) {
@@ -29,9 +48,7 @@ systemctl --user start swaybg@$WAYLAND_DISPLAY
 systemctl --user start foot-server@$WAYLAND_DISPLAY.socket
 
 systemctl --user start sandbar@$WAYLAND_DISPLAY.socket
-sandbar_pipe=$(systemctl --user show sandbar@$WAYLAND_DISPLAY.socket \
-    --property=Listen |
-    sed 's,.*=\(.*\) .*,\1,')
+sandbar_pipe=$(find_socket sandbar)
 systemctl --user start sandbar_status@$WAYLAND_DISPLAY.service
 
 systemctl --user start swayidle@$WAYLAND_DISPLAY.service
@@ -39,6 +56,7 @@ systemctl --user start swayidle@$WAYLAND_DISPLAY.service
 systemctl --user start wideriver@$WAYLAND_DISPLAY.service
 
 systemctl --user start wob@$WAYLAND_DISPLAY.socket
+wob_pipe=$(find_socket wob)
 # }}}
 
 # Keybindings {{{
