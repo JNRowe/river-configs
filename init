@@ -130,6 +130,18 @@ riverctl map normal Super Z spawn "exec firefox"
 riverctl map normal Super B spawn "echo all toggle-visibility >>$sandbar_pipe"
 # }}}
 
+# Mouse bindings {{{
+riverctl map-pointer normal Super BTN_LEFT move-view
+riverctl map-pointer normal Super BTN_RIGHT resize-view
+riverctl map-pointer normal Super BTN_MIDDLE toggle-float
+
+riverctl map-pointer normal Super BTN_FORWARD swap next
+riverctl map-pointer normal Super BTN_BACK swap previous
+
+riverctl map-pointer normal Super+Shift BTN_FORWARD send-to-output next
+riverctl map-pointer normal Super+Shift BTN_BACK send-to-output previous
+# }}}
+
 # Theming {{{
 riverctl background-color 0x1b1d1e
 riverctl border-color-focused 0xa6e22e
