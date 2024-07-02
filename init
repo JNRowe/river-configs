@@ -120,6 +120,19 @@ riverctl map normal Super+Control+Shift Tab swap previous
 
 riverctl map normal Super+Shift Page_up send-to-output next
 riverctl map normal Super+Shift Page_down send-to-output previous
+
+ARROW_KEYS=(Left Down Up Right)
+for key ($ARROW_KEYS) {
+    riverctl map normal Super+Alt $key move $key:l 100
+}
+for key ($ARROW_KEYS) {
+    riverctl map normal Super+Alt+Control $key snap $key:l
+}
+xs=(horizontal vertical)
+integer i=0
+for key dir (${ARROW_KEYS:^^xs}) {
+    riverctl map normal Super+Alt+Shift $key resize $dir $((i++ % 2 ? 1 : -1))00
+}
 # }}}
 
 # Common applications {{{
