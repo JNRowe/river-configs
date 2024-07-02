@@ -151,7 +151,9 @@ for key dir (${ARROW_KEYS:^^xs}) {
 
 # Common applications {{{
 riverctl map normal Super Return spawn "footclient --no-wait"
-riverctl map normal Super Z spawn "exec firefox"
+# Attempt to pick the most useful *to me* browser.
+riverctl map normal Super Z spawn \
+    "exec ${commands[firefox]:-${commands[chromium]:-sensible-browser}}"
 # }}}
 
 riverctl map normal Super B spawn "echo all toggle-visibility >>$sandbar_pipe"
