@@ -10,7 +10,7 @@ find_socket() {
         sed 's,.*=\(.*\) .*,\1,'
 }
 
-LINES=$(wc -l $0 | awk '{print $1}')
+LINES=$(awk 'END {print NR}' $0)
 _progress() {
     # If wob is available, we’ll update a progress bar with our position through
     # this file.
