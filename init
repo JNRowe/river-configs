@@ -140,27 +140,36 @@ riverctl border-color-urgent 0xf92672
 # Input devices  {{{
 riverctl set-repeat 50 300
 
-declare -A kbd_opts=(
+declare -A _xkb_opts=(
     [caps]=escape_shifted_capslock
     [compose]=paus
     [keypad]=future
     [parens]=swap_brackets
 )
-riverctl keyboard-layout \
-    -options ${(kj:,:)kbd_opts/(#m)*/$MATCH:$kbd_opts[$MATCH]} \
-    gb
+_xkb_opts_toggle=(parens)
+xkb_opts_full=${(kj:,:)_xkb_opts/(#m)*/$MATCH:$_xkb_opts[$MATCH]}
+xkb_opts_toggle=${(kj:,:)${(k)_xkb_opts:|_xkb_opts_toggle}/(#m)*/$MATCH:$_xkb_opts[$MATCH]}
+riverctl keyboard-layout -options $xkb_opts_full gb
 
 if [[ $HOST == corale ]] {
     riverctl input pointer-2-14-ETPS/2_Elantech_Touchpad tap enabled
     riverctl input pointer-2-14-ETPS/2_Elantech_Touchpad pointer-accel 0.8
 }
 
+riverctl declare-mode input
+riverctl map normal Super I enter-mode input
+riverctl map input None Escape enter-mode normal
+
 if [[ $HOST == corale ]] {
-    riverctl map normal Super P input pointer-2-14-ETPS/2_Elantech_Touchpad \
+    riverctl map input None T input pointer-2-14-ETPS/2_Elantech_Touchpad \
         events disabled
-    riverctl map normal Super+Shift P input \
-        pointer-2-14-ETPS/2_Elantech_Touchpad events enabled
+    riverctl map input Shift T input pointer-2-14-ETPS/2_Elantech_Touchpad \
+        events enabled
 }
+riverctl map input None K spawn "riverctl keyboard-layout \
+    -options $xkb_opts_full gb"
+riverctl map input Shift K spawn "riverctl keyboard-layout \
+    -options $xkb_opts_toggle gb"
 # }}}
 
 # Window rules {{{
