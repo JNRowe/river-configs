@@ -255,10 +255,13 @@ riverctl map layout Shift Equal send-layout-cmd wideriver "--count 1"
 riverctl map layout Shift H send-layout-cmd wideriver "--count +1"
 riverctl map layout Shift L send-layout-cmd wideriver "--count -1"
 
-riverctl set-focused-tags $(tag_mask 2)
-riverctl send-layout-cmd wideriver "--layout monocle"
-riverctl set-focused-tags $(tag_mask 4)
-riverctl send-layout-cmd wideriver "--layout monocle"
+# Configure initial per-tag layouts.  This reflects what is at this point my
+# *decades* old tradition of defaulting to fullscreen on even tags.  It doesn’t
+# really make sense, but I’m quite accustomed to it
+for n ({2..32..2}) {
+    riverctl set-focused-tags $(tag_mask $n)
+    riverctl send-layout-cmd wideriver "--layout monocle"
+}
 riverctl set-focused-tags $(tag_mask 1)
 # }}}
 
