@@ -233,7 +233,11 @@ riverctl declare-mode layout
 riverctl map normal Super L enter-mode layout
 riverctl map layout None Escape enter-mode normal
 
+# Add top level bindings for monocle and tile-left, as they’re my most common
+# layouts that I want quick access to.
+riverctl map normal Super M send-layout-cmd wideriver "--layout monocle"
 riverctl map layout None M send-layout-cmd wideriver "--layout monocle"
+riverctl map normal Super T send-layout-cmd wideriver "--layout left"
 riverctl map layout None T send-layout-cmd wideriver "--layout left"
 riverctl map layout Shift T send-layout-cmd wideriver "--layout wide"
 riverctl map layout Control T send-layout-cmd wideriver "--layout right"
