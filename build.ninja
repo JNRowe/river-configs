@@ -1,0 +1,6 @@
+rule rst2zsh
+  command = tools/rst2zsh -d $out.dep $in $out && chmod +x $out
+  depfile = $out.dep
+  deps = gcc
+
+build init: rst2zsh README.rst
