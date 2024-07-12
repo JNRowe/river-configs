@@ -1,0 +1,60 @@
+#! /bin/zsh -f
+
+setopt err_exit no_unset warn_create_global
+
+zmodload -F zsh/zutil +b:zparseopts
+
+# • ``^::$``
+#       Literal block, which for the sake of this repo is always zsh
+# • ``^\.\. code:: zsh``
+#       zsh code block
+# • ``^[^\. ][^\.].*::$``
+#       Implied code block via ``::`` suffixed line, skipping lines that are
+#       reST directives
+start_block='^(::|\.\. code:: zsh|[^\. ][^\.].*:: )$'
+
+parse() {
+    local input=$1 output=$2
+    local _RST2HTML_recursing=${_RST2HTML_recursing:-0}
+    (( $_RST2HTML_recursing )) || : >| $output
+    integer in_block=0
+    typeset -U includes=()
+    local line match mbegin mend
+    while IFS='' read -r line; do
+        if [[ $line =~ '^.. include:: (.*)' ]] {
+            (_RST2HTML_recursing=1 includes+=($(parse ${input:h}/$match $output)))
+            includes+=(${input:h}/$match)
+        } elif [[ $line =~ $start_block ]] {
+            in_block=1
+        } elif [[ $line =~ '^[^ ]' ]] {
+            in_block=0
+        } elif (( $in_block )) && [[ -n $line ]] {
+            echo -E "${line[5,-1]}" >> $output
+        }
+    done < $input
+    (( $_RST2HTML_recursing )) || echo $includes
+}
+
+
+typeset -A args
+zparseopts -D -K -E -A args d: h
+
+if [[ -n ${args[(I)-h]} ]] {
+    print -P "Usage: %B$0%b [option…] <input> <output>"
+    echo "Options:"
+    echo "    -d <file>  File to write dependencies to"
+    echo "    -h         This message"
+    exit 0
+} elif [[ -z ${1:-} ]] {
+    echo "Error: No input given"
+    exit 2
+} elif [[ -z ${2:-} ]] {
+    echo "Error: No output given"
+    exit 2
+}
+
+deps=$(parse $1 $2)
+
+[[ -n ${args[(I)-d]} ]] && [[ $deps ]] && echo $2: $deps >| ${args[-d]}
+
+:
