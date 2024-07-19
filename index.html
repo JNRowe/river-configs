@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.20.1: https://docutils.sourceforge.io/" />
+<title>river-configs</title>
+<link rel="stylesheet" href="css/rhythm.css" type="text/css" />
+<link rel="stylesheet" href="css/monokai.css" type="text/css" />
+</head>
+<body>
+<div class="document" id="river-configs">
+<h1 class="title">river-configs</h1>
+
+<blockquote class="epigraph">
+So, imagine your workmate has created a new tool that <em>requires</em> Wayland…</blockquote>
+<p>This is my personal <a class="reference external" href="https://codeberg.org/river/river">river</a> configuration that is shared among hosts.  Maybe
+they’re useful to you too, or — better yet — you’ll spot <em>and</em> fix a bug!</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">I’m writing this for myself as a <abbr title="Work In Progress">WIP</abbr> notebook.  Expect foolish — or even
+downright ignorant — errors and omissions.  Feel free to <a class="reference external" href="mailto:jnrowe&#64;gmail.com">drop me a note</a>
+for clarifications or to fix my invalid assumptions.</p>
+</div>
+<p>This is in a very early state; basically the result of needing to get up and
+running quickly, without breaking my workflow too much.  I haven’t decided on a
+lot of things yet, so don’t expect this to work for you <em>or</em> remain as-is for
+long.</p>
+<div class="section" id="software">
+<h1>Software</h1>
+<div class="section" id="river-replacing-awesomewm-dwm">
+<h2><tt class="docutils literal">river</tt> (replacing <tt class="docutils literal">awesomewm</tt>/<tt class="docutils literal">dwm</tt>)</h2>
+<p><tt class="docutils literal">river</tt> is definitely the only choice I’m comfortable with right now.  The
+other tiling managers are either a little raw(<a class="reference external" href="https://codeberg.org/dwl/dwl.git">dwl</a>) or very weak(<a class="reference external" href="https://github.com/swaywm/sway/">sway</a>).  If the
+setup changes it will be toward <tt class="docutils literal">dwl</tt> or something that more closely resembles
+<a class="reference external" href="https://awesomewm.org/">awesomewm</a>.</p>
+<p>What I want:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="91%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Feature</th>
+<th class="head">Reason</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>tags</td>
+<td>Workspaces are an anaemic stub of a feature when you’re used to tags</td>
+</tr>
+<tr><td>dynamic</td>
+<td>If I wanted to manage windows by hand I wouldn’t use a tiling manager</td>
+</tr>
+<tr><td>layouts</td>
+<td>Some tags should be tiled in fancy directions, some should be monocle</td>
+</tr>
+<tr><td>…</td>
+<td>&lt;things I depend on but haven’t noticed yet&gt;</td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference external" href="https://github.com/alex-courtis/wideriver">wideriver</a> is a great layout engine, providing the main layouts I rely on.
+I may well end up changing to one of the scriptable replacements at some point
+though, both <a class="reference external" href="https://github.com/MaxVerevkin/river-luatile">river-luatile</a> and <a class="reference external" href="https://git.sr.ht/~leon_plickat/riverguile">riverguile</a> look enticing.</p>
+<p>The main thing I’m missing right now is per-tag default layouts, but you can
+work around that by issuing a heap of commands at startup(before any views are
+created to prevent flicker).</p>
+<div class="section" id="other-candidates">
+<h3>Other candidates</h3>
+<p><tt class="docutils literal">dwl</tt> is close to perfect as a <a class="reference external" href="http://dwm.suckless.org/">dwm</a> replacement, but there a few rough edges
+that need ironing out.  I’d recommend it to others who want a <tt class="docutils literal">dwm</tt>
+experience.</p>
+<p><tt class="docutils literal">sway</tt> is popular with lots of support, but fails on every count.  Its
+workspace implementation is ferociously under-featured.  Its layout splitting
+feels like a chore.  Custom layouts require endless scripting after making
+everything float.  Even seemingly simple things like window switching across
+branches become a chore requiring heaps of code, even including implementing
+locks to make sure keys aren’t swallowed when you execute commands quickly.</p>
+<p><a class="reference external" href="https://github.com/inclement/vivarium">vivarium</a> feels very promising.  It features most of the layouts I’ve become
+accustomed to, but its stability wasn’t great for me.</p>
+</div>
+</div>
+<div class="section" id="foot-replacing-alacritty">
+<h2><tt class="docutils literal">foot</tt> (replacing <tt class="docutils literal">alacritty</tt>)</h2>
+<p><a class="reference external" href="https://codeberg.org/dnkl/foot">foot</a> is amazing.  If I’d known it was available before it may have been the
+catalyst for me to move to Wayland before now.  Something <em>unknowingly amazing</em>
+would have to arrive for this not to be the choice going forward.</p>
+</div>
+<div class="section" id="sandbar-replacing-built-in-awesomewm-dwm-functionality">
+<h2><tt class="docutils literal">sandbar</tt> (replacing built-in <tt class="docutils literal">awesomewm</tt>/<tt class="docutils literal">dwm</tt> functionality)</h2>
+<p><a class="reference external" href="https://github.com/kolunmi/sandbar">sandbar</a> does pretty much exactly what I want from a bar.  I’m going to miss how
+integrated the <tt class="docutils literal">wibox</tt> is in <tt class="docutils literal">awesomewm</tt>, but I’m comfortable enough making
+the widgets I <em>really</em> care about work with <tt class="docutils literal">sandbar</tt>.</p>
+</div>
+<div class="section" id="wob-replacing-dzen2">
+<h2><tt class="docutils literal">wob</tt> (replacing <tt class="docutils literal">dzen2</tt>)</h2>
+<p><a class="reference external" href="https://github.com/francma/wob">wob</a> is simple little progress bar tool, that can replace a fair chunk of my
+<a class="reference external" href="https://github.com/robm/dzen">dzen2</a> usage.  It isn’t featureful enough <em>by design</em> to be a full replacement,
+but it remains to be seen how much I’ll miss the hover popups or context hints
+that come with accompanying text.</p>
+</div>
+</div>
+<div class="section" id="config-time">
+<h1>Config time</h1>
+<div class="section" id="general-setup">
+<h2>General setup</h2>
+<p>We’re going to use <a class="reference external" href="https://www.zsh.org/">zsh</a> as it is <em>always</em> available on any system I use:</p>
+<pre class="literal-block">
+#! /bin/zsh -x
+</pre>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We set <tt class="docutils literal"><span class="pre">-x</span></tt> here because it is gives us a lazy logging mechanism to catch
+and report errors at practically zero cost.  In the initial run output will
+end up in river’s log, and in subsequent runs it will be in the executing
+terminal.</p>
+</div>
+<p>We’ll want stricter defaults out of the box:</p>
+<pre class="literal-block">
+setopt err_exit no_unset warn_create_global
+</pre>
+<p id="extended-glob">… along with extended globs for better matching support:</p>
+<pre class="literal-block">
+setopt extended_glob
+</pre>
+<p id="add-zsh-hook"><tt class="docutils literal">autoload</tt> functions we’ll need later:</p>
+<pre class="literal-block">
+autoload -Uz add-zsh-hook
+</pre>
+</div>
+<div class="section" id="utility-functions">
+<h2>Utility functions</h2>
+<p>Fetch socket path for <a class="reference external" href="https://systemd.io">systemd</a> <tt class="docutils literal">.socket</tt> units:</p>
+<pre class="literal-block">
+find_socket() {
+    systemctl --user show $1&#64;$WAYLAND_DISPLAY.socket --property=Listen |
+        sed 's,.*=\(.*\) .*,\1,'
+}
+</pre>
+<p id="progress-bar-within-this-file">Populate a <a class="reference external" href="https://github.com/francma/wob">wob</a> progress bar, if possible, as we move through the <tt class="docutils literal">init</tt>
+file:</p>
+<pre class="literal-block">
+LINES=$(awk 'END {print NR}' $0)
+_progress() {
+    setopt local_options no_xtrace
+    [[ -z ${wob_pipe:-} ]] &amp;&amp; return
+    float line=${funcfiletrace[1]##*:}
+    integer pcnt=$(((line - 1) / LINES * 100))
+    echo $pcnt &gt;&gt;$wob_pipe
+}
+add-zsh-hook preexec _progress
+</pre>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This doesn’t strictly require <a class="reference internal" href="#add-zsh-hook">add_zsh_hook</a>, but I prefer the interface
+offered by it over simply setting the hook by hand.</p>
+</div>
+<p>Calculate a tag mask given a list of tags:</p>
+<pre class="literal-block">
+tag_mask() {
+    integer r n
+    for n ($&#64;) {
+        r+=$((1 &lt;&lt; (n-1)))
+    }
+    echo $r
+}
+ALL_TAGS=$(tag_mask {1..32})
+</pre>
+</div>
+<div class="section" id="configure-environment">
+<h2>Configure environment</h2>
+<p>Configure environment variables used by <a class="reference external" href="https://freedesktop.org">freedesktop.org</a> specifications:</p>
+<pre class="literal-block">
+systemctl --user set-environment \
+    XDG_SESSION_TYPE=wayland \
+    XDG_{CURRENT,SESSION}_DESKTOP=river
+</pre>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">It is important to be aware that <tt class="docutils literal">river</tt> is not a standard compliant value
+for <tt class="docutils literal">XDG_*_DESKTOP</tt>, but I’m already using it locally to trigger
+behaviour.  I’ll change it if a better option appears later.</p>
+</div>
+<p>Make important environment variables available to <tt class="docutils literal">systemd</tt> units:</p>
+<pre class="literal-block">
+systemctl --user import-environment \
+    PATH \
+    WAYLAND_DISPLAY
+</pre>
+</div>
+<div class="section" id="run-background-services">
+<h2>Run background services</h2>
+<p>Start <a class="reference external" href="https://github.com/swaywm/swaybg">swaybg</a>:</p>
+<pre class="literal-block">
+systemctl --user start swaybg&#64;$WAYLAND_DISPLAY
+</pre>
+<p>Start <a class="reference external" href="https://codeberg.org/dnkl/foot">foot</a>:</p>
+<pre class="literal-block">
+systemctl --user start foot-server&#64;$WAYLAND_DISPLAY.socket
+</pre>
+<p>Start <a class="reference external" href="https://github.com/kolunmi/sandbar">sandbar</a>:</p>
+<pre class="literal-block">
+systemctl --user start sandbar&#64;$WAYLAND_DISPLAY.socket
+sandbar_pipe=$(find_socket sandbar)
+systemctl --user start sandbar_status&#64;$WAYLAND_DISPLAY
+</pre>
+<p>Start <a class="reference external" href="https://github.com/swaywm/swayidle">swayidle</a>:</p>
+<pre class="literal-block">
+systemctl --user start swayidle&#64;$WAYLAND_DISPLAY
+</pre>
+<p>Start <a class="reference external" href="https://github.com/alex-courtis/wideriver">wideriver</a>:</p>
+<pre class="literal-block">
+systemctl --user start wideriver&#64;$WAYLAND_DISPLAY
+</pre>
+<p>Start <a class="reference external" href="https://github.com/francma/wob">wob</a>:</p>
+<pre class="literal-block">
+systemctl --user start wob&#64;$WAYLAND_DISPLAY.socket
+wob_pipe=$(find_socket wob)
+</pre>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We fetch the socket location so that we can use it for a <a class="reference internal" href="#progress-bar-within-this-file">progress bar
+within this file</a>.</p>
+</div>
+</div>
+<div class="section" id="keybindings">
+<h2>Keybindings</h2>
+<p>General bindings:</p>
+<pre class="literal-block">
+riverctl map normal Super+Shift Q exit
+
+riverctl map normal Super Page_Up focus-output next
+riverctl map normal Super Page_Down focus-output previous
+
+riverctl map normal Super B \
+    spawn &quot;echo all toggle-visibility &gt;&gt;$sandbar_pipe&quot;
+</pre>
+<div class="section" id="extended-keys">
+<h3>Extended keys</h3>
+<p>Configure function keys:</p>
+<pre class="literal-block">
+for mode (normal locked) {
+    riverctl map $mode None XF86MonBrightnessUp \
+        spawn &quot;brightness_toggle up&quot;
+    riverctl map $mode None XF86MonBrightnessDown \
+        spawn &quot;brightness_toggle down&quot;
+
+    riverctl map $mode None XF86AudioPlay spawn &quot;dtas-ctl play_pause&quot;
+    riverctl map $mode None XF86AudioNext spawn &quot;dtas-ctl skip&quot;
+
+    riverctl map $mode None XF86AudioMute spawn &quot;amixer sset Master toggle&quot;
+    riverctl map -repeat $mode None XF86AudioRaiseVolume \
+        spawn &quot;amixer sset Master 5%+&quot;
+    riverctl map -repeat $mode None XF86AudioLowerVolume \
+        spawn &quot;amixer sset Master 5%-&quot;
+}
+</pre>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Media and function keys perform tasks that should work across regardless of
+lock state.</p>
+</div>
+</div>
+<div class="section" id="passthrough-mode-for-testing-configuration">
+<h3>Passthrough mode for testing configuration</h3>
+<p>A really great idea from the example river init file giving a quick toggle to
+make keys a no-op for testing nested compositors:</p>
+<pre class="literal-block">
+riverctl declare-mode passthrough
+
+riverctl map normal Super F11 enter-mode passthrough
+riverctl map passthrough Super F11 enter-mode normal
+</pre>
+</div>
+</div>
+<div class="section" id="tag-management">
+<h2>Tag management</h2>
+<p>Direct key access for manipulation of tags one through nine:</p>
+<pre class="literal-block">
+for tag ({1..9}) {
+    tag_id=$(tag_mask $tag)
+
+    riverctl map normal Super $tag set-focused-tags $tag_id
+    riverctl map normal Super+Shift $tag set-view-tags $tag_id
+    riverctl map normal Super+Control $tag toggle-focused-tags $tag_id
+    riverctl map normal Super+Shift+Control $tag toggle-view-tags $tag_id
+}
+</pre>
+<p>Show all, which you can treat it like a weak Apple’s Exposé:</p>
+<pre class="literal-block">
+riverctl map normal Super 0 set-focused-tags $ALL_TAGS
+</pre>
+</div>
+<div class="section" id="window-management">
+<h2>Window management</h2>
+<p>State bindings:</p>
+<pre class="literal-block">
+riverctl map normal Super+Shift Return zoom
+riverctl map normal Super+Shift C close
+riverctl map normal Super+Shift 0 set-view-tags $ALL_TAGS
+
+riverctl map normal Super+Control Space toggle-float
+riverctl map normal Super F toggle-fullscreen
+</pre>
+<p>Navigation bindings:</p>
+<pre class="literal-block">
+riverctl map normal Super Tab focus-view next
+riverctl map normal Super+Shift Tab focus-view previous
+
+riverctl map normal Super+Control Tab swap next
+riverctl map normal Super+Control+Shift Tab swap previous
+</pre>
+<p>Output bindings:</p>
+<pre class="literal-block">
+riverctl map normal Super+Shift Page_up send-to-output next
+riverctl map normal Super+Shift Page_down send-to-output previous
+</pre>
+<div class="section" id="floating-support">
+<h3>Floating support</h3>
+<pre class="code zsh literal-block">
+<span class="nv">ARROW_KEYS</span><span class="o">=(</span>Left<span class="w"> </span>Down<span class="w"> </span>Up<span class="w"> </span>Right<span class="o">)</span>
+</pre>
+<p>Declare floating mode:</p>
+<pre class="literal-block">
+riverctl declare-mode float
+riverctl map normal Super R enter-mode float
+riverctl map float None Escape enter-mode normal
+</pre>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We declare a full mode here to make large scale changes to windows easier to
+accomplish.  For quick changes all the modifiers aren’t a problem, but big
+changes are easier in the dedicated mode.</p>
+</div>
+<p>Basic movement bindings:</p>
+<pre class="literal-block">
+for key ($ARROW_KEYS) {
+    riverctl map normal Super+Alt $key move $key:l 100
+    riverctl map float None $key move $key:l 100
+}
+</pre>
+<p>Cardinal movement bindings:</p>
+<pre class="literal-block">
+for key ($ARROW_KEYS) {
+    riverctl map normal Super+Alt+Control $key snap $key:l
+    riverctl map float Control $key snap $key:l
+}
+</pre>
+<p>Basic resizing bindings:</p>
+<pre class="literal-block">
+xs=(horizontal vertical)
+integer i=0 delta
+for key dir (${ARROW_KEYS:^^xs}) {
+    delta=$((i++ % 2 ? 1 : -1))00
+    riverctl map normal Super+Alt+Shift $key resize $dir $delta
+    riverctl map float Shift $key resize $dir $delta
+}
+</pre>
+</div>
+<div class="section" id="common-applications">
+<h3>Common applications</h3>
+<p>Spawn a <a class="reference external" href="https://codeberg.org/dnkl/foot">foot</a> client instance:</p>
+<pre class="literal-block">
+riverctl map normal Super Return spawn &quot;footclient --no-wait&quot;
+</pre>
+<p>Attempt to pick the most useful <em>to me</em> browser that is available:</p>
+<pre class="literal-block">
+riverctl map normal Super Z spawn \
+    &quot;exec ${commands[firefox]:-${commands[chromium]:-sensible-browser}}&quot;
+</pre>
+</div>
+</div>
+<div class="section" id="mouse-bindings">
+<h2>Mouse bindings</h2>
+<p>Configure “standard” mouse bindings:</p>
+<pre class="literal-block">
+riverctl map-pointer normal Super BTN_LEFT move-view
+riverctl map-pointer normal Super BTN_RIGHT resize-view
+</pre>
+<p>It is nice to have a simple way to flip the float bit on a window:</p>
+<pre class="literal-block">
+riverctl map-pointer normal Super BTN_MIDDLE toggle-float
+</pre>
+<p>Using back and forward to manipulate the stack feels really quite natural:</p>
+<pre class="literal-block">
+riverctl map-pointer normal Super BTN_FORWARD swap next
+riverctl map-pointer normal Super BTN_BACK swap previous
+</pre>
+<p>… and by extension back and forward to shuffle across outputs works well:</p>
+<pre class="literal-block">
+riverctl map-pointer normal Super+Shift BTN_FORWARD send-to-output next
+riverctl map-pointer normal Super+Shift BTN_BACK send-to-output previous
+</pre>
+</div>
+<div class="section" id="theming">
+<h2>Theming</h2>
+<p>Use a <a class="reference external" href="https://github.com/tanvirtin/monokai.nvim">monokai</a>- palette:</p>
+<pre class="literal-block">
+riverctl background-color 0x1b1d1e
+riverctl border-color-focused 0xa6e22e
+riverctl border-color-unfocused 0x75715e
+riverctl border-color-urgent 0xf92672
+</pre>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This should <em>really</em> be configured more centrally, but for the time being it
+works.</p>
+</div>
+</div>
+<div class="section" id="input-devices">
+<h2>Input devices</h2>
+<p>Wait 300 milliseconds and then repeat keys 50 times per second:</p>
+<pre class="literal-block">
+riverctl set-repeat 50 300
+</pre>
+<p>Configure non-standard <a class="reference external" href="https://www.freedesktop.org/wiki/Software/XKeyboardConfig/">options for keyboard</a>:</p>
+<pre class="literal-block">
+declare -A _xkb_opts=(
+    [caps]=escape_shifted_capslock
+    [compose]=paus
+    [keypad]=future
+    [parens]=swap_brackets
+)
+xkb_opts_full=${(kj:,:)_xkb_opts/(#m)*/$MATCH:$_xkb_opts[$MATCH]}
+</pre>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The globbing flags used here require <a class="reference internal" href="#extended-glob">extended_glob</a>.</p>
+</div>
+<p>Configure a subset without bracket swaps for editing square bracket heavy code:</p>
+<pre class="literal-block">
+_xkb_opts_toggle=(parens)
+xkb_opts_toggle=${(kj:,:)${(k)_xkb_opts:|_xkb_opts_toggle}/(#m)*/$MATCH:$_xkb_opts[$MATCH]}
+</pre>
+<p>Default to <tt class="docutils literal">swap_brackets</tt> behaviour:</p>
+<pre class="literal-block">
+riverctl keyboard-layout -options $xkb_opts_full gb
+</pre>
+<p>Configure host specific touchpad settings:</p>
+<pre class="literal-block">
+if [[ $HOST == corale ]] {
+    riverctl input pointer-2-14-ETPS/2_Elantech_Touchpad tap enabled
+    riverctl input pointer-2-14-ETPS/2_Elantech_Touchpad pointer-accel 0.8
+}
+</pre>
+<p>We’ll declare a mode to wrap our input bindings, mainly as their use is uncommon
+and we won’t lose a lot of keys this way:</p>
+<pre class="literal-block">
+riverctl declare-mode input
+riverctl map normal Super I enter-mode input
+riverctl map input None Escape enter-mode normal
+
+if [[ $HOST == corale ]] {
+    riverctl map input None T input pointer-2-14-ETPS/2_Elantech_Touchpad \
+        events disabled
+    riverctl map input Shift T input pointer-2-14-ETPS/2_Elantech_Touchpad \
+        events enabled
+}
+riverctl map input None K spawn &quot;riverctl keyboard-layout \
+    -options $xkb_opts_full gb&quot;
+riverctl map input Shift K spawn &quot;riverctl keyboard-layout \
+    -options $xkb_opts_toggle gb&quot;
+</pre>
+</div>
+<div class="section" id="window-rules">
+<h2>Window rules</h2>
+<p>Sloppy focus is the <em>only</em> focus model that makes any sense to me:</p>
+<pre class="literal-block">
+riverctl focus-follows-cursor normal
+</pre>
+<p>Allow some rules to be stored outside default init to make it easier to share
+across different machines.  For example, I <em>need</em> conflicting rules for outputs
+depending on location.</p>
+<pre class="code zsh literal-block">
+<span class="o">[[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$0</span>:a:h/local_rules<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span><span class="nv">$0</span>:a:h/local_rules
+</pre>
+<p>Decades of use at this point means I always like the “second” tag — or workspace
+2 for non-tagging interfaces — to contain a browser by default:</p>
+<pre class="literal-block">
+riverctl rule-add -app-id &quot;chromium&quot; tags $(tag_mask 2)
+riverctl rule-add -app-id &quot;firefox-esr&quot; tags $(tag_mask 2)
+</pre>
+<p>I treat the “third” tag as media zone by default:</p>
+<pre class="literal-block">
+riverctl rule-add -app-id &quot;mpv&quot; tags $(tag_mask 3)
+</pre>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It may make more sense to use a custom application identifier for the
+default apps, so that we can push them to their common tags but keep regular
+instances attached to current tag.</p>
+</div>
+</div>
+<div class="section" id="layout">
+<h2>Layout</h2>
+<p><a class="reference external" href="https://github.com/alex-courtis/wideriver">wideriver</a> is the layout engine that is the closest match to the behaviour I’m
+used to with <a class="reference external" href="https://awesomewm.org/">awesomewm</a>, and makes a great default:</p>
+<pre class="literal-block">
+riverctl default-layout wideriver
+</pre>
+<p>We’l declare a layout mode to make it quicker — and easier on the hands — to
+cycle layout controls when finding trying to pin down a comfortable setup:</p>
+<pre class="literal-block">
+riverctl declare-mode layout
+riverctl map normal Super L enter-mode layout
+riverctl map layout None Escape enter-mode normal
+</pre>
+<p>Layout format manipulation bindings:</p>
+<pre class="literal-block">
+riverctl map layout None M send-layout-cmd wideriver &quot;--layout monocle&quot;
+riverctl map layout None T send-layout-cmd wideriver &quot;--layout left&quot;
+riverctl map layout Shift T send-layout-cmd wideriver &quot;--layout wide&quot;
+riverctl map layout Control T send-layout-cmd wideriver &quot;--layout right&quot;
+riverctl map layout None Space send-layout-cmd wideriver &quot;--layout-toggle&quot;
+</pre>
+<p>Layout style manipulation bindings:</p>
+<pre class="literal-block">
+riverctl map layout None E send-layout-cmd wideriver &quot;--stack even&quot;
+riverctl map layout None W send-layout-cmd wideriver &quot;--stack dwindle&quot;
+riverctl map layout None I send-layout-cmd wideriver &quot;--stack diminish&quot;
+</pre>
+<p>Main window ratio manipulation bindings:</p>
+<pre class="literal-block">
+riverctl map layout None Equal send-layout-cmd wideriver &quot;--ratio 0.52&quot;
+riverctl map layout None H send-layout-cmd wideriver &quot;--ratio +0.05&quot;
+riverctl map layout None L send-layout-cmd wideriver &quot;--ratio -0.05&quot;
+</pre>
+<p>Bindings to adjust the number of windows in main stack:</p>
+<pre class="literal-block">
+riverctl map layout Shift Equal send-layout-cmd wideriver &quot;--count 1&quot;
+riverctl map layout Shift H send-layout-cmd wideriver &quot;--count +1&quot;
+riverctl map layout Shift L send-layout-cmd wideriver &quot;--count -1&quot;
+</pre>
+<p>Add top level bindings for monocle and tile-left, as they’re my most common
+layouts that I want quick access to:</p>
+<pre class="literal-block">
+riverctl map normal Super M send-layout-cmd wideriver &quot;--layout monocle&quot;
+riverctl map normal Super T send-layout-cmd wideriver &quot;--layout left&quot;
+</pre>
+<p>Configure initial per-tag layouts:</p>
+<pre class="literal-block">
+for n ({2..32..2}) {
+    riverctl set-focused-tags $(tag_mask $n)
+    riverctl send-layout-cmd wideriver &quot;--layout monocle&quot;
+}
+riverctl set-focused-tags $(tag_mask 1)
+</pre>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This reflects what is at this point my <em>decades</em> old tradition of defaulting
+to fullscreen on even tags.  It doesn’t really make sense, but I’m quite
+accustomed to it.</p>
+</div>
+</div>
+<div class="section" id="finalising">
+<h2>Finalising</h2>
+<p>Allow a private machine specific configuration to loaded:</p>
+<pre class="literal-block">
+[[ -f $0:a:h/local_init ]] &amp;&amp; source $0:a:h/local_init
+</pre>
+<p>Show <tt class="docutils literal">sandbar</tt>:</p>
+<pre class="literal-block">
+echo all show &gt;&gt;$sandbar_pipe
+</pre>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><tt class="docutils literal">sandbar</tt> is spawned hidden to allow us to issue per-tag layout changes or
+default applications without all the bar flashes that would result.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr class="footer" />
+<a class="reference external" href="https://github.com/JNRowe/river-configs">View document source</a>.
+
+</div>
+</body>
+</html>
