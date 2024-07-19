@@ -1,0 +1,20 @@
+on: ['pull_request', 'push']
+
+name: Lint reStructuredText files
+
+jobs:
+  default_build:
+    name: build
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Install Debian dependencies
+        run: |
+          sudo apt install python3-restructuredtext-lint
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run linter
+        run: |
+          rst-lint $(git ls-files | grep '\.rst')
