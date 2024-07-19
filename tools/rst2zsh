@@ -6,12 +6,10 @@ zmodload -F zsh/zutil +b:zparseopts
 
 # • ``^::$``
 #       Literal block, which for the sake of this repo is always zsh
-# • ``^\.\. code:: zsh``
-#       zsh code block
 # • ``^[^\. ][^\.].*::$``
 #       Implied code block via ``::`` suffixed line, skipping lines that are
 #       reST directives
-start_block='^(::|\.\. code:: zsh|[^\. ][^\.].*:: )$'
+start_block='^(::|[^\. ][^\.].*::)$'
 
 parse() {
     local input=$1 output=$2

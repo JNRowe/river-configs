@@ -95,9 +95,7 @@ Config time
 General setup
 '''''''''''''
 
-We’re going to use zsh_ as it is *always* available on any system I use:
-
-.. code:: zsh
+We’re going to use zsh_ as it is *always* available on any system I use::
 
     #! /bin/zsh -x
 
@@ -108,34 +106,26 @@ We’re going to use zsh_ as it is *always* available on any system I use:
     end up in river’s log, and in subsequent runs it will be in the executing
     terminal.
 
-We’ll want stricter defaults out of the box:
-
-.. code:: zsh
+We’ll want stricter defaults out of the box::
 
     setopt err_exit no_unset warn_create_global
 
 .. _extended_glob:
 
-… along with extended globs for better matching support:
-
-.. code:: zsh
+… along with extended globs for better matching support::
 
     setopt extended_glob
 
 .. _add_zsh_hook:
 
-``autoload`` functions we’ll need later:
-
-.. code:: zsh
+``autoload`` functions we’ll need later::
 
     autoload -Uz add-zsh-hook
 
 Utility functions
 '''''''''''''''''
 
-Fetch socket path for systemd_ ``.socket`` units:
-
-.. code:: zsh
+Fetch socket path for systemd_ ``.socket`` units::
 
     find_socket() {
         systemctl --user show $1@$WAYLAND_DISPLAY.socket --property=Listen |
@@ -144,9 +134,8 @@ Fetch socket path for systemd_ ``.socket`` units:
 
 .. _progress bar within this file:
 
-Populate a wob_ progress bar, if possible, as we move through the ``init`` file:
-
-.. code:: zsh
+Populate a wob_ progress bar, if possible, as we move through the ``init``
+file::
 
     LINES=$(awk 'END {print NR}' $0)
     _progress() {
@@ -163,9 +152,7 @@ Populate a wob_ progress bar, if possible, as we move through the ``init`` file:
     This doesn’t strictly require add_zsh_hook_, but I prefer the interface
     offered by it over simply setting the hook by hand.
 
-Calculate a tag mask given a list of tags:
-
-.. code:: zsh
+Calculate a tag mask given a list of tags::
 
     tag_mask() {
         integer r n
@@ -179,9 +166,7 @@ Calculate a tag mask given a list of tags:
 Configure environment
 '''''''''''''''''''''
 
-Configure environment variables used by freedesktop.org_ specifications:
-
-.. code:: zsh
+Configure environment variables used by freedesktop.org_ specifications::
 
     systemctl --user set-environment \
         XDG_SESSION_TYPE=wayland \
@@ -193,9 +178,7 @@ Configure environment variables used by freedesktop.org_ specifications:
     for ``XDG_*_DESKTOP``, but I’m already using it locally to trigger
     behaviour.  I’ll change it if a better option appears later.
 
-Make important environment variables available to ``systemd`` units:
-
-.. code:: zsh
+Make important environment variables available to ``systemd`` units::
 
     systemctl --user import-environment \
         PATH \
@@ -204,41 +187,29 @@ Make important environment variables available to ``systemd`` units:
 Run background services
 '''''''''''''''''''''''
 
-Start swaybg_:
-
-.. code:: zsh
+Start swaybg_::
 
     systemctl --user start swaybg@$WAYLAND_DISPLAY
 
-Start foot_:
-
-.. code:: zsh
+Start foot_::
 
     systemctl --user start foot-server@$WAYLAND_DISPLAY.socket
 
-Start sandbar_:
-
-.. code:: zsh
+Start sandbar_::
 
     systemctl --user start sandbar@$WAYLAND_DISPLAY.socket
     sandbar_pipe=$(find_socket sandbar)
     systemctl --user start sandbar_status@$WAYLAND_DISPLAY
 
-Start swayidle_:
-
-.. code:: zsh
+Start swayidle_::
 
     systemctl --user start swayidle@$WAYLAND_DISPLAY
 
-Start wideriver_:
-
-.. code:: zsh
+Start wideriver_::
 
     systemctl --user start wideriver@$WAYLAND_DISPLAY
 
-Start wob_:
-
-.. code:: zsh
+Start wob_::
 
     systemctl --user start wob@$WAYLAND_DISPLAY.socket
     wob_pipe=$(find_socket wob)
@@ -251,9 +222,7 @@ Start wob_:
 Keybindings
 '''''''''''
 
-General bindings:
-
-.. code:: zsh
+General bindings::
 
     riverctl map normal Super+Shift Q exit
 
@@ -266,9 +235,7 @@ General bindings:
 Extended keys
 ^^^^^^^^^^^^^
 
-Configure function keys:
-
-.. code:: zsh
+Configure function keys::
 
     for mode (normal locked) {
         riverctl map $mode None XF86MonBrightnessUp \
@@ -295,9 +262,7 @@ Passthrough mode for testing configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A really great idea from the example river init file giving a quick toggle to
-make keys a no-op for testing nested compositors:
-
-.. code:: zsh
+make keys a no-op for testing nested compositors::
 
     riverctl declare-mode passthrough
 
@@ -307,9 +272,7 @@ make keys a no-op for testing nested compositors:
 Tag management
 ''''''''''''''
 
-Direct key access for manipulation of tags one through nine:
-
-.. code:: zsh
+Direct key access for manipulation of tags one through nine::
 
     for tag ({1..9}) {
         tag_id=$(tag_mask $tag)
@@ -320,18 +283,14 @@ Direct key access for manipulation of tags one through nine:
         riverctl map normal Super+Shift+Control $tag toggle-view-tags $tag_id
     }
 
-Show all, which you can treat it like a weak Apple’s Exposé:
-
-.. code:: zsh
+Show all, which you can treat it like a weak Apple’s Exposé::
 
     riverctl map normal Super 0 set-focused-tags $ALL_TAGS
 
 Window management
 '''''''''''''''''
 
-State bindings:
-
-.. code:: zsh
+State bindings::
 
     riverctl map normal Super+Shift Return zoom
     riverctl map normal Super+Shift C close
@@ -340,9 +299,7 @@ State bindings:
     riverctl map normal Super+Control Space toggle-float
     riverctl map normal Super F toggle-fullscreen
 
-Navigation bindings:
-
-.. code:: zsh
+Navigation bindings::
 
     riverctl map normal Super Tab focus-view next
     riverctl map normal Super+Shift Tab focus-view previous
@@ -350,9 +307,7 @@ Navigation bindings:
     riverctl map normal Super+Control Tab swap next
     riverctl map normal Super+Control+Shift Tab swap previous
 
-Output bindings:
-
-.. code:: zsh
+Output bindings::
 
     riverctl map normal Super+Shift Page_up send-to-output next
     riverctl map normal Super+Shift Page_down send-to-output previous
@@ -365,9 +320,7 @@ Floating support
 
     ARROW_KEYS=(Left Down Up Right)
 
-Declare floating mode:
-
-.. code:: zsh
+Declare floating mode::
 
     riverctl declare-mode float
     riverctl map normal Super R enter-mode float
@@ -379,27 +332,21 @@ Declare floating mode:
     accomplish.  For quick changes all the modifiers aren’t a problem, but big
     changes are easier in the dedicated mode.
 
-Basic movement bindings:
-
-.. code:: zsh
+Basic movement bindings::
 
     for key ($ARROW_KEYS) {
         riverctl map normal Super+Alt $key move $key:l 100
         riverctl map float None $key move $key:l 100
     }
 
-Cardinal movement bindings:
-
-.. code:: zsh
+Cardinal movement bindings::
 
     for key ($ARROW_KEYS) {
         riverctl map normal Super+Alt+Control $key snap $key:l
         riverctl map float Control $key snap $key:l
     }
 
-Basic resizing bindings:
-
-.. code:: zsh
+Basic resizing bindings::
 
     xs=(horizontal vertical)
     integer i=0 delta
@@ -412,15 +359,11 @@ Basic resizing bindings:
 Common applications
 ^^^^^^^^^^^^^^^^^^^
 
-Spawn a foot_ client instance:
-
-.. code:: zsh
+Spawn a foot_ client instance::
 
     riverctl map normal Super Return spawn "footclient --no-wait"
 
-Attempt to pick the most useful *to me* browser that is available:
-
-.. code:: zsh
+Attempt to pick the most useful *to me* browser that is available::
 
     riverctl map normal Super Z spawn \
         "exec ${commands[firefox]:-${commands[chromium]:-sensible-browser}}"
@@ -428,29 +371,21 @@ Attempt to pick the most useful *to me* browser that is available:
 Mouse bindings
 ''''''''''''''
 
-Configure “standard” mouse bindings:
-
-.. code:: zsh
+Configure “standard” mouse bindings::
 
     riverctl map-pointer normal Super BTN_LEFT move-view
     riverctl map-pointer normal Super BTN_RIGHT resize-view
 
-It is nice to have a simple way to flip the float bit on a window:
-
-.. code:: zsh
+It is nice to have a simple way to flip the float bit on a window::
 
     riverctl map-pointer normal Super BTN_MIDDLE toggle-float
 
-Using back and forward to manipulate the stack feels really quite natural:
-
-.. code:: zsh
+Using back and forward to manipulate the stack feels really quite natural::
 
     riverctl map-pointer normal Super BTN_FORWARD swap next
     riverctl map-pointer normal Super BTN_BACK swap previous
 
-… and by extension back and forward to shuffle across outputs works well:
-
-.. code:: zsh
+… and by extension back and forward to shuffle across outputs works well::
 
     riverctl map-pointer normal Super+Shift BTN_FORWARD send-to-output next
     riverctl map-pointer normal Super+Shift BTN_BACK send-to-output previous
@@ -458,9 +393,7 @@ Using back and forward to manipulate the stack feels really quite natural:
 Theming
 '''''''
 
-Use a monokai_- palette:
-
-.. code:: zsh
+Use a monokai_- palette::
 
     riverctl background-color 0x1b1d1e
     riverctl border-color-focused 0xa6e22e
@@ -475,15 +408,11 @@ Use a monokai_- palette:
 Input devices
 '''''''''''''
 
-Wait 300 milliseconds and then repeat keys 50 times per second:
-
-.. code:: zsh
+Wait 300 milliseconds and then repeat keys 50 times per second::
 
     riverctl set-repeat 50 300
 
-Configure non-standard `options for keyboard`_:
-
-.. code:: zsh
+Configure non-standard `options for keyboard`_::
 
     declare -A _xkb_opts=(
         [caps]=escape_shifted_capslock
@@ -498,22 +427,16 @@ Configure non-standard `options for keyboard`_:
     The globbing flags used here require extended_glob_.
 
 
-Configure a subset without bracket swaps for editing square bracket heavy code:
-
-.. code:: zsh
+Configure a subset without bracket swaps for editing square bracket heavy code::
 
     _xkb_opts_toggle=(parens)
     xkb_opts_toggle=${(kj:,:)${(k)_xkb_opts:|_xkb_opts_toggle}/(#m)*/$MATCH:$_xkb_opts[$MATCH]}
 
-Default to ``swap_brackets`` behaviour:
-
-.. code:: zsh
+Default to ``swap_brackets`` behaviour::
 
     riverctl keyboard-layout -options $xkb_opts_full gb
 
-Configure host specific touchpad settings:
-
-.. code:: zsh
+Configure host specific touchpad settings::
 
     if [[ $HOST == corale ]] {
         riverctl input pointer-2-14-ETPS/2_Elantech_Touchpad tap enabled
@@ -521,9 +444,7 @@ Configure host specific touchpad settings:
     }
 
 We’ll declare a mode to wrap our input bindings, mainly as their use is uncommon
-and we won’t lose a lot of keys this way:
-
-.. code:: zsh
+and we won’t lose a lot of keys this way::
 
     riverctl declare-mode input
     riverctl map normal Super I enter-mode input
@@ -543,9 +464,7 @@ and we won’t lose a lot of keys this way:
 Window rules
 ''''''''''''
 
-Sloppy focus is the *only* focus model that makes any sense to me:
-
-.. code:: zsh
+Sloppy focus is the *only* focus model that makes any sense to me::
 
     riverctl focus-follows-cursor normal
 
@@ -558,16 +477,12 @@ depending on location.
     [[ -f $0:a:h/local_rules ]] && source $0:a:h/local_rules
 
 Decades of use at this point means I always like the “second” tag — or workspace
-2 for non-tagging interfaces — to contain a browser by default:
-
-.. code:: zsh
+2 for non-tagging interfaces — to contain a browser by default::
 
     riverctl rule-add -app-id "chromium" tags $(tag_mask 2)
     riverctl rule-add -app-id "firefox-esr" tags $(tag_mask 2)
 
-I treat the “third” tag as media zone by default:
-
-.. code:: zsh
+I treat the “third” tag as media zone by default::
 
     riverctl rule-add -app-id "mpv" tags $(tag_mask 3)
 
@@ -581,24 +496,18 @@ Layout
 ''''''
 
 wideriver_ is the layout engine that is the closest match to the behaviour I’m
-used to with awesomewm_, and makes a great default:
-
-.. code:: zsh
+used to with awesomewm_, and makes a great default::
 
     riverctl default-layout wideriver
 
 We’l declare a layout mode to make it quicker — and easier on the hands — to
-cycle layout controls when finding trying to pin down a comfortable setup:
-
-.. code:: zsh
+cycle layout controls when finding trying to pin down a comfortable setup::
 
     riverctl declare-mode layout
     riverctl map normal Super L enter-mode layout
     riverctl map layout None Escape enter-mode normal
 
-Layout format manipulation bindings:
-
-.. code:: zsh
+Layout format manipulation bindings::
 
     riverctl map layout None M send-layout-cmd wideriver "--layout monocle"
     riverctl map layout None T send-layout-cmd wideriver "--layout left"
@@ -606,41 +515,31 @@ Layout format manipulation bindings:
     riverctl map layout Control T send-layout-cmd wideriver "--layout right"
     riverctl map layout None Space send-layout-cmd wideriver "--layout-toggle"
 
-Layout style manipulation bindings:
-
-.. code:: zsh
+Layout style manipulation bindings::
 
     riverctl map layout None E send-layout-cmd wideriver "--stack even"
     riverctl map layout None W send-layout-cmd wideriver "--stack dwindle"
     riverctl map layout None I send-layout-cmd wideriver "--stack diminish"
 
-Main window ratio manipulation bindings:
-
-.. code:: zsh
+Main window ratio manipulation bindings::
 
     riverctl map layout None Equal send-layout-cmd wideriver "--ratio 0.52"
     riverctl map layout None H send-layout-cmd wideriver "--ratio +0.05"
     riverctl map layout None L send-layout-cmd wideriver "--ratio -0.05"
 
-Bindings to adjust the number of windows in main stack:
-
-.. code:: zsh
+Bindings to adjust the number of windows in main stack::
 
     riverctl map layout Shift Equal send-layout-cmd wideriver "--count 1"
     riverctl map layout Shift H send-layout-cmd wideriver "--count +1"
     riverctl map layout Shift L send-layout-cmd wideriver "--count -1"
 
 Add top level bindings for monocle and tile-left, as they’re my most common
-layouts that I want quick access to:
-
-.. code:: zsh
+layouts that I want quick access to::
 
     riverctl map normal Super M send-layout-cmd wideriver "--layout monocle"
     riverctl map normal Super T send-layout-cmd wideriver "--layout left"
 
-Configure initial per-tag layouts:
-
-.. code:: zsh
+Configure initial per-tag layouts::
 
     for n ({2..32..2}) {
         riverctl set-focused-tags $(tag_mask $n)
@@ -657,15 +556,11 @@ Configure initial per-tag layouts:
 Finalising
 ''''''''''
 
-Allow a private machine specific configuration to loaded:
-
-.. code:: zsh
+Allow a private machine specific configuration to loaded::
 
     [[ -f $0:a:h/local_init ]] && source $0:a:h/local_init
 
-Show ``sandbar``:
-
-.. code:: zsh
+Show ``sandbar``::
 
     echo all show >>$sandbar_pipe
 
