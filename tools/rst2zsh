@@ -17,15 +17,23 @@ parse() {
     local input=$1 output=$2
     local _RST2HTML_recursing=${_RST2HTML_recursing:-0}
     (( $_RST2HTML_recursing )) || : >| $output
-    integer in_block=0
+    integer first_block=1 in_block=0 line_nr=1
     typeset -U includes=()
     local line match mbegin mend
     while IFS='' read -r line; do
+        (( line_nr++ ))
         if [[ $line =~ '^.. include:: (.*)' ]] {
             (_RST2HTML_recursing=1 includes+=($(parse ${input:h}/$match $output)))
             includes+=(${input:h}/$match)
         } elif [[ $line =~ $start_block ]] {
             in_block=1
+            # Purposefully ignore initial block, so as not to break Interpreter
+            # directives.
+            if (( !first_block || _RST2HTML_recursing )) {
+                echo "# $input:$line_nr" >> $output
+            } else {
+                first_block=0
+            }
         } elif [[ $line =~ '^[^ ]' ]] {
             in_block=0
         } elif (( $in_block )) && [[ -n $line ]] {
