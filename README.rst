@@ -104,6 +104,12 @@ The advantage to me is that I can mix-and-match software versions on different
 machines, but it also means that the repository structure for individual configs
 looks overcomplicated from the outside.
 
+.. tip::
+
+    The output from ``tools/rst2zsh`` includes comment markers that can be used
+    to navigate back to the source in this file.  For example, in vim_ calling
+    ``gF`` will jump to the section under the cursor.
+
 General setup
 '''''''''''''
 
@@ -596,6 +602,7 @@ Show ``sandbar``::
 .. _ninja: https://ninja-build.org/
 .. _dwm: http://dwm.suckless.org/
 .. _vivarium: https://github.com/inclement/vivarium
+.. _vim: https://www.vim.org/
 .. _zsh: https://www.zsh.org/
 .. _systemd: https://systemd.io
 .. _freedesktop.org: https://freedesktop.org
