@@ -63,6 +63,6 @@ if [[ -n ${args[(I)-h]} ]] {
 
 deps=$(parse $1 $2)
 
-[[ -n ${args[(I)-d]} ]] && [[ $deps ]] && echo $2: $deps >| ${args[-d]}
+[[ -n ${args[(I)-d]} ]] && echo $2: $0 $deps >| ${args[-d]}
 
 :
