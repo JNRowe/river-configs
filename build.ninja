@@ -9,3 +9,4 @@ rule rst2zsh
 
 build README.html: rst2html README.rst
 build init: rst2zsh README.rst
+default init
