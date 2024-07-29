@@ -64,6 +64,10 @@ branches tends toward drudgery requiring heaps of code, you’ll even need to
 implement locking to make sure keys aren’t swallowed if you execute commands
 quickly.
 
+wayfire_ is very visually attractive and offers some basic tiling support.  If
+you’re comfortable with ``sway`` then it is probably an excellent choice for a
+more visually appealing desktop.  I do plan to keep an eye on it to see whether
+tiling extension becomes more featureful.
 
 vivarium_ feels very promising.  It features most of the layouts I’ve become
 accustomed to, but its stability wasn’t great for me.
@@ -602,6 +606,7 @@ Show ``sandbar``::
 .. _dzen2: https://github.com/robm/dzen
 .. _ninja: https://ninja-build.org/
 .. _dwm: http://dwm.suckless.org/
+.. _wayfire: https://wayfire.org/
 .. _vivarium: https://github.com/inclement/vivarium
 .. _generated HTML: https://jnrowe.github.io/river-configs/
 .. _vim: https://www.vim.org/
