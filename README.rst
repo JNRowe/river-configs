@@ -79,6 +79,11 @@ foot_ is amazing.  If I’d known it was available before it may have been the
 catalyst for me to move to Wayland before now.  Something *unimaginably amazing*
 would have to arrive for this not to be the choice going forward.
 
+I do miss ligatures, but not as much as I miss the clever prompt navigation or
+output control when using other terminals.  Using a ligature supporting neovim_
+frontend *might* be a reasonable compromise, as I only make significant use of
+ligatures in editing sessions.
+
 ``sandbar`` (replacing built-in ``awesomewm``/``dwm`` functionality)
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
@@ -631,6 +636,7 @@ Show ``sandbar``::
 .. _dwm: http://dwm.suckless.org/
 .. _wayfire: https://wayfire.org/
 .. _vivarium: https://github.com/inclement/vivarium
+.. _neovim: https://neovim.io/
 .. _generated HTML: https://jnrowe.github.io/river-configs/
 .. _vim: https://www.vim.org/
 .. _zsh: https://www.zsh.org/
