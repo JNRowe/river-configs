@@ -262,6 +262,8 @@ General bindings::
 
     riverctl map normal Super B \
         spawn "echo all toggle-visibility >>$sandbar_pipe"
+    riverctl map normal Super+Shift B \
+        spawn "echo all toggle-location >>$sandbar_pipe"
 
 Extended keys
 ^^^^^^^^^^^^^
