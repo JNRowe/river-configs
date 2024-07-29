@@ -284,7 +284,7 @@ Configure function keys::
 Passthrough mode for testing configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-A really great idea from the example river init file giving a quick toggle to
+A really great idea from the `example river init file`_ giving a quick toggle to
 make keys a no-op for testing nested compositors::
 
     riverctl declare-mode passthrough
@@ -612,6 +612,7 @@ Show ``sandbar``::
 .. _vim: https://www.vim.org/
 .. _zsh: https://www.zsh.org/
 .. _systemd: https://systemd.io
+.. _example river init file: https://codeberg.org/river/river/src/branch/master/example/init
 .. _freedesktop.org: https://freedesktop.org
 .. _swaybg: https://github.com/swaywm/swaybg
 .. _swayidle: https://github.com/swaywm/swayidle
