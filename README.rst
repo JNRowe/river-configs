@@ -457,6 +457,19 @@ Configure non-standard `options for keyboard`_::
 
     The globbing flags used here require extended_glob_.
 
+Perhaps those `obscure keyboard options`_ deserve an explanation:
+
+===========================  ================================================
+Option                       Description
+===========================  ================================================
+``escape_shifted_capslock``  Make ``Capslock`` an alternative ``Escape`` key,
+                             but keep ``Capslock`` available with
+                             ``Shift+Capslock``
+``paus``                     Use ``Pause`` as `compose key`_
+``future``                   Unicode mathematics operators, noting that ASCII
+                             operators already exist on the main section
+``swap_brackets``            Swap square bracket and parenthesis position
+===========================  ================================================
 
 Configure a subset without bracket swaps for editing square bracket heavy code::
 
@@ -626,6 +639,8 @@ Show ``sandbar``::
 .. _swayidle: https://github.com/swaywm/swayidle
 .. _monokai: https://github.com/tanvirtin/monokai.nvim
 .. _options for keyboard: https://www.freedesktop.org/wiki/Software/XKeyboardConfig/
+.. _compose key: https://en.wikipedia.org/wiki/Compose_key
+.. _obscure keyboard options: https://xkcd.com/1806/
 
 .. |WIP| raw:: html
 
