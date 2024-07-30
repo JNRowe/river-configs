@@ -133,8 +133,8 @@ to navigate back to the source in this file.  For example, in <a class="referenc
 <h2>Software versions</h2>
 <table border="1" class="docutils">
 <colgroup>
-<col width="21%" />
-<col width="79%" />
+<col width="29%" />
+<col width="71%" />
 </colgroup>
 <thead valign="bottom">
 <tr><th class="head">Package</th>
@@ -142,8 +142,26 @@ to navigate back to the source in this file.  For example, in <a class="referenc
 </tr>
 </thead>
 <tbody valign="top">
+<tr><td><a class="reference external" href="https://codeberg.org/dnkl/foot">foot</a></td>
+<td>1.17.2</td>
+</tr>
 <tr><td><a class="reference external" href="https://codeberg.org/river/river">river</a></td>
 <td>v0.3.0-39-gccd676e <a class="footnote-reference" href="#s1" id="footnote-reference-1">[1]</a></td>
+</tr>
+<tr><td><a class="reference external" href="https://github.com/kolunmi/sandbar">sandbar</a></td>
+<td>v0.1-13-gaa3f203 <a class="footnote-reference" href="#s2" id="footnote-reference-2">[2]</a></td>
+</tr>
+<tr><td><a class="reference external" href="https://github.com/swaywm/swaybg">swaybg</a></td>
+<td>1.1.1</td>
+</tr>
+<tr><td><a class="reference external" href="https://github.com/swaywm/swayidle">swayidle</a></td>
+<td>1.8.0</td>
+</tr>
+<tr><td><a class="reference external" href="https://github.com/alex-courtis/wideriver">wideriver</a></td>
+<td>1.2.0-2-g6a11a25 <a class="footnote-reference" href="#s2" id="footnote-reference-3">[2]</a></td>
+</tr>
+<tr><td><a class="reference external" href="https://github.com/francma/wob">wob</a></td>
+<td>0.14.2</td>
 </tr>
 </tbody>
 </table>
@@ -223,9 +241,8 @@ tag_mask<span class="o">()</span><span class="w"> </span><span class="o">{</span
 <h2>Configure environment</h2>
 <p>Configure environment variables used by <a class="reference external" href="https://freedesktop.org">freedesktop.org</a> specifications:</p>
 <pre class="code zsh literal-block">
-systemctl<span class="w"> </span>--user<span class="w"> </span>set-environment<span class="w"> </span><span class="se">\
-</span><span class="w">    </span><span class="nv">XDG_SESSION_TYPE</span><span class="o">=</span>wayland<span class="w"> </span><span class="se">\
-</span><span class="w">    </span>XDG_<span class="o">{</span>CURRENT,SESSION<span class="o">}</span><span class="nv">_DESKTOP</span><span class="o">=</span>river
+<span class="nv">XDG_SESSION_TYPE</span><span class="o">=</span>wayland<span class="w">
+</span>XDG_<span class="o">{</span>CURRENT,SESSION<span class="o">}</span><span class="nv">_DESKTOP</span><span class="o">=</span>river
 </pre>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
@@ -233,11 +250,19 @@ systemctl<span class="w"> </span>--user<span class="w"> </span>set-environment<s
 for <tt class="docutils literal">XDG_*_DESKTOP</tt>, but I’m already using it locally to trigger
 behaviour.  I’ll change it if a better option appears later.</p>
 </div>
-<p>Make important environment variables available to <tt class="docutils literal">systemd</tt> units:</p>
+<p>Make important environment variables available to <a class="reference external" href="https://dbus.freedesktop.org/">dbus</a> and <tt class="docutils literal">systemd</tt> units:</p>
 <pre class="code zsh literal-block">
-systemctl<span class="w"> </span>--user<span class="w"> </span>import-environment<span class="w"> </span><span class="se">\
-</span><span class="w">    </span>PATH<span class="w"> </span><span class="se">\
-</span><span class="w">    </span>WAYLAND_DISPLAY
+<span class="nv">envvars</span><span class="o">=(</span><span class="w">
+    </span>PATH<span class="w">
+    </span>WAYLAND_DISPLAY<span class="w">
+    </span>XDG_SESSION_TYPE<span class="w">
+    </span>XDG_<span class="o">{</span>CURRENT,SESSION<span class="o">}</span>_DESKTOP<span class="w">
+</span><span class="o">)</span><span class="w">
+</span><span class="k">if</span><span class="w"> </span><span class="o">((</span><span class="w"> </span>$+commands<span class="o">[</span>dbus-update-activation-environment<span class="o">]</span><span class="w"> </span><span class="o">))</span><span class="w"> </span><span class="o">{</span><span class="w">
+    </span>dbus-update-activation-environment<span class="w"> </span>--systemd<span class="w"> </span><span class="nv">$envvars</span><span class="w">
+</span><span class="o">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="o">{</span><span class="w">
+    </span>systemctl<span class="w"> </span>--user<span class="w"> </span>import-environment<span class="w"> </span><span class="nv">$envvars</span><span class="w">
+</span><span class="o">}</span>
 </pre>
 </div>
 <div class="section" id="run-background-services">
@@ -663,6 +688,13 @@ launch default applications without all the bar flashes that would result.</p>
 <tr><td class="label"><a class="fn-backref" href="#footnote-reference-1">[1]</a></td><td>I’ve added some largely uninteresting local changes from
 v0.3.0-39-gccd676e, but mostly it is because there is no timeline for
 <a class="reference external" href="https://gitlab.freedesktop.org/wlroots/wlroots/">wlroots</a> v0.18 hitting my installations.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="s2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#footnote-reference-2">1</a>, <a class="fn-backref" href="#footnote-reference-3">2</a>)</em> Beyond packaging changes there are only light hacks to use <a class="reference external" href="https://www.nerdfonts.com/">Nerd
+Fonts</a> for icons.</td></tr>
 </tbody>
 </table>
 </div>
