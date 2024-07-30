@@ -186,7 +186,7 @@ Fetch socket path for systemd_ ``.socket`` units::
 Populate a wob_ progress bar, if possible, as we move through the ``init``
 file::
 
-    LINES=$(awk 'END {print NR}' $0)
+    LINES=${#${(@f)"$(< $0)"}}
     _progress() {
         setopt local_options no_xtrace
         [[ -z ${wob_pipe:-} ]] && return
