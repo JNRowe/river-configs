@@ -120,6 +120,27 @@ overcomplicated from the outside.
     to navigate back to the source in this file.  For example, in vim_ calling
     ``gF`` will jump to the section under the cursor.
 
+Software versions
+'''''''''''''''''
+
+==========  =========================
+Package     Version
+==========  =========================
+foot_       1.17.2
+river_      v0.3.0-39-gccd676e [#s1]_
+sandbar_    v0.1-13-gaa3f203 [#s2]_
+swaybg_     1.1.1
+swayidle_   1.8.0
+wideriver_  1.2.0-2-g6a11a25 [#s2]_
+wob_        0.14.2
+==========  =========================
+
+.. note::
+
+    These are the base versions from upstream, there may be local additions
+    exposed in the installation packages.  However, they will *not* introduce
+    breaking changes.
+
 General setup
 '''''''''''''
 
@@ -620,6 +641,15 @@ Show ``sandbar``::
     ``sandbar`` is spawned hidden to allow us to issue per-tag layout changes or
     launch default applications without all the bar flashes that would result.
 
+.. rubric:: Footnotes
+
+.. [#s1] I’ve added some largely uninteresting local changes from
+         v0.3.0-39-gccd676e, but mostly it is because there is no timeline for
+         wlroots_ v0.18 hitting my installations.
+
+.. [#s2] Beyond packaging changes there are only light hacks to use `Nerd
+         Fonts`_ for icons.
+
 .. _river: https://codeberg.org/river/river
 .. _dwl: https://codeberg.org/dwl/dwl.git
 .. _sway: https://github.com/swaywm/sway/
@@ -649,6 +679,8 @@ Show ``sandbar``::
 .. _options for keyboard: https://www.freedesktop.org/wiki/Software/XKeyboardConfig/
 .. _compose key: https://en.wikipedia.org/wiki/Compose_key
 .. _obscure keyboard options: https://xkcd.com/1806/
+.. _wlroots: https://gitlab.freedesktop.org/wlroots/wlroots/
+.. _Nerd Fonts: https://www.nerdfonts.com/
 
 .. |WIP| raw:: html
 
