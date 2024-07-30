@@ -217,9 +217,7 @@ Configure environment
 
 Configure environment variables used by freedesktop.org_ specifications::
 
-    systemctl --user set-environment \
-        XDG_SESSION_TYPE=wayland \
-        XDG_{CURRENT,SESSION}_DESKTOP=river
+    export XDG_SESSION_TYPE=wayland XDG_{CURRENT,SESSION}_DESKTOP=river
 
 .. warning::
 
@@ -227,11 +225,19 @@ Configure environment variables used by freedesktop.org_ specifications::
     for ``XDG_*_DESKTOP``, but I’m already using it locally to trigger
     behaviour.  I’ll change it if a better option appears later.
 
-Make important environment variables available to ``systemd`` units::
+Make important environment variables available to dbus_ and ``systemd`` units::
 
-    systemctl --user import-environment \
-        PATH \
+    envvars=(
+        PATH
         WAYLAND_DISPLAY
+        XDG_SESSION_TYPE
+        XDG_{CURRENT,SESSION}_DESKTOP
+    )
+    if (( $+commands[dbus-update-activation-environment] )) {
+        dbus-update-activation-environment --systemd $envvars
+    } else {
+        systemctl --user import-environment $envvars
+    }
 
 Run background services
 '''''''''''''''''''''''
@@ -671,6 +677,7 @@ Show ``sandbar``::
 .. _vim: https://www.vim.org/
 .. _zsh: https://www.zsh.org/
 .. _systemd: https://systemd.io
+.. _dbus: https://dbus.freedesktop.org/
 .. _example river init file: https://codeberg.org/river/river/src/branch/master/example/init
 .. _freedesktop.org: https://freedesktop.org
 .. _swaybg: https://github.com/swaywm/swaybg
