@@ -129,6 +129,31 @@ overcomplicated from the outside.</p>
 to navigate back to the source in this file.  For example, in <a class="reference external" href="https://www.vim.org/">vim</a> calling
 <tt class="docutils literal">gF</tt> will jump to the section under the cursor.</p>
 </div>
+<div class="section" id="software-versions">
+<h2>Software versions</h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Package</th>
+<th class="head">Version</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><a class="reference external" href="https://codeberg.org/river/river">river</a></td>
+<td>v0.3.0-39-gccd676e <a class="footnote-reference" href="#s1" id="footnote-reference-1">[1]</a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">These are the base versions from upstream, there may be local additions
+exposed in the installation packages.  However, they will <em>not</em> introduce
+breaking changes.</p>
+</div>
+</div>
 <div class="section" id="general-setup">
 <h2>General setup</h2>
 <p>We’re going to use <a class="reference external" href="https://www.zsh.org/">zsh</a> as it is <em>always</em> available on any system I use:</p>
@@ -167,7 +192,7 @@ find_socket<span class="o">()</span><span class="w"> </span><span class="o">{</s
 <p id="progress-bar-within-this-file">Populate a <a class="reference external" href="https://github.com/francma/wob">wob</a> progress bar, if possible, as we move through the <tt class="docutils literal">init</tt>
 file:</p>
 <pre class="code zsh literal-block">
-<span class="nv">LINES</span><span class="o">=</span><span class="k">$(</span>awk<span class="w"> </span><span class="s1">'END {print NR}'</span><span class="w"> </span><span class="nv">$0</span><span class="k">)</span><span class="w">
+<span class="nv">LINES</span><span class="o">=</span><span class="si">${#${</span><span class="p">(&#64;f)</span><span class="s2">&quot;</span><span class="k">$(</span>&lt;<span class="w"> </span><span class="nv">$0</span><span class="k">)</span><span class="s2">&quot;</span><span class="si">}}</span><span class="w">
 </span>_progress<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w">
     </span>setopt<span class="w"> </span>local_options<span class="w"> </span>no_xtrace<span class="w">
     </span><span class="o">[[</span><span class="w"> </span>-z<span class="w"> </span><span class="si">${</span><span class="nv">wob_pipe</span><span class="k">:-</span><span class="si">}</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">return</span><span class="w">
@@ -631,6 +656,15 @@ I’m quite accustomed to it.</p>
 <p class="last"><tt class="docutils literal">sandbar</tt> is spawned hidden to allow us to issue per-tag layout changes or
 launch default applications without all the bar flashes that would result.</p>
 </div>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="s1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#footnote-reference-1">[1]</a></td><td>I’ve added some largely uninteresting local changes from
+v0.3.0-39-gccd676e, but mostly it is because there is no timeline for
+<a class="reference external" href="https://gitlab.freedesktop.org/wlroots/wlroots/">wlroots</a> v0.18 hitting my installations.</td></tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
