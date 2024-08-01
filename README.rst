@@ -264,6 +264,11 @@ Start sandbar_::
     sandbar_pipe=$(find_socket sandbar)
     systemctl --user start sandbar_status@$WAYLAND_DISPLAY
 
+.. note::
+
+    We fetch the ``sandbar`` socket location so that we can issue commands to it
+    from within this file.
+
 Start swayidle_::
 
     systemctl --user start swayidle@$WAYLAND_DISPLAY
