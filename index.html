@@ -220,6 +220,10 @@ file:</p>
 </span><span class="o">}</span><span class="w">
 </span>add-zsh-hook<span class="w"> </span>preexec<span class="w"> </span>_progress
 </pre>
+<p>While startup is fast enough that a progress marker isn’t necessary, I find it
+quite useful as a smoketest that quickly highlights an error in the
+configuration if the progress bar doesn’t reach the end.  Also, I’ll be honest,
+it felt like a fun hack.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">This doesn’t strictly require <a class="reference internal" href="#add-zsh-hook">add_zsh_hook</a>, but I prefer the interface
@@ -287,6 +291,11 @@ systemctl<span class="w"> </span>--user<span class="w"> </span>start<span class=
 </span><span class="nv">sandbar_pipe</span><span class="o">=</span><span class="k">$(</span>find_socket<span class="w"> </span>sandbar<span class="k">)</span><span class="w">
 </span>systemctl<span class="w"> </span>--user<span class="w"> </span>start<span class="w"> </span>sandbar_status&#64;<span class="nv">$WAYLAND_DISPLAY</span>
 </pre>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We fetch the <tt class="docutils literal">sandbar</tt> socket location so that we can issue commands to it
+from within this file.</p>
+</div>
 <p>Start <a class="reference external" href="https://github.com/swaywm/swayidle">swayidle</a>:</p>
 <pre class="code zsh literal-block">
 systemctl<span class="w"> </span>--user<span class="w"> </span>start<span class="w"> </span>swayidle&#64;<span class="nv">$WAYLAND_DISPLAY</span>
