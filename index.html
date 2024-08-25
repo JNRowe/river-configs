@@ -245,8 +245,7 @@ tag_mask<span class="o">()</span><span class="w"> </span><span class="o">{</span
 <h2>Configure environment</h2>
 <p>Configure environment variables used by <a class="reference external" href="https://freedesktop.org">freedesktop.org</a> specifications:</p>
 <pre class="code zsh literal-block">
-<span class="nv">XDG_SESSION_TYPE</span><span class="o">=</span>wayland<span class="w">
-</span><span class="nb">declare</span><span class="w"> </span>XDG_<span class="o">{</span>CURRENT,SESSION<span class="o">}</span><span class="nv">_DESKTOP</span><span class="o">=</span>river
+<span class="nb">export</span><span class="w"> </span><span class="nv">XDG_SESSION_TYPE</span><span class="o">=</span>wayland<span class="w"> </span>XDG_<span class="o">{</span>CURRENT,SESSION<span class="o">}</span><span class="nv">_DESKTOP</span><span class="o">=</span>river
 </pre>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
@@ -561,7 +560,7 @@ riverctl<span class="w"> </span>keyboard-layout<span class="w"> </span>-options<
 </pre>
 <p>Configure host specific touchpad settings:</p>
 <pre class="code zsh literal-block">
-<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$HOST</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>corale<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">{</span><span class="w">
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$HOST</span><span class="w"> </span><span class="o">=</span>~<span class="w"> </span>^<span class="o">(</span>camille<span class="p">|</span>corale<span class="o">)</span>$<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">{</span><span class="w">
     </span>riverctl<span class="w"> </span>input<span class="w"> </span>pointer-2-14-ETPS/2_Elantech_Touchpad<span class="w"> </span>tap<span class="w"> </span>enabled<span class="w">
     </span>riverctl<span class="w"> </span>input<span class="w"> </span>pointer-2-14-ETPS/2_Elantech_Touchpad<span class="w"> </span>pointer-accel<span class="w"> </span><span class="m">0</span>.8<span class="w">
 </span><span class="o">}</span>
@@ -573,7 +572,7 @@ riverctl<span class="w"> </span>declare-mode<span class="w"> </span>input<span c
 </span>riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super<span class="w"> </span>I<span class="w"> </span>enter-mode<span class="w"> </span>input<span class="w">
 </span>riverctl<span class="w"> </span>map<span class="w"> </span>input<span class="w"> </span>None<span class="w"> </span>Escape<span class="w"> </span>enter-mode<span class="w"> </span>normal<span class="w">
 
-</span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$HOST</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>corale<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">{</span><span class="w">
+</span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$HOST</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>^<span class="o">(</span>camille<span class="p">|</span>corale<span class="o">)</span>$<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">{</span><span class="w">
     </span>riverctl<span class="w"> </span>map<span class="w"> </span>input<span class="w"> </span>None<span class="w"> </span>T<span class="w"> </span>input<span class="w"> </span>pointer-2-14-ETPS/2_Elantech_Touchpad<span class="w"> </span><span class="se">\
 </span><span class="w">        </span>events<span class="w"> </span>disabled<span class="w">
     </span>riverctl<span class="w"> </span>map<span class="w"> </span>input<span class="w"> </span>Shift<span class="w"> </span>T<span class="w"> </span>input<span class="w"> </span>pointer-2-14-ETPS/2_Elantech_Touchpad<span class="w"> </span><span class="se">\
