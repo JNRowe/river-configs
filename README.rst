@@ -526,7 +526,7 @@ Default to ``swap_brackets`` behaviour::
 
 Configure host specific touchpad settings::
 
-    if [[ $HOST == corale ]] {
+    if [[ $HOST =~ ^(camille|corale)$ ]] {
         riverctl input pointer-2-14-ETPS/2_Elantech_Touchpad tap enabled
         riverctl input pointer-2-14-ETPS/2_Elantech_Touchpad pointer-accel 0.8
     }
@@ -538,7 +538,7 @@ and we won’t lose a lot of keys this way::
     riverctl map normal Super I enter-mode input
     riverctl map input None Escape enter-mode normal
 
-    if [[ $HOST == corale ]] {
+    if [[ $HOST == ^(camille|corale)$ ]] {
         riverctl map input None T input pointer-2-14-ETPS/2_Elantech_Touchpad \
             events disabled
         riverctl map input Shift T input pointer-2-14-ETPS/2_Elantech_Touchpad \
