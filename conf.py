@@ -10,6 +10,8 @@ import sphinx_rtd_theme
 on_github = "GITHUB_ACTIONS" in os.environ
 
 # General configuration {{{
+extensions: [str] = ["sphinx.ext.ifconfig", ]
+
 needs_sphinx = "4.3"
 
 exclude_patterns: [str] = [
@@ -55,3 +57,8 @@ html_theme_path: [str] = [
 
 highlight_language = "zsh"
 # }}}
+
+
+def setup(app):
+    # Make on_github available for ifconfig directive
+    app.add_config_value("github_actions", on_github, "env")
