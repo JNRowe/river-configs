@@ -11,7 +11,11 @@ on_github = "GITHUB_ACTIONS" in os.environ
 
 # General configuration {{{
 extensions: [str] = [
-    "sphinx.ext.ifconfig",
+    f"sphinx.ext.{ext}"
+    for ext in [
+        "duration",
+        "ifconfig",
+    ]
 ]
 
 rst_epilog = """
