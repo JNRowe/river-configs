@@ -1,4 +1,5 @@
 on:
+  pull_request:
   push:
     branches:
       - main
@@ -15,30 +16,34 @@ jobs:
     steps:
       - name: Install Debian dependencies
         run: |
-          sudo apt install python3-docutils python3-pygments
+          sudo apt install python3-sphinx python3-sphinx-rtd-theme python3-sphinxcontrib.spelling
+
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Checkout gh-pages branch
+        if: github.ref == 'refs/heads/main'
         uses: actions/checkout@v4
         with:
           ref: gh-pages
+          path: _build/html
 
-      # Massage paragraph+literal blocks in to code blocks for syntax
-      # highlighting
+      # This shouldn't be necessary, but actions/checkout doesn't have
+      # --no-checkout support.  If we don't manually scrub the tree obsolete
+      # files won't be dropped
+      - name: Scrub gh-pages tree
+        if: github.ref == 'refs/heads/main'
+        run: |
+          cd _build/html
+          git ls-files | grep -v .nojekyll | xargs rm
+
       - name: Build
         run: |
-          git show origin/main:README.rst |
-            sed 's,^\([^\.].*:\):$,\1\n\n.. code:: zsh,' |
-            rst2html \
-              --link-stylesheet \
-              --rfc-references \
-              --smart-quotes=yes \
-              --source-url=https://github.com/JNRowe/river-configs \
-              --strict \
-              --stylesheet css/rhythm.css,css/monokai.css \
-              --syntax-highlight=short \
-              /dev/stdin index.html
+          touch .nojekyll
+          sphinx-build -M html . _build
 
       - name: Commit and push if it changed
+        if: github.ref == 'refs/heads/main'
         run: |
           git config user.name "Automated"
           git config user.email "actions@users.noreply.github.com"

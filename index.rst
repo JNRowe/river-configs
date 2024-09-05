@@ -5,7 +5,7 @@ river-configs
 
    So, imagine your workmate has created a new tool that *requires* Wayland…
 
-This is my personal river_ configuration that is shared among hosts.  Maybe
+This is my personal |river| configuration that is shared among hosts.  Maybe
 they’re useful to you too, or — better yet — you’ll spot *and* fix a bug!
 
 .. note::
@@ -19,36 +19,23 @@ running quickly, without breaking my workflow too much.  I haven’t decided on 
 lot of things yet, so don’t expect this to work for you *or* remain as-is for
 long.
 
-.. Commented section of hope
+Contents
+--------
 
-    Contributors
-    ------------
+.. toctree::
+    :titlesonly:
 
-    I’d like to thank the following people who have contributed to
-    ``river-configs``.
+    software
+    init
+    todo
 
-    Patches
-    '''''''
-
-    * <your name here>
-
-    Bug reports
-    '''''''''''
-
-    * <your name here>
-
-    Ideas
-    '''''
-
-    * <your name here>
-
-    If I’ve forgotten to include your name I wholeheartedly apologise.  Just
-    drop me a mail_ and I’ll update the list!
-
-.. _river: https://codeberg.org/river/river
 .. _drop me a note: mailto:jnrowe@gmail.com
-.. .. _mail: mailto:jnrowe@gmail.com
 
 .. |WIP| raw:: html
 
     <abbr title="Work In Progress">WIP</abbr>
+
+.. spelling:word-list::
+
+    configs
+    Wayland
