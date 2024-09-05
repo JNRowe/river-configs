@@ -15,6 +15,7 @@ extensions: [str] = [
     for ext in [
         "duration",
         "ifconfig",
+        "todo",
     ]
 ] + [
     "sphinxcontrib.spelling",
@@ -85,6 +86,10 @@ spelling_warning = nitpicky
 # Sadly, we can't use en_GB.UTF-8 to correct for Unicode quotes, because that is
 # a site-local improvement
 tokenizer_lang = "en_GB"
+# }}}
+
+# todo extension settings {{{
+todo_include_todos = True
 # }}}
 
 
