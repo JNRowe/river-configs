@@ -1,10 +1,11 @@
 Config time
 ===========
 
-.. note::
+.. ifconfig:: not github_actions
 
-    If you’re viewing this on GitHub, then the `generated HTML`_ will be a
-    better experience.
+    .. note::
+
+        The `generated HTML`_ will likely be a better reading experience.
 
 My river_ configuration is created by extracting the code blocks from within
 this file. It sounds *far* more complex than it needs to be, but it fits in to
