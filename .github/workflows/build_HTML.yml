@@ -28,6 +28,15 @@ jobs:
           ref: gh-pages
           path: _build/html
 
+      # This shouldn't be necessary, but actions/checkout doesn't have
+      # --no-checkout support.  If we don't manually scrub the tree obsolete
+      # files won't be dropped
+      - name: Scrub gh-pages tree
+        if: github.ref == 'refs/heads/main'
+        run: |
+          cd _build/html
+          git ls-files | grep -v .nojekyll | xargs rm
+
       - name: Build
         run: |
           touch .nojekyll
