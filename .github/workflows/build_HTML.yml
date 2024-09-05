@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: Install Debian dependencies
         run: |
-          sudo apt install python3-sphinx python3-sphinx-rtd-theme
+          sudo apt install python3-sphinx python3-sphinx-rtd-theme python3-sphinxcontrib.spelling
 
       - name: Checkout
         uses: actions/checkout@v4

@@ -587,3 +587,22 @@ Show ``sandbar``::
 .. _awesomewm: https://awesomewm.org/
 .. _wlroots: https://gitlab.freedesktop.org/wlroots/wlroots/
 .. _Nerd Fonts: https://www.nerdfonts.com/
+
+.. spelling:word-list::
+
+    Config
+    Exposé
+    Passthrough
+    Theming
+    aren
+    doesn
+    fullscreen
+    gaa
+    gccd
+    globbing
+    init
+    isn
+    overcomplicated
+    smoketest
+    touchpad
+    ve
