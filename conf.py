@@ -56,6 +56,8 @@ html_theme_path: [str] = [
 ]
 
 highlight_language = "zsh"
+
+html_copy_source = False
 # }}}
 
 
