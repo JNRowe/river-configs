@@ -27,6 +27,7 @@ Contents
 
     software
     init
+    todo
 
 .. _drop me a note: mailto:jnrowe@gmail.com
 
