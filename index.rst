@@ -5,7 +5,7 @@ river-configs
 
    So, imagine your workmate has created a new tool that *requires* Wayland…
 
-This is my personal river_ configuration that is shared among hosts.  Maybe
+This is my personal |river| configuration that is shared among hosts.  Maybe
 they’re useful to you too, or — better yet — you’ll spot *and* fix a bug!
 
 .. note::
@@ -28,7 +28,6 @@ Contents
     software
     init
 
-.. _river: https://codeberg.org/river/river
 .. _drop me a note: mailto:jnrowe@gmail.com
 
 .. |WIP| raw:: html
