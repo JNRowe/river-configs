@@ -33,3 +33,8 @@ Contents
 .. |WIP| raw:: html
 
     <abbr title="Work In Progress">WIP</abbr>
+
+.. spelling:word-list::
+
+    configs
+    Wayland

@@ -16,6 +16,8 @@ extensions: [str] = [
         "duration",
         "ifconfig",
     ]
+] + [
+    "sphinxcontrib.spelling",
 ]
 
 rst_epilog = """
@@ -72,6 +74,17 @@ html_theme_path: [str] = [
 highlight_language = "zsh"
 
 html_copy_source = False
+# }}}
+
+# spelling extension settings {{{
+spelling_ignore_acronyms = False
+spelling_lang = "en_GB"
+spelling_ignore_python_builtins = False
+spelling_ignore_importable_modules = False
+spelling_warning = nitpicky
+# Sadly, we can't use en_GB.UTF-8 to correct for Unicode quotes, because that is
+# a site-local improvement
+tokenizer_lang = "en_GB"
 # }}}
 
 
