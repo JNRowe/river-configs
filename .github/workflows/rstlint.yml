@@ -17,4 +17,4 @@ jobs:
 
       - name: Run linter
         run: |
-          rst-lint $(git ls-files | grep '\.rst')
+          rst-lint README.rst

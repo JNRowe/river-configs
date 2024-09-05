@@ -1,6 +1,5 @@
 rule rst2html
-  command = sed 's,^\([^\.].*:\):$$,\1\n\n.. code:: zsh,' $in | $
-    PRETTYRST_EXTRAS=--no-source-link prettyrst /dev/stdin $out
+  command = PRETTYRST_EXTRAS=--no-source-link prettyrst $in $out
 
 rule rst2zsh
   command = tools/rst2zsh -d $out.dep $in $out && chmod +x $out
@@ -8,5 +7,5 @@ rule rst2zsh
   deps = gcc
 
 build README.html: rst2html README.rst
-build init: rst2zsh README.rst
+build init: rst2zsh init.rst
 default init
