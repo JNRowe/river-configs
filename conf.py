@@ -24,6 +24,10 @@ rst_epilog = """
 
 needs_sphinx = "4.3"
 
+# While upstream uses this purely to enable reference warnings, we’ll use it as
+# trigger for all configurable QA messages.
+nitpicky = True
+
 exclude_patterns: [str] = [
     ".build",
     ".github",
