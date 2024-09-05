@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Config time &mdash; river-configs 2024-09-05 [eccf735] documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=86f27845" />
+
+  
+  
+        <script src="_static/documentation_options.js?v=66980b8e"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Todo items for project" href="todo.html" />
+    <link rel="prev" title="Software" href="software.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            river-configs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="software.html">Software</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Config time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">Todo items for project</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">river-configs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Config time</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="config-time">
+<h1>Config time<a class="headerlink" href="#config-time" title="Link to this heading">¶</a></h1>
+<p>My <a class="reference external" href="https://codeberg.org/river/river">river</a> configuration is created by extracting the code blocks from within
+this file. It sounds <em>far</em> more complex than it needs to be, but it fits in to
+an elaborate <a class="reference external" href="https://ninja-build.org/">ninja</a> configuration that I use to generate my home directories.
+The advantage <em>to me</em> is that I can mix-and-match software versions on different
+machines, but it also means that the repository structure for individual
+configurations looks overcomplicated from the outside.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The output from <code class="docutils literal notranslate"><span class="pre">tools/rst2zsh</span></code> includes comment markers that can be used
+to navigate back to the source in this file.  For example, in <a class="reference external" href="https://www.vim.org/">vim</a> calling
+<code class="docutils literal notranslate"><span class="pre">gF</span></code> will jump to the section under the cursor.</p>
+</div>
+<section id="software-versions">
+<h2>Software versions<a class="headerlink" href="#software-versions" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Package</p></th>
+<th class="head"><p>Version</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://codeberg.org/dnkl/foot">foot</a></p></td>
+<td><p>1.17.2</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://codeberg.org/river/river">river</a></p></td>
+<td><p>v0.3.0-39-gccd676e<a class="footnote-reference brackets" href="#s1" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/kolunmi/sandbar">sandbar</a></p></td>
+<td><p>v0.1-13-gaa3f203<a class="footnote-reference brackets" href="#s2" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/swaywm/swaybg">swaybg</a></p></td>
+<td><p>1.1.1</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/swaywm/swayidle">swayidle</a></p></td>
+<td><p>1.8.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/alex-courtis/wideriver">wideriver</a></p></td>
+<td><p>1.2.0-2-g6a11a25<a class="footnote-reference brackets" href="#s2" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/francma/wob">wob</a></p></td>
+<td><p>0.14.2</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These are the base versions from upstream, there may be local additions
+exposed in the installation packages.  However, they will <em>not</em> introduce
+breaking changes.</p>
+</div>
+</section>
+<section id="general-setup">
+<h2>General setup<a class="headerlink" href="#general-setup" title="Link to this heading">¶</a></h2>
+<p>We’re going to use <a class="reference external" href="https://www.zsh.org/">zsh</a> as it is <em>always</em> available on any system I use:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /bin/zsh -x</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We set <code class="docutils literal notranslate"><span class="pre">-x</span></code> here because it is gives us a lazy logging mechanism to catch
+and report errors at practically zero cost.  In the initial run output will
+end up in river’s log, and in subsequent runs it will be in the executing
+terminal.</p>
+</div>
+<p>We’ll want stricter defaults out of the box:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>setopt<span class="w"> </span>err_exit<span class="w"> </span>no_unset<span class="w"> </span>warn_create_global
+</pre></div>
+</div>
+<p id="extended-glob">… along with extended globs for better matching support:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>setopt<span class="w"> </span>extended_glob
+</pre></div>
+</div>
+<p id="add-zsh-hook"><code class="docutils literal notranslate"><span class="pre">autoload</span></code> functions we’ll need later:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>autoload<span class="w"> </span>-Uz<span class="w"> </span>add-zsh-hook
+</pre></div>
+</div>
+</section>
+<section id="utility-functions">
+<h2>Utility functions<a class="headerlink" href="#utility-functions" title="Link to this heading">¶</a></h2>
+<p>Fetch socket path for <a class="reference external" href="https://systemd.io">systemd</a> <code class="docutils literal notranslate"><span class="pre">.socket</span></code> units:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>find_socket<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>systemctl<span class="w"> </span>--user<span class="w"> </span>show<span class="w"> </span><span class="nv">$1</span>@<span class="nv">$WAYLAND_DISPLAY</span>.socket<span class="w"> </span>--property<span class="o">=</span>Listen<span class="w"> </span><span class="p">|</span>
+<span class="w">        </span>sed<span class="w"> </span><span class="s1">&#39;s,.*=\(.*\) .*,\1,&#39;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p id="progress-bar-within-this-file">Populate a <a class="reference external" href="https://github.com/francma/wob">wob</a> progress bar, if possible, as we move through the <code class="docutils literal notranslate"><span class="pre">init</span></code>
+file:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span><span class="nv">LINES</span><span class="o">=</span><span class="si">${#${</span><span class="p">(@f)</span><span class="s2">&quot;</span><span class="k">$(</span>&lt;<span class="w"> </span><span class="nv">$0</span><span class="k">)</span><span class="s2">&quot;</span><span class="si">}}</span>
+_progress<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>setopt<span class="w"> </span>local_options<span class="w"> </span>no_xtrace
+<span class="w">    </span><span class="o">[[</span><span class="w"> </span>-z<span class="w"> </span><span class="si">${</span><span class="nv">wob_pipe</span><span class="k">:-</span><span class="si">}</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">return</span>
+<span class="w">    </span>float<span class="w"> </span><span class="nv">line</span><span class="o">=</span><span class="si">${</span><span class="nv">funcfiletrace</span><span class="p">[1]##*:</span><span class="si">}</span>
+<span class="w">    </span>integer<span class="w"> </span><span class="nv">pcnt</span><span class="o">=</span><span class="k">$((</span><span class="o">(</span><span class="nv">line</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="o">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nv">LINES</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">100</span><span class="k">))</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$pcnt</span><span class="w"> </span>&gt;&gt;<span class="nv">$wob_pipe</span>
+<span class="o">}</span>
+add-zsh-hook<span class="w"> </span>preexec<span class="w"> </span>_progress
+</pre></div>
+</div>
+<p>While startup is fast enough that a progress marker isn’t necessary, I find it
+quite useful as a smoketest that quickly highlights an error in the
+configuration if the progress bar doesn’t reach the end.  Also, I’ll be honest,
+it felt like a fun hack.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This doesn’t strictly require <a class="reference internal" href="#add-zsh-hook">add_zsh_hook</a>, but I prefer the interface
+offered by it over simply setting the hook by hand.</p>
+</div>
+<p>Calculate a tag mask given a list of tags:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>tag_mask<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>integer<span class="w"> </span>r<span class="w"> </span>n
+<span class="w">    </span><span class="k">for</span><span class="w"> </span>n<span class="w"> </span><span class="o">(</span><span class="nv">$@</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="nv">r</span><span class="o">+=</span><span class="k">$((</span><span class="m">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">(</span><span class="nv">n</span><span class="o">-</span><span class="m">1</span><span class="k">))</span><span class="o">)</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$r</span>
+<span class="o">}</span>
+<span class="nv">ALL_TAGS</span><span class="o">=</span><span class="k">$(</span>tag_mask<span class="w"> </span><span class="o">{</span><span class="m">1</span>..32<span class="o">}</span><span class="k">)</span>
+</pre></div>
+</div>
+</section>
+<section id="configure-environment">
+<h2>Configure environment<a class="headerlink" href="#configure-environment" title="Link to this heading">¶</a></h2>
+<p>Configure environment variables used by <a class="reference external" href="https://freedesktop.org">freedesktop.org</a> specifications:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">XDG_SESSION_TYPE</span><span class="o">=</span>wayland<span class="w"> </span>XDG_<span class="o">{</span>CURRENT,SESSION<span class="o">}</span><span class="nv">_DESKTOP</span><span class="o">=</span>river
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is important to be aware that <code class="docutils literal notranslate"><span class="pre">river</span></code> is not a standard compliant value
+for <code class="docutils literal notranslate"><span class="pre">XDG_*_DESKTOP</span></code>, but I’m already using it locally to trigger
+behaviour.  I’ll change it if a better option appears later.</p>
+</div>
+<p>Make important environment variables available to <a class="reference external" href="https://dbus.freedesktop.org/">dbus</a> and <code class="docutils literal notranslate"><span class="pre">systemd</span></code> units:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span><span class="nv">envvars</span><span class="o">=(</span>
+<span class="w">    </span>PATH
+<span class="w">    </span>WAYLAND_DISPLAY
+<span class="w">    </span>XDG_SESSION_TYPE
+<span class="w">    </span>XDG_<span class="o">{</span>CURRENT,SESSION<span class="o">}</span>_DESKTOP
+<span class="o">)</span>
+<span class="k">if</span><span class="w"> </span><span class="o">((</span><span class="w"> </span>$+commands<span class="o">[</span>dbus-update-activation-environment<span class="o">]</span><span class="w"> </span><span class="o">))</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>dbus-update-activation-environment<span class="w"> </span>--systemd<span class="w"> </span><span class="nv">$envvars</span>
+<span class="o">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>systemctl<span class="w"> </span>--user<span class="w"> </span>import-environment<span class="w"> </span><span class="nv">$envvars</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</section>
+<section id="run-background-services">
+<h2>Run background services<a class="headerlink" href="#run-background-services" title="Link to this heading">¶</a></h2>
+<p>I manage all my background services with a <a class="reference external" href="https://systemd.io">systemd</a> user session.  <code class="docutils literal notranslate"><span class="pre">systemd</span></code>
+handles all the gory details of process supervision, so that — for example — you
+don’t need to implement your own hot reloading for your status script.</p>
+<p>The interesting thing to notice below is that I use instances keyed off of
+<code class="docutils literal notranslate"><span class="pre">WAYLAND_DISPLAY</span></code> so that it is possible to run multiple sessions, which comes
+in handy for testing as you can simply start a new nested session.</p>
+<p>Start <a class="reference external" href="https://github.com/swaywm/swaybg">swaybg</a>:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span>--user<span class="w"> </span>start<span class="w"> </span>swaybg@<span class="nv">$WAYLAND_DISPLAY</span>
+</pre></div>
+</div>
+<p>Start <a class="reference external" href="https://codeberg.org/dnkl/foot">foot</a> server:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span>--user<span class="w"> </span>start<span class="w"> </span>foot-server@<span class="nv">$WAYLAND_DISPLAY</span>.socket
+</pre></div>
+</div>
+<p>Start <a class="reference external" href="https://github.com/kolunmi/sandbar">sandbar</a>:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span>--user<span class="w"> </span>start<span class="w"> </span>sandbar@<span class="nv">$WAYLAND_DISPLAY</span>.socket
+<span class="nv">sandbar_pipe</span><span class="o">=</span><span class="k">$(</span>find_socket<span class="w"> </span>sandbar<span class="k">)</span>
+systemctl<span class="w"> </span>--user<span class="w"> </span>start<span class="w"> </span>sandbar_status@<span class="nv">$WAYLAND_DISPLAY</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We fetch the <code class="docutils literal notranslate"><span class="pre">sandbar</span></code> socket location so that we can issue commands to it
+from within this file.</p>
+</div>
+<p>Start <a class="reference external" href="https://github.com/swaywm/swayidle">swayidle</a>:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span>--user<span class="w"> </span>start<span class="w"> </span>swayidle@<span class="nv">$WAYLAND_DISPLAY</span>
+</pre></div>
+</div>
+<p>Start <a class="reference external" href="https://github.com/alex-courtis/wideriver">wideriver</a>:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span>--user<span class="w"> </span>start<span class="w"> </span>wideriver@<span class="nv">$WAYLAND_DISPLAY</span>
+</pre></div>
+</div>
+<p>Start <a class="reference external" href="https://github.com/francma/wob">wob</a>:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span>--user<span class="w"> </span>start<span class="w"> </span>wob@<span class="nv">$WAYLAND_DISPLAY</span>.socket
+<span class="nv">wob_pipe</span><span class="o">=</span><span class="k">$(</span>find_socket<span class="w"> </span>wob<span class="k">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We fetch the socket location so that we can use it for a <a class="reference internal" href="#progress-bar-within-this-file">progress bar
+within this file</a>.</p>
+</div>
+</section>
+<section id="keybindings">
+<h2>Keybindings<a class="headerlink" href="#keybindings" title="Link to this heading">¶</a></h2>
+<p>General bindings:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super+Shift<span class="w"> </span>Q<span class="w"> </span><span class="nb">exit</span>
+
+riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super<span class="w"> </span>Page_Up<span class="w"> </span>focus-output<span class="w"> </span>next
+riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super<span class="w"> </span>Page_Down<span class="w"> </span>focus-output<span class="w"> </span>previous
+
+riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super<span class="w"> </span>B<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>spawn<span class="w"> </span><span class="s2">&quot;echo all toggle-visibility &gt;&gt;</span><span class="nv">$sandbar_pipe</span><span class="s2">&quot;</span>
+riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super+Shift<span class="w"> </span>B<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>spawn<span class="w"> </span><span class="s2">&quot;echo all toggle-location &gt;&gt;</span><span class="nv">$sandbar_pipe</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<section id="extended-keys">
+<h3>Extended keys<a class="headerlink" href="#extended-keys" title="Link to this heading">¶</a></h3>
+<p>Configure function keys:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>mode<span class="w"> </span><span class="o">(</span>normal<span class="w"> </span>locked<span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>riverctl<span class="w"> </span>map<span class="w"> </span><span class="nv">$mode</span><span class="w"> </span>None<span class="w"> </span>XF86MonBrightnessUp<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>spawn<span class="w"> </span><span class="s2">&quot;brightness_toggle up&quot;</span>
+<span class="w">    </span>riverctl<span class="w"> </span>map<span class="w"> </span><span class="nv">$mode</span><span class="w"> </span>None<span class="w"> </span>XF86MonBrightnessDown<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>spawn<span class="w"> </span><span class="s2">&quot;brightness_toggle down&quot;</span>
+
+<span class="w">    </span>riverctl<span class="w"> </span>map<span class="w"> </span><span class="nv">$mode</span><span class="w"> </span>None<span class="w"> </span>XF86AudioPlay<span class="w"> </span>spawn<span class="w"> </span><span class="s2">&quot;dtas-ctl play_pause&quot;</span>
+<span class="w">    </span>riverctl<span class="w"> </span>map<span class="w"> </span><span class="nv">$mode</span><span class="w"> </span>None<span class="w"> </span>XF86AudioNext<span class="w"> </span>spawn<span class="w"> </span><span class="s2">&quot;dtas-ctl skip&quot;</span>
+
+<span class="w">    </span>riverctl<span class="w"> </span>map<span class="w"> </span><span class="nv">$mode</span><span class="w"> </span>None<span class="w"> </span>XF86AudioMute<span class="w"> </span>spawn<span class="w"> </span><span class="s2">&quot;amixer sset Master toggle&quot;</span>
+<span class="w">    </span>riverctl<span class="w"> </span>map<span class="w"> </span>-repeat<span class="w"> </span><span class="nv">$mode</span><span class="w"> </span>None<span class="w"> </span>XF86AudioRaiseVolume<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>spawn<span class="w"> </span><span class="s2">&quot;amixer sset Master 5%+&quot;</span>
+<span class="w">    </span>riverctl<span class="w"> </span>map<span class="w"> </span>-repeat<span class="w"> </span><span class="nv">$mode</span><span class="w"> </span>None<span class="w"> </span>XF86AudioLowerVolume<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>spawn<span class="w"> </span><span class="s2">&quot;amixer sset Master 5%-&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Media and function keys perform tasks that should work regardless of screen
+lock state.</p>
+</div>
+</section>
+<section id="passthrough-mode-for-testing-configuration">
+<h3>Passthrough mode for testing configuration<a class="headerlink" href="#passthrough-mode-for-testing-configuration" title="Link to this heading">¶</a></h3>
+<p>A really great idea from the <a class="reference external" href="https://codeberg.org/river/river/src/branch/master/example/init">example river init file</a> giving a quick toggle to
+make keys a no-op for testing nested compositors:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>riverctl<span class="w"> </span>declare-mode<span class="w"> </span>passthrough
+
+riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super<span class="w"> </span>F11<span class="w"> </span>enter-mode<span class="w"> </span>passthrough
+riverctl<span class="w"> </span>map<span class="w"> </span>passthrough<span class="w"> </span>Super<span class="w"> </span>F11<span class="w"> </span>enter-mode<span class="w"> </span>normal
+</pre></div>
+</div>
+</section>
+</section>
+<section id="tag-management">
+<h2>Tag management<a class="headerlink" href="#tag-management" title="Link to this heading">¶</a></h2>
+<p>Direct key access for manipulation of tags one through nine:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>tag<span class="w"> </span><span class="o">({</span><span class="m">1</span>..9<span class="o">})</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nv">tag_id</span><span class="o">=</span><span class="k">$(</span>tag_mask<span class="w"> </span><span class="nv">$tag</span><span class="k">)</span>
+
+<span class="w">    </span>riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super<span class="w"> </span><span class="nv">$tag</span><span class="w"> </span>set-focused-tags<span class="w"> </span><span class="nv">$tag_id</span>
+<span class="w">    </span>riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super+Shift<span class="w"> </span><span class="nv">$tag</span><span class="w"> </span>set-view-tags<span class="w"> </span><span class="nv">$tag_id</span>
+<span class="w">    </span>riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super+Control<span class="w"> </span><span class="nv">$tag</span><span class="w"> </span>toggle-focused-tags<span class="w"> </span><span class="nv">$tag_id</span>
+<span class="w">    </span>riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super+Shift+Control<span class="w"> </span><span class="nv">$tag</span><span class="w"> </span>toggle-view-tags<span class="w"> </span><span class="nv">$tag_id</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Show all, which you can treat it like a weak Apple’s Exposé:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super<span class="w"> </span><span class="m">0</span><span class="w"> </span>set-focused-tags<span class="w"> </span><span class="nv">$ALL_TAGS</span>
+</pre></div>
+</div>
+</section>
+<section id="window-management">
+<h2>Window management<a class="headerlink" href="#window-management" title="Link to this heading">¶</a></h2>
+<p>State bindings:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super+Shift<span class="w"> </span>Return<span class="w"> </span>zoom
+riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super+Shift<span class="w"> </span>C<span class="w"> </span>close
+riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super+Shift<span class="w"> </span><span class="m">0</span><span class="w"> </span>set-view-tags<span class="w"> </span><span class="nv">$ALL_TAGS</span>
+
+riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super+Control<span class="w"> </span>Space<span class="w"> </span>toggle-float
+riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super<span class="w"> </span>F<span class="w"> </span>toggle-fullscreen
+</pre></div>
+</div>
+<p>Navigation bindings:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super<span class="w"> </span>Tab<span class="w"> </span>focus-view<span class="w"> </span>next
+riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super+Shift<span class="w"> </span>Tab<span class="w"> </span>focus-view<span class="w"> </span>previous
+
+riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super+Control<span class="w"> </span>Tab<span class="w"> </span>swap<span class="w"> </span>next
+riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super+Control+Shift<span class="w"> </span>Tab<span class="w"> </span>swap<span class="w"> </span>previous
+</pre></div>
+</div>
+<p>Output bindings:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super+Shift<span class="w"> </span>Page_up<span class="w"> </span>send-to-output<span class="w"> </span>next
+riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super+Shift<span class="w"> </span>Page_down<span class="w"> </span>send-to-output<span class="w"> </span>previous
+</pre></div>
+</div>
+<section id="floating-support">
+<h3>Floating support<a class="headerlink" href="#floating-support" title="Link to this heading">¶</a></h3>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span><span class="nv">ARROW_KEYS</span><span class="o">=(</span>Left<span class="w"> </span>Down<span class="w"> </span>Up<span class="w"> </span>Right<span class="o">)</span>
+</pre></div>
+</div>
+<p>Declare floating mode:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>riverctl<span class="w"> </span>declare-mode<span class="w"> </span>float
+riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super<span class="w"> </span>R<span class="w"> </span>enter-mode<span class="w"> </span>float
+riverctl<span class="w"> </span>map<span class="w"> </span>float<span class="w"> </span>None<span class="w"> </span>Escape<span class="w"> </span>enter-mode<span class="w"> </span>normal
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We declare a full mode here to make large scale changes to windows easier to
+accomplish.  For quick changes all the modifiers aren’t a problem, but big
+changes are easier in the dedicated mode.</p>
+</div>
+<p>Basic movement bindings:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>key<span class="w"> </span><span class="o">(</span><span class="nv">$ARROW_KEYS</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super+Alt<span class="w"> </span><span class="nv">$key</span><span class="w"> </span>move<span class="w"> </span><span class="nv">$key</span>:l<span class="w"> </span><span class="m">100</span>
+<span class="w">    </span>riverctl<span class="w"> </span>map<span class="w"> </span>float<span class="w"> </span>None<span class="w"> </span><span class="nv">$key</span><span class="w"> </span>move<span class="w"> </span><span class="nv">$key</span>:l<span class="w"> </span><span class="m">100</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Cardinal movement bindings:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>key<span class="w"> </span><span class="o">(</span><span class="nv">$ARROW_KEYS</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super+Alt+Control<span class="w"> </span><span class="nv">$key</span><span class="w"> </span>snap<span class="w"> </span><span class="nv">$key</span>:l
+<span class="w">    </span>riverctl<span class="w"> </span>map<span class="w"> </span>float<span class="w"> </span>Control<span class="w"> </span><span class="nv">$key</span><span class="w"> </span>snap<span class="w"> </span><span class="nv">$key</span>:l
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Basic resizing bindings:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span><span class="nv">xs</span><span class="o">=(</span>horizontal<span class="w"> </span>vertical<span class="o">)</span>
+integer<span class="w"> </span><span class="nv">i</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>delta
+<span class="k">for</span><span class="w"> </span>key<span class="w"> </span>dir<span class="w"> </span><span class="o">(</span><span class="si">${</span><span class="nv">ARROW_KEYS</span><span class="p">:^^xs</span><span class="si">}</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nv">delta</span><span class="o">=</span><span class="k">$((</span><span class="nv">i</span><span class="o">++</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>?<span class="w"> </span><span class="m">1</span><span class="w"> </span>:<span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="k">))</span><span class="m">00</span>
+<span class="w">    </span>riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super+Alt+Shift<span class="w"> </span><span class="nv">$key</span><span class="w"> </span>resize<span class="w"> </span><span class="nv">$dir</span><span class="w"> </span><span class="nv">$delta</span>
+<span class="w">    </span>riverctl<span class="w"> </span>map<span class="w"> </span>float<span class="w"> </span>Shift<span class="w"> </span><span class="nv">$key</span><span class="w"> </span>resize<span class="w"> </span><span class="nv">$dir</span><span class="w"> </span><span class="nv">$delta</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</section>
+<section id="common-applications">
+<h3>Common applications<a class="headerlink" href="#common-applications" title="Link to this heading">¶</a></h3>
+<p>Spawn a <a class="reference external" href="https://codeberg.org/dnkl/foot">foot</a> client instance:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super<span class="w"> </span>Return<span class="w"> </span>spawn<span class="w"> </span><span class="s2">&quot;footclient --no-wait&quot;</span>
+</pre></div>
+</div>
+<p>Attempt to pick the most useful <em>to me</em> browser that is available:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super<span class="w"> </span>Z<span class="w"> </span>spawn<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="s2">&quot;exec </span><span class="si">${</span><span class="nv">commands</span><span class="p">[firefox]</span><span class="k">:-</span><span class="si">${</span><span class="nv">commands</span><span class="p">[chromium]</span><span class="k">:-</span><span class="nv">sensible</span><span class="p">-browser</span><span class="si">}}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="mouse-bindings">
+<h2>Mouse bindings<a class="headerlink" href="#mouse-bindings" title="Link to this heading">¶</a></h2>
+<p>Configure “standard” mouse bindings:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>riverctl<span class="w"> </span>map-pointer<span class="w"> </span>normal<span class="w"> </span>Super<span class="w"> </span>BTN_LEFT<span class="w"> </span>move-view
+riverctl<span class="w"> </span>map-pointer<span class="w"> </span>normal<span class="w"> </span>Super<span class="w"> </span>BTN_RIGHT<span class="w"> </span>resize-view
+</pre></div>
+</div>
+<p>It is nice to have a simple way to flip the float bit on a window:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>riverctl<span class="w"> </span>map-pointer<span class="w"> </span>normal<span class="w"> </span>Super<span class="w"> </span>BTN_MIDDLE<span class="w"> </span>toggle-float
+</pre></div>
+</div>
+<p>Using back and forward to manipulate the stack feels really quite natural:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>riverctl<span class="w"> </span>map-pointer<span class="w"> </span>normal<span class="w"> </span>Super<span class="w"> </span>BTN_FORWARD<span class="w"> </span>swap<span class="w"> </span>next
+riverctl<span class="w"> </span>map-pointer<span class="w"> </span>normal<span class="w"> </span>Super<span class="w"> </span>BTN_BACK<span class="w"> </span>swap<span class="w"> </span>previous
+</pre></div>
+</div>
+<p>… and by extension back and forward to shuffle across outputs works well:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>riverctl<span class="w"> </span>map-pointer<span class="w"> </span>normal<span class="w"> </span>Super+Shift<span class="w"> </span>BTN_FORWARD<span class="w"> </span>send-to-output<span class="w"> </span>next
+riverctl<span class="w"> </span>map-pointer<span class="w"> </span>normal<span class="w"> </span>Super+Shift<span class="w"> </span>BTN_BACK<span class="w"> </span>send-to-output<span class="w"> </span>previous
+</pre></div>
+</div>
+</section>
+<section id="theming">
+<h2>Theming<a class="headerlink" href="#theming" title="Link to this heading">¶</a></h2>
+<p>Use <a class="reference external" href="https://github.com/tanvirtin/monokai.nvim">monokai</a>-pro palette:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>riverctl<span class="w"> </span>background-color<span class="w"> </span>0x1b1d1e
+riverctl<span class="w"> </span>border-color-focused<span class="w"> </span>0xa6e22e
+riverctl<span class="w"> </span>border-color-unfocused<span class="w"> </span>0x75715e
+riverctl<span class="w"> </span>border-color-urgent<span class="w"> </span>0xf92672
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This should <em>really</em> be configured more centrally, but for the time being it
+works.</p>
+</div>
+</section>
+<section id="input-devices">
+<h2>Input devices<a class="headerlink" href="#input-devices" title="Link to this heading">¶</a></h2>
+<p>Wait 300 milliseconds and then repeat keys 50 times per second:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>riverctl<span class="w"> </span>set-repeat<span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="m">300</span>
+</pre></div>
+</div>
+<p>Configure non-standard <a class="reference external" href="https://www.freedesktop.org/wiki/Software/XKeyboardConfig/">options for keyboard</a>:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span><span class="nb">declare</span><span class="w"> </span>-A<span class="w"> </span><span class="nv">_xkb_opts</span><span class="o">=(</span>
+<span class="w">    </span><span class="o">[</span>caps<span class="o">]=</span>escape_shifted_capslock
+<span class="w">    </span><span class="o">[</span>compose<span class="o">]=</span>paus
+<span class="w">    </span><span class="o">[</span>keypad<span class="o">]=</span>future
+<span class="w">    </span><span class="o">[</span>parens<span class="o">]=</span>swap_brackets
+<span class="o">)</span>
+<span class="nv">xkb_opts_full</span><span class="o">=</span><span class="si">${</span><span class="p">(kj:,:)_xkb_opts/(#m)*/</span><span class="nv">$MATCH</span><span class="p">:</span><span class="nv">$_xkb_opts</span><span class="p">[</span><span class="nv">$MATCH</span><span class="p">]</span><span class="si">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The globbing flags used here require <a class="reference internal" href="#extended-glob">extended_glob</a>.</p>
+</div>
+<p>Perhaps those <a class="reference external" href="https://xkcd.com/1806/">obscure keyboard options</a> deserve an explanation:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">escape_shifted_capslock</span></code></p></td>
+<td><p>Make <code class="docutils literal notranslate"><span class="pre">Capslock</span></code> an alternative <code class="docutils literal notranslate"><span class="pre">Escape</span></code> key,
+but keep <code class="docutils literal notranslate"><span class="pre">Capslock</span></code> available with
+<code class="docutils literal notranslate"><span class="pre">Shift+Capslock</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">paus</span></code></p></td>
+<td><p>Use <code class="docutils literal notranslate"><span class="pre">Pause</span></code> as <a class="reference external" href="https://en.wikipedia.org/wiki/Compose_key">compose key</a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">future</span></code></p></td>
+<td><p>Unicode mathematics operators, noting that ASCII
+operators already exist on the main section</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">swap_brackets</span></code></p></td>
+<td><p>Swap square bracket and parenthesis position</p></td>
+</tr>
+</tbody>
+</table>
+<p>Configure a subset without bracket swaps for editing square bracket heavy code:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span><span class="nv">_xkb_opts_toggle</span><span class="o">=(</span>parens<span class="o">)</span>
+<span class="nv">xkb_opts_toggle</span><span class="o">=</span><span class="si">${</span><span class="p">(kj:,:)</span><span class="si">${</span><span class="p">(k)_xkb_opts:|_xkb_opts_toggle</span><span class="si">}</span><span class="p">/(#m)*/</span><span class="nv">$MATCH</span><span class="p">:</span><span class="nv">$_xkb_opts</span><span class="p">[</span><span class="nv">$MATCH</span><span class="p">]</span><span class="si">}</span>
+</pre></div>
+</div>
+<p>Default to <code class="docutils literal notranslate"><span class="pre">swap_brackets</span></code> behaviour:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>riverctl<span class="w"> </span>keyboard-layout<span class="w"> </span>-options<span class="w"> </span><span class="nv">$xkb_opts_full</span><span class="w"> </span>gb
+</pre></div>
+</div>
+<p>Configure host specific touchpad settings:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$HOST</span><span class="w"> </span><span class="o">=</span>~<span class="w"> </span>^<span class="o">(</span>camille<span class="p">|</span>corale<span class="o">)</span>$<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>riverctl<span class="w"> </span>input<span class="w"> </span>pointer-2-14-ETPS/2_Elantech_Touchpad<span class="w"> </span>tap<span class="w"> </span>enabled
+<span class="w">    </span>riverctl<span class="w"> </span>input<span class="w"> </span>pointer-2-14-ETPS/2_Elantech_Touchpad<span class="w"> </span>pointer-accel<span class="w"> </span><span class="m">0</span>.8
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>We’ll declare a mode to wrap our input bindings, mainly as their use is uncommon
+and we won’t lose a lot of keys this way:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>riverctl<span class="w"> </span>declare-mode<span class="w"> </span>input
+riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super<span class="w"> </span>I<span class="w"> </span>enter-mode<span class="w"> </span>input
+riverctl<span class="w"> </span>map<span class="w"> </span>input<span class="w"> </span>None<span class="w"> </span>Escape<span class="w"> </span>enter-mode<span class="w"> </span>normal
+
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$HOST</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>^<span class="o">(</span>camille<span class="p">|</span>corale<span class="o">)</span>$<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>riverctl<span class="w"> </span>map<span class="w"> </span>input<span class="w"> </span>None<span class="w"> </span>T<span class="w"> </span>input<span class="w"> </span>pointer-2-14-ETPS/2_Elantech_Touchpad<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>events<span class="w"> </span>disabled
+<span class="w">    </span>riverctl<span class="w"> </span>map<span class="w"> </span>input<span class="w"> </span>Shift<span class="w"> </span>T<span class="w"> </span>input<span class="w"> </span>pointer-2-14-ETPS/2_Elantech_Touchpad<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>events<span class="w"> </span>enabled
+<span class="o">}</span>
+riverctl<span class="w"> </span>map<span class="w"> </span>input<span class="w"> </span>None<span class="w"> </span>K<span class="w"> </span>spawn<span class="w"> </span><span class="s2">&quot;riverctl keyboard-layout \</span>
+<span class="s2">    -options </span><span class="nv">$xkb_opts_full</span><span class="s2"> gb&quot;</span>
+riverctl<span class="w"> </span>map<span class="w"> </span>input<span class="w"> </span>Shift<span class="w"> </span>K<span class="w"> </span>spawn<span class="w"> </span><span class="s2">&quot;riverctl keyboard-layout \</span>
+<span class="s2">    -options </span><span class="nv">$xkb_opts_toggle</span><span class="s2"> gb&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="window-rules">
+<h2>Window rules<a class="headerlink" href="#window-rules" title="Link to this heading">¶</a></h2>
+<p>Sloppy focus is the <em>only</em> focus model that makes any sense to me:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>riverctl<span class="w"> </span>focus-follows-cursor<span class="w"> </span>normal
+</pre></div>
+</div>
+<p>Allow some rules to be stored outside default init to make it easier to share
+across different machines.  For example, I <em>need</em> conflicting rules for outputs
+depending on location.</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span><span class="o">[[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$0</span>:a:h/local_rules<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span><span class="nv">$0</span>:a:h/local_rules
+</pre></div>
+</div>
+<p>Decades of use at this point means I always like the “second” tag — or workspace
+2 for non-tagging interfaces — to contain a browser by default:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>riverctl<span class="w"> </span>rule-add<span class="w"> </span>-app-id<span class="w"> </span><span class="s2">&quot;chromium&quot;</span><span class="w"> </span>tags<span class="w"> </span><span class="k">$(</span>tag_mask<span class="w"> </span><span class="m">2</span><span class="k">)</span>
+riverctl<span class="w"> </span>rule-add<span class="w"> </span>-app-id<span class="w"> </span><span class="s2">&quot;firefox-esr&quot;</span><span class="w"> </span>tags<span class="w"> </span><span class="k">$(</span>tag_mask<span class="w"> </span><span class="m">2</span><span class="k">)</span>
+</pre></div>
+</div>
+<p>I treat the “third” tag as media zone by default:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>riverctl<span class="w"> </span>rule-add<span class="w"> </span>-app-id<span class="w"> </span><span class="s2">&quot;mpv&quot;</span><span class="w"> </span>tags<span class="w"> </span><span class="k">$(</span>tag_mask<span class="w"> </span><span class="m">3</span><span class="k">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It may make more sense to use a custom application identifier for the
+default apps, so that we can push them to their common tags but keep regular
+instances attached to current tag.</p>
+</div>
+</section>
+<section id="layout">
+<h2>Layout<a class="headerlink" href="#layout" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://github.com/alex-courtis/wideriver">wideriver</a> is the layout engine that is the closest match to the behaviour I’m
+used to with <a class="reference external" href="https://awesomewm.org/">awesomewm</a>, and makes a great default:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>riverctl<span class="w"> </span>default-layout<span class="w"> </span>wideriver
+</pre></div>
+</div>
+<p>We’ll declare a layout mode to make it quicker — and easier on the hands — to
+cycle layout controls when trying to pin down a comfortable setup:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>riverctl<span class="w"> </span>declare-mode<span class="w"> </span>layout
+riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super<span class="w"> </span>L<span class="w"> </span>enter-mode<span class="w"> </span>layout
+riverctl<span class="w"> </span>map<span class="w"> </span>layout<span class="w"> </span>None<span class="w"> </span>Escape<span class="w"> </span>enter-mode<span class="w"> </span>normal
+</pre></div>
+</div>
+<p>Layout format manipulation bindings:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>riverctl<span class="w"> </span>map<span class="w"> </span>layout<span class="w"> </span>None<span class="w"> </span>M<span class="w"> </span>send-layout-cmd<span class="w"> </span>wideriver<span class="w"> </span><span class="s2">&quot;--layout monocle&quot;</span>
+riverctl<span class="w"> </span>map<span class="w"> </span>layout<span class="w"> </span>None<span class="w"> </span>T<span class="w"> </span>send-layout-cmd<span class="w"> </span>wideriver<span class="w"> </span><span class="s2">&quot;--layout left&quot;</span>
+riverctl<span class="w"> </span>map<span class="w"> </span>layout<span class="w"> </span>Shift<span class="w"> </span>T<span class="w"> </span>send-layout-cmd<span class="w"> </span>wideriver<span class="w"> </span><span class="s2">&quot;--layout wide&quot;</span>
+riverctl<span class="w"> </span>map<span class="w"> </span>layout<span class="w"> </span>Control<span class="w"> </span>T<span class="w"> </span>send-layout-cmd<span class="w"> </span>wideriver<span class="w"> </span><span class="s2">&quot;--layout right&quot;</span>
+riverctl<span class="w"> </span>map<span class="w"> </span>layout<span class="w"> </span>None<span class="w"> </span>Space<span class="w"> </span>send-layout-cmd<span class="w"> </span>wideriver<span class="w"> </span><span class="s2">&quot;--layout-toggle&quot;</span>
+</pre></div>
+</div>
+<p>Layout style manipulation bindings:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>riverctl<span class="w"> </span>map<span class="w"> </span>layout<span class="w"> </span>None<span class="w"> </span>E<span class="w"> </span>send-layout-cmd<span class="w"> </span>wideriver<span class="w"> </span><span class="s2">&quot;--stack even&quot;</span>
+riverctl<span class="w"> </span>map<span class="w"> </span>layout<span class="w"> </span>None<span class="w"> </span>W<span class="w"> </span>send-layout-cmd<span class="w"> </span>wideriver<span class="w"> </span><span class="s2">&quot;--stack dwindle&quot;</span>
+riverctl<span class="w"> </span>map<span class="w"> </span>layout<span class="w"> </span>None<span class="w"> </span>I<span class="w"> </span>send-layout-cmd<span class="w"> </span>wideriver<span class="w"> </span><span class="s2">&quot;--stack diminish&quot;</span>
+</pre></div>
+</div>
+<p>Main window ratio manipulation bindings:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>riverctl<span class="w"> </span>map<span class="w"> </span>layout<span class="w"> </span>None<span class="w"> </span>Equal<span class="w"> </span>send-layout-cmd<span class="w"> </span>wideriver<span class="w"> </span><span class="s2">&quot;--ratio 0.52&quot;</span>
+riverctl<span class="w"> </span>map<span class="w"> </span>layout<span class="w"> </span>None<span class="w"> </span>H<span class="w"> </span>send-layout-cmd<span class="w"> </span>wideriver<span class="w"> </span><span class="s2">&quot;--ratio +0.05&quot;</span>
+riverctl<span class="w"> </span>map<span class="w"> </span>layout<span class="w"> </span>None<span class="w"> </span>L<span class="w"> </span>send-layout-cmd<span class="w"> </span>wideriver<span class="w"> </span><span class="s2">&quot;--ratio -0.05&quot;</span>
+</pre></div>
+</div>
+<p>Bindings to adjust the number of windows in main stack:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>riverctl<span class="w"> </span>map<span class="w"> </span>layout<span class="w"> </span>Shift<span class="w"> </span>Equal<span class="w"> </span>send-layout-cmd<span class="w"> </span>wideriver<span class="w"> </span><span class="s2">&quot;--count 1&quot;</span>
+riverctl<span class="w"> </span>map<span class="w"> </span>layout<span class="w"> </span>Shift<span class="w"> </span>H<span class="w"> </span>send-layout-cmd<span class="w"> </span>wideriver<span class="w"> </span><span class="s2">&quot;--count +1&quot;</span>
+riverctl<span class="w"> </span>map<span class="w"> </span>layout<span class="w"> </span>Shift<span class="w"> </span>L<span class="w"> </span>send-layout-cmd<span class="w"> </span>wideriver<span class="w"> </span><span class="s2">&quot;--count -1&quot;</span>
+</pre></div>
+</div>
+<p>Add top level bindings for monocle and tile-left, as they’re my most common
+layouts that I want quick access to:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super<span class="w"> </span>M<span class="w"> </span>send-layout-cmd<span class="w"> </span>wideriver<span class="w"> </span><span class="s2">&quot;--layout monocle&quot;</span>
+riverctl<span class="w"> </span>map<span class="w"> </span>normal<span class="w"> </span>Super<span class="w"> </span>T<span class="w"> </span>send-layout-cmd<span class="w"> </span>wideriver<span class="w"> </span><span class="s2">&quot;--layout left&quot;</span>
+</pre></div>
+</div>
+<p>Configure initial per-tag layouts:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>n<span class="w"> </span><span class="o">({</span><span class="m">2</span>..32..2<span class="o">})</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>riverctl<span class="w"> </span>set-focused-tags<span class="w"> </span><span class="k">$(</span>tag_mask<span class="w"> </span><span class="nv">$n</span><span class="k">)</span>
+<span class="w">    </span>riverctl<span class="w"> </span>send-layout-cmd<span class="w"> </span>wideriver<span class="w"> </span><span class="s2">&quot;--layout monocle&quot;</span>
+<span class="o">}</span>
+riverctl<span class="w"> </span>set-focused-tags<span class="w"> </span><span class="k">$(</span>tag_mask<span class="w"> </span><span class="m">1</span><span class="k">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This reflects — what is at this point — my <em>decades</em> old tradition of
+defaulting to fullscreen on even tags.  It doesn’t really make sense, but
+I’m quite accustomed to it.</p>
+</div>
+</section>
+<section id="finalising">
+<h2>Finalising<a class="headerlink" href="#finalising" title="Link to this heading">¶</a></h2>
+<p>Allow a private machine specific configuration to be loaded:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span><span class="o">[[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$0</span>:a:h/local_init<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span><span class="nv">$0</span>:a:h/local_init
+</pre></div>
+</div>
+<p>Show <code class="docutils literal notranslate"><span class="pre">sandbar</span></code>:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span>all<span class="w"> </span>show<span class="w"> </span>&gt;&gt;<span class="nv">$sandbar_pipe</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">sandbar</span></code> is spawned hidden to allow us to issue per-tag layout changes or
+launch default applications without all the bar flashes that would result.</p>
+</div>
+<p class="rubric">Footnotes</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="s1" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>I’ve added some largely uninteresting local changes from
+v0.3.0-39-gccd676e, but mostly it is because there is no timeline for
+<a class="reference external" href="https://gitlab.freedesktop.org/wlroots/wlroots/">wlroots</a> v0.18 hitting my installations.</p>
+</aside>
+<aside class="footnote brackets" id="s2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id3">2</a>)</span>
+<p>Beyond packaging changes there are only light hacks to use <a class="reference external" href="https://www.nerdfonts.com/">Nerd
+Fonts</a> for icons.</p>
+</aside>
+</aside>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="software.html" class="btn btn-neutral float-left" title="Software" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="todo.html" class="btn btn-neutral float-right" title="Todo items for project" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024  James Rowe.
+      <span class="lastupdated">Last updated on 2024-09-05 [eccf735].
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

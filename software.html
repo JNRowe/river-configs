@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Software &mdash; river-configs 2024-09-05 [eccf735] documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=86f27845" />
+
+  
+  
+        <script src="_static/documentation_options.js?v=66980b8e"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Config time" href="init.html" />
+    <link rel="prev" title="river-configs" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            river-configs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="init.html">Config time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">Todo items for project</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">river-configs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Software</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="software">
+<h1>Software<a class="headerlink" href="#software" title="Link to this heading">¶</a></h1>
+<section id="river-replacing-awesomewm-dwm">
+<h2><code class="docutils literal notranslate"><span class="pre">river</span></code> (replacing <code class="docutils literal notranslate"><span class="pre">awesomewm</span></code>/<code class="docutils literal notranslate"><span class="pre">dwm</span></code>)<a class="headerlink" href="#river-replacing-awesomewm-dwm" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://codeberg.org/river/river">river</a> is definitely the only choice I’m comfortable with right now.  The other
+tiling managers are either a little raw(<a class="reference external" href="https://codeberg.org/dwl/dwl.git">dwl</a>) or very weak(<a class="reference external" href="https://github.com/swaywm/sway/">sway</a>).  If the setup
+changes it will be toward <code class="docutils literal notranslate"><span class="pre">dwl</span></code> or something that more closely resembles
+<a class="reference external" href="https://awesomewm.org/">awesomewm</a>.</p>
+<p>What I want:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Reason</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>tags</p></td>
+<td><p>Workspaces are an anaemic stub of a feature when you’re used to tags</p></td>
+</tr>
+<tr class="row-odd"><td><p>dynamic</p></td>
+<td><p>If I wanted to manage windows by hand I wouldn’t use a tiling manager</p></td>
+</tr>
+<tr class="row-even"><td><p>layouts</p></td>
+<td><p>Some tags should be tiled in fancy patterns, some should be monocle</p></td>
+</tr>
+<tr class="row-odd"><td><p>…</p></td>
+<td><p>&lt;things I depend on but haven’t noticed yet&gt;</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference external" href="https://github.com/alex-courtis/wideriver">wideriver</a> is a great layout engine, providing the main layouts I rely on.
+I may well end up changing to one of the scriptable replacements at some point
+though, both <a class="reference external" href="https://github.com/MaxVerevkin/river-luatile">river-luatile</a> and <a class="reference external" href="https://git.sr.ht/~leon_plickat/riverguile">riverguile</a> look enticing.</p>
+<p>The main thing I’m missing right now is per-tag default layouts, but you can
+work around that by issuing a heap of commands at startup(before any views are
+created to prevent flicker).</p>
+<section id="other-candidates">
+<h3>Other candidates<a class="headerlink" href="#other-candidates" title="Link to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">dwl</span></code> is close to perfect as a <a class="reference external" href="http://dwm.suckless.org/">dwm</a> replacement, but there a few rough edges
+that need ironing out.  I’d recommend it to others who want a <code class="docutils literal notranslate"><span class="pre">dwm</span></code>
+experience.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sway</span></code> is popular with lots of support, but fails on every count for me.  Its
+workspace implementation is ferociously under-featured.  Its layout splitting
+feels like a chore.  Custom layouts require endless scripting after making
+everything float.  Even seemingly simple things like window switching across
+branches tends toward drudgery requiring heaps of code, you’ll even need to
+implement locking to make sure keys aren’t swallowed if you execute commands
+quickly.</p>
+<p><a class="reference external" href="https://wayfire.org/">wayfire</a> is very visually attractive and offers some basic tiling support.  If
+you’re comfortable with <code class="docutils literal notranslate"><span class="pre">sway</span></code> then it is probably an excellent choice for a
+more visually appealing desktop.  I do plan to keep an eye on it to see whether
+tiling extension becomes more featureful.</p>
+<p><a class="reference external" href="https://github.com/inclement/vivarium">vivarium</a> feels very promising.  It features most of the layouts I’ve become
+accustomed to, but its stability wasn’t great for me.</p>
+</section>
+</section>
+<section id="foot-replacing-alacritty">
+<h2><code class="docutils literal notranslate"><span class="pre">foot</span></code> (replacing <code class="docutils literal notranslate"><span class="pre">alacritty</span></code>)<a class="headerlink" href="#foot-replacing-alacritty" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://codeberg.org/dnkl/foot">foot</a> is amazing.  If I’d known it was available before it may have been the
+catalyst for me to move to Wayland before now.  Something <em>unimaginably amazing</em>
+would have to arrive for this not to be the choice going forward.</p>
+<p>I do miss ligatures, but not as much as I miss the clever prompt navigation or
+output control when using other terminals.  Using a ligature supporting <a class="reference external" href="https://neovim.io/">neovim</a>
+frontend <em>might</em> be a reasonable compromise, as I only make significant use of
+ligatures in editing sessions.</p>
+</section>
+<section id="sandbar-replacing-built-in-awesomewm-dwm-functionality">
+<h2><code class="docutils literal notranslate"><span class="pre">sandbar</span></code> (replacing built-in <code class="docutils literal notranslate"><span class="pre">awesomewm</span></code>/<code class="docutils literal notranslate"><span class="pre">dwm</span></code> functionality)<a class="headerlink" href="#sandbar-replacing-built-in-awesomewm-dwm-functionality" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://github.com/kolunmi/sandbar">sandbar</a> does pretty much exactly what I want from a bar.  I’m going to miss how
+integrated the <code class="docutils literal notranslate"><span class="pre">wibox</span></code> is in <code class="docutils literal notranslate"><span class="pre">awesomewm</span></code>, but I’m comfortable enough making
+the widgets I <em>really</em> care about work with <code class="docutils literal notranslate"><span class="pre">sandbar</span></code>.</p>
+</section>
+<section id="wob-replacing-dzen2">
+<h2><code class="docutils literal notranslate"><span class="pre">wob</span></code> (replacing <code class="docutils literal notranslate"><span class="pre">dzen2</span></code>)<a class="headerlink" href="#wob-replacing-dzen2" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://github.com/francma/wob">wob</a> is simple little progress bar tool, that can replace a fair chunk of my
+<a class="reference external" href="https://github.com/robm/dzen">dzen2</a> usage.  It isn’t featureful enough <em>by design</em> to be a full replacement,
+but it remains to be seen how much I’ll miss the hover popups or context hints
+that come with accompanying text.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="river-configs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="init.html" class="btn btn-neutral float-right" title="Config time" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024  James Rowe.
+      <span class="lastupdated">Last updated on 2024-09-05 [eccf735].
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
