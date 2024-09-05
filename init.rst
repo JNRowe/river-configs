@@ -7,7 +7,7 @@ Config time
 
         The `generated HTML`_ will likely be a better reading experience.
 
-My river_ configuration is created by extracting the code blocks from within
+My |river| configuration is created by extracting the code blocks from within
 this file. It sounds *far* more complex than it needs to be, but it fits in to
 an elaborate ninja_ configuration that I use to generate my home directories.
 The advantage *to me* is that I can mix-and-match software versions on different
@@ -27,7 +27,7 @@ Software versions
 Package     Version
 ==========  =========================
 foot_       1.17.2
-river_      v0.3.0-39-gccd676e [#s1]_
+|river|     v0.3.0-39-gccd676e [#s1]_
 sandbar_    v0.1-13-gaa3f203 [#s2]_
 swaybg_     1.1.1
 swayidle_   1.8.0
@@ -567,7 +567,6 @@ Show ``sandbar``::
          Fonts`_ for icons.
 
 .. _generated HTML: https://jnrowe.github.io/river-configs/
-.. _river: https://codeberg.org/river/river
 .. _ninja: https://ninja-build.org/
 .. _vim: https://www.vim.org/
 .. _foot: https://codeberg.org/dnkl/foot

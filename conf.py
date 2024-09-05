@@ -10,7 +10,13 @@ import sphinx_rtd_theme
 on_github = "GITHUB_ACTIONS" in os.environ
 
 # General configuration {{{
-extensions: [str] = ["sphinx.ext.ifconfig", ]
+extensions: [str] = [
+    "sphinx.ext.ifconfig",
+]
+
+rst_epilog = """
+.. |river| replace:: `river <https://codeberg.org/river/river>`__
+"""
 
 needs_sphinx = "4.3"
 
