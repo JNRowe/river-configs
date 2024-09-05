@@ -4,7 +4,7 @@ Software
 ``river`` (replacing ``awesomewm``/``dwm``)
 -------------------------------------------
 
-river_ is definitely the only choice I’m comfortable with right now.  The other
+|river| is definitely the only choice I’m comfortable with right now.  The other
 tiling managers are either a little raw(dwl_) or very weak(sway_).  If the setup
 changes it will be toward ``dwl`` or something that more closely resembles
 awesomewm_.
@@ -78,7 +78,6 @@ dzen2_ usage.  It isn’t featureful enough *by design* to be a full replacement
 but it remains to be seen how much I’ll miss the hover popups or context hints
 that come with accompanying text.
 
-.. _river: https://codeberg.org/river/river
 .. _dwl: https://codeberg.org/dwl/dwl.git
 .. _sway: https://github.com/swaywm/sway/
 .. _awesomewm: https://awesomewm.org/
