@@ -64,6 +64,8 @@ else:
 
 release = html_last_updated_fmt
 version = ""
+
+trim_footnote_reference_space = True
 # }}}
 
 # Options for HTML output {{{
