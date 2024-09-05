@@ -92,3 +92,16 @@ that come with accompanying text.
 .. _sandbar: https://github.com/kolunmi/sandbar
 .. _wob: https://github.com/francma/wob
 .. _dzen2: https://github.com/robm/dzen
+
+.. spelling:word-list::
+
+    Wayland
+    Workspaces
+    aren
+    featureful
+    frontend
+    isn
+    scriptable
+    ve
+    wasn
+    wouldn
