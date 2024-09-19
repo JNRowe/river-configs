@@ -29,7 +29,6 @@ Package     Version
 foot_       1.17.2
 |river|     v0.3.0-39-gccd676e [#s1]_
 sandbar_    v0.1-13-gaa3f203 [#s2]_
-swaybg_     1.1.1
 swayidle_   1.8.0
 wideriver_  1.2.0-2-g6a11a25 [#s2]_
 wob_        0.14.2
@@ -154,10 +153,6 @@ don’t need to implement your own hot reloading for your status script.
 The interesting thing to notice below is that I use instances keyed off of
 ``WAYLAND_DISPLAY`` so that it is possible to run multiple sessions, which comes
 in handy for testing as you can simply start a new nested session.
-
-Start swaybg_::
-
-    systemctl --user start swaybg@$WAYLAND_DISPLAY
 
 Start foot_ server::
 
@@ -571,7 +566,6 @@ Show ``sandbar``::
 .. _vim: https://www.vim.org/
 .. _foot: https://codeberg.org/dnkl/foot
 .. _sandbar: https://github.com/kolunmi/sandbar
-.. _swaybg: https://github.com/swaywm/swaybg
 .. _swayidle: https://github.com/swaywm/swayidle
 .. _wideriver: https://github.com/alex-courtis/wideriver
 .. _wob: https://github.com/francma/wob
