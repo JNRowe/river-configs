@@ -3,7 +3,6 @@
 2024-07-02 Add foot-client +systemd service file p:1
 2024-07-02 Add foot-server +systemd service file p:1
 2024-07-02 Add sandbar +systemd service file p:1
-2024-07-02 Add swaybg +systemd service file p:1
 2024-07-02 Add swayidle +systemd service file p:1
 2024-07-02 Add wideriver +systemd service file p:1
 2024-07-02 Add wob +systemd service file p:1
