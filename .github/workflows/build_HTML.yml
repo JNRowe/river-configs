@@ -33,17 +33,18 @@ jobs:
       # files won't be dropped
       - name: Scrub gh-pages tree
         if: github.ref == 'refs/heads/main'
+        working-directory: _build/html
         run: |
-          cd _build/html
           git ls-files | grep -v .nojekyll | xargs rm
 
       - name: Build
         run: |
-          touch .nojekyll
+          touch _build/html/.nojekyll
           sphinx-build -M html . _build
 
       - name: Commit and push if it changed
         if: github.ref == 'refs/heads/main'
+        working-directory: _build/html
         run: |
           git config user.name "Automated"
           git config user.email "actions@users.noreply.github.com"
