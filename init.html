@@ -4,13 +4,13 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Config time &mdash; river-configs 2024-09-05 [eccf735] documentation</title>
+  <title>Config time &mdash; river-configs 2024-11-26 [6870d89] documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=86f27845" />
 
   
   
-        <script src="_static/documentation_options.js?v=66980b8e"></script>
+        <script src="_static/documentation_options.js?v=3ae45991"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -100,16 +100,13 @@ to navigate back to the source in this file.  For example, in <a class="referenc
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/kolunmi/sandbar">sandbar</a></p></td>
 <td><p>v0.1-13-gaa3f203<a class="footnote-reference brackets" href="#s2" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/swaywm/swaybg">swaybg</a></p></td>
-<td><p>1.1.1</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://github.com/swaywm/swayidle">swayidle</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/swaywm/swayidle">swayidle</a></p></td>
 <td><p>1.8.0</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/alex-courtis/wideriver">wideriver</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/alex-courtis/wideriver">wideriver</a></p></td>
 <td><p>1.2.0-2-g6a11a25<a class="footnote-reference brackets" href="#s2" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://github.com/francma/wob">wob</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/francma/wob">wob</a></p></td>
 <td><p>0.14.2</p></td>
 </tr>
 </tbody>
@@ -225,10 +222,6 @@ don’t need to implement your own hot reloading for your status script.</p>
 <p>The interesting thing to notice below is that I use instances keyed off of
 <code class="docutils literal notranslate"><span class="pre">WAYLAND_DISPLAY</span></code> so that it is possible to run multiple sessions, which comes
 in handy for testing as you can simply start a new nested session.</p>
-<p>Start <a class="reference external" href="https://github.com/swaywm/swaybg">swaybg</a>:</p>
-<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span>--user<span class="w"> </span>start<span class="w"> </span>swaybg@<span class="nv">$WAYLAND_DISPLAY</span>
-</pre></div>
-</div>
 <p>Start <a class="reference external" href="https://codeberg.org/dnkl/foot">foot</a> server:</p>
 <div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span>--user<span class="w"> </span>start<span class="w"> </span>foot-server@<span class="nv">$WAYLAND_DISPLAY</span>.socket
 </pre></div>
@@ -664,7 +657,7 @@ Fonts</a> for icons.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2024  James Rowe.
-      <span class="lastupdated">Last updated on 2024-09-05 [eccf735].
+      <span class="lastupdated">Last updated on 2024-11-26 [6870d89].
       </span></p>
   </div>
 
