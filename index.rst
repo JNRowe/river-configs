@@ -19,6 +19,11 @@ running quickly, without breaking my workflow too much.  I haven’t decided on 
 lot of things yet, so don’t expect this to work for you *or* remain as-is for
 long.
 
+*Update from 2024-11-26*: I’ve been using ``river`` in this configuration since
+July as my main environment, and it has been great!  There are few changes I
+need to merge back in to this *public* repository, and a few things I need to
+flesh out so that they’ll make sense when I come back to them.
+
 Contents
 --------
 
