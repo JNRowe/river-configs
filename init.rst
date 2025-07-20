@@ -27,11 +27,11 @@ Software versions
 Package             Version
 ==================  ===========================
 foot_               1.17.2
-|river|             v0.3.0-39-gccd676e [#s1]_
+|river|             0.3.0+git39~gccd676e [#s1]_
 river-tag-overlay_  1.0.0
-sandbar_            v0.1-13-gaa3f203 [#s2]_
+sandbar_            0.1+git13~gaa3f203 [#s2]_
 swayidle_           1.8.0
-wideriver_          1.2.0-2-g6a11a25 [#s2]_
+wideriver_          1.2.0+git2~g6a11a25 [#s2]_
 wob_                0.14.2
 ==================  ===========================
 
