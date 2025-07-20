@@ -18,6 +18,7 @@ parse() {
     local _RST2HTML_recursing=${_RST2HTML_recursing:-0}
     (( $_RST2HTML_recursing )) || : >| $output
     integer in_block=0 line_nr=1
+    local indent_prefix=""
     typeset -U includes=()
     local line match mbegin mend
     while IFS='' read -r line; do
@@ -36,7 +37,13 @@ parse() {
         } elif [[ $line =~ '^[^ ]' ]] {
             in_block=0
         } elif (( $in_block )) && [[ -n $line ]] {
-            echo -E "${line[5,-1]}" >> $output
+            if [[ -z $indent_prefix ]] {
+                # Capture the indentation of the first line of the block.
+                [[ $line =~ '^([[:space:]]+)' ]] && indent_prefix=$match[1]
+            }
+
+            # Remove the captured indentation prefix from the line.
+            echo -E "${line#$indent_prefix}" >> $output
         }
     done < $input
     (( $_RST2HTML_recursing )) || echo $includes
