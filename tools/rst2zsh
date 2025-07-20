@@ -17,7 +17,7 @@ parse() {
     local input=$1 output=$2
     local _RST2HTML_recursing=${_RST2HTML_recursing:-0}
     (( $_RST2HTML_recursing )) || : >| $output
-    integer first_block=1 in_block=0 line_nr=1
+    integer in_block=0 line_nr=1
     typeset -U includes=()
     local line match mbegin mend
     while IFS='' read -r line; do
@@ -27,12 +27,11 @@ parse() {
             includes+=(${input:h}/$match)
         } elif [[ $line =~ $start_block ]] {
             in_block=1
-            # Purposefully ignore initial block, so as not to break Interpreter
-            # directives.
-            if (( !first_block || _RST2HTML_recursing )) {
+            indent_prefix="" # Reset indent for the new block
+            # Add source map, but not if we're at the very start of a non-recursive call.
+            # The first line of the output file might be a shebang.
+            if (( _RST2HTML_recursing )) || [[ -s $output ]] {
                 echo "# $input:$line_nr" >> $output
-            } else {
-                first_block=0
             }
         } elif [[ $line =~ '^[^ ]' ]] {
             in_block=0
