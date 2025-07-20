@@ -5,8 +5,6 @@ import os
 from contextlib import suppress
 from subprocess import CalledProcessError, PIPE, run
 
-import sphinx_rtd_theme
-
 on_github = "GITHUB_ACTIONS" in os.environ
 
 # General configuration {{{
@@ -70,9 +68,6 @@ trim_footnote_reference_space = True
 
 # Options for HTML output {{{
 html_theme = "sphinx_rtd_theme"
-html_theme_path: [str] = [
-    sphinx_rtd_theme.get_html_theme_path(),
-]
 
 highlight_language = "zsh"
 
