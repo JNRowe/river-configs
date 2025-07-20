@@ -23,16 +23,17 @@ configurations looks overcomplicated from the outside.
 Software versions
 -----------------
 
-==========  =========================
-Package     Version
-==========  =========================
-foot_       1.17.2
-|river|     v0.3.0-39-gccd676e [#s1]_
-sandbar_    v0.1-13-gaa3f203 [#s2]_
-swayidle_   1.8.0
-wideriver_  1.2.0-2-g6a11a25 [#s2]_
-wob_        0.14.2
-==========  =========================
+==================  ===========================
+Package             Version
+==================  ===========================
+foot_               1.17.2
+|river|             v0.3.0-39-gccd676e [#s1]_
+river-tag-overlay_  1.0.0
+sandbar_            v0.1-13-gaa3f203 [#s2]_
+swayidle_           1.8.0
+wideriver_          1.2.0-2-g6a11a25 [#s2]_
+wob_                0.14.2
+==================  ===========================
 
 .. note::
 
@@ -186,6 +187,10 @@ Start wob_::
 
     We fetch the socket location so that we can use it for a `progress bar
     within this file`_.
+
+Start river-tag-overlay_::
+
+    systemctl --user start river-tag-overlay@$WAYLAND_DISPLAY
 
 Keybindings
 -----------
@@ -565,6 +570,7 @@ Show ``sandbar``::
 .. _ninja: https://ninja-build.org/
 .. _vim: https://www.vim.org/
 .. _foot: https://codeberg.org/dnkl/foot
+.. _river-tag-overlay: https://git.sr.ht/~leon_plickat/river-tag-overlay
 .. _sandbar: https://github.com/kolunmi/sandbar
 .. _swayidle: https://github.com/swaywm/swayidle
 .. _wideriver: https://github.com/alex-courtis/wideriver
