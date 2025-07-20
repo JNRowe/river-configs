@@ -452,6 +452,10 @@ and we won’t lose a lot of keys this way::
 Window rules
 ------------
 
+Allow window tearing if requested by the application::
+
+    riverctl allow-tearing enabled
+
 Sloppy focus is the *only* focus model that makes any sense to me::
 
     riverctl focus-follows-cursor normal
