@@ -115,7 +115,7 @@ Calculate a tag mask given a list of tags::
         }
         echo $r
     }
-    ALL_TAGS=$(tag_mask {1..32})
+    ALL_TAGS=$((2**32 - 1))
 
 Configure environment
 ---------------------
