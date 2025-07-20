@@ -472,7 +472,7 @@ Decades of use at this point means I always like the “second” tag — or wor
 2 for non-tagging interfaces — to contain a browser by default::
 
     riverctl rule-add -app-id "chromium" tags $(tag_mask 2)
-    riverctl rule-add -app-id "firefox-esr" tags $(tag_mask 2)
+    riverctl rule-add -app-id "firefox" tags $(tag_mask 2)
 
 I treat the “third” tag as media zone by default::
 
