@@ -92,6 +92,8 @@ that come with accompanying text.
 .. _sandbar: https://github.com/kolunmi/sandbar
 .. _wob: https://github.com/francma/wob
 .. _dzen2: https://github.com/robm/dzen
+.. _river-tag-overlay: https://git.sr.ht/~leon_plickat/river-tag-overlay
+.. _swayidle: https://github.com/swaywm/swayidle
 
 .. spelling:word-list::
 

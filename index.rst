@@ -1,5 +1,5 @@
-river-configs
-=============
+River Configuration
+===================
 
 .. epigraph::
 
@@ -28,10 +28,25 @@ Contents
 --------
 
 .. toctree::
-    :titlesonly:
+    :maxdepth: 2
 
     software
     init
+    sections/software_versions
+    sections/general_setup
+    sections/utility_functions
+    sections/configure_environment
+    sections/run_background_services
+    sections/keybindings
+    sections/window_management
+    sections/floating_support
+    sections/common_applications
+    sections/mouse_bindings
+    sections/theming
+    sections/input_devices
+    sections/window_rules
+    sections/layout
+    sections/finalising
     todo
 
 .. _drop me a note: mailto:jnrowe@gmail.com
@@ -42,5 +57,4 @@ Contents
 
 .. spelling:word-list::
 
-    configs
     Wayland
