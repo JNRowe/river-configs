@@ -291,7 +291,7 @@ Output bindings::
 Floating support
 ''''''''''''''''
 
-.. code:: zsh
+::
 
     ARROW_KEYS=(Left Down Up Right)
 
@@ -460,7 +460,7 @@ Allow some rules to be stored outside default init to make it easier to share
 across different machines.  For example, I *need* conflicting rules for outputs
 depending on location.
 
-.. code:: zsh
+::
 
     [[ -f $0:a:h/local_rules ]] && source $0:a:h/local_rules
 
