@@ -478,7 +478,7 @@ I treat the “third” tag as media zone by default::
 
     riverctl rule-add -app-id "mpv" tags $(tag_mask 3)
 
-.. note::
+.. todo::
 
     It may make more sense to use a custom application identifier for the
     default apps, so that we can push them to their common tags but keep regular
