@@ -13,11 +13,12 @@ zmodload -F zsh/zutil +b:zparseopts
 #       reST directives
 start_block='^(::|\.\. code:: zsh|[^\. ][^\.].*::)$'
 
+
 parse() {
     local input=$1 output=$2
     local _RST2HTML_recursing=${_RST2HTML_recursing:-0}
     (( $_RST2HTML_recursing )) || : >| $output
-    integer in_block=0 line_nr=1
+    integer in_block=0 in_toctree=0 line_nr=1
     local indent_prefix=""
     typeset -U includes=()
     local line match mbegin mend
@@ -26,16 +27,24 @@ parse() {
         if [[ $line =~ '^.. include:: (.*)' ]] {
             (_RST2HTML_recursing=1 includes+=($(parse ${input:h}/$match $output)))
             includes+=(${input:h}/$match)
+        } elif [[ $line =~ '^.. toctree::' ]] {
+            in_toctree=1
+        } elif (( $in_toctree )) && [[ $line =~ '^[[:space:]]+([^ :].*)' ]] {
+            # Indented line within toctree, extract filename
+            (_RST2HTML_recursing=1 includes+=($(parse ${input:h}/$match[1].rst $output)))
+            includes+=(${input:h}/$match[1].rst)
         } elif [[ $line =~ $start_block ]] {
             in_block=1
+            in_toctree=0
             indent_prefix="" # Reset indent for the new block
             # Add source map, but not if we're at the very start of a non-recursive call.
             # The first line of the output file might be a shebang.
-            if (( _RST2HTML_recursing )) || [[ -s $output ]] {
+            if [[ -s $output ]] {
                 echo "# $input:$line_nr" >> $output
             }
         } elif [[ $line =~ '^[^ ]' ]] {
             in_block=0
+            in_toctree=0
         } elif (( $in_block )) && [[ -n $line ]] {
             if [[ -z $indent_prefix ]] {
                 # Capture the indentation of the first line of the block.
