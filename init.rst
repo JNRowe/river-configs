@@ -433,7 +433,7 @@ and we won’t lose a lot of keys this way::
     riverctl map normal Super I enter-mode input
     riverctl map input None Escape enter-mode normal
 
-    if [[ $HOST == ^(camille|corale)$ ]] {
+    if [[ $HOST =~ ^(camille|corale)$ ]] {
         riverctl map input None T input pointer-2-14-ETPS/2_Elantech_Touchpad \
             events disabled
         riverctl map input Shift T input pointer-2-14-ETPS/2_Elantech_Touchpad \
