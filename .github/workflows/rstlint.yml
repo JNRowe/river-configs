@@ -1,20 +1,30 @@
-on: ['pull_request', 'push']
+on: [pull_request, push]
 
 name: Lint reStructuredText files
 
+permissions:
+  contents: read
+
 jobs:
-  default_build:
-    name: build
-    runs-on: ubuntu-24.04
-
+  lint:
+    name: Run Sphinx dummy build
+    runs-on: ubuntu-latest
     steps:
-      - name: Install Debian dependencies
-        run: |
-          sudo apt install python3-restructuredtext-lint
-
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Set up Python and cache dependencies
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements-lint.txt
 
       - name: Run linter
         run: |
           rst-lint README.rst
+
+      - name: Run Sphinx dummy build to check for errors
+        run: sphinx-build -b dummy . _build/dummy

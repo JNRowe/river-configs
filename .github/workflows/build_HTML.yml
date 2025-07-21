@@ -1,55 +1,50 @@
-on:
-  pull_request:
-  push:
-    branches:
-      - main
+on: [pull_request, push]
 
 name: Generate and deploy HTML
 
+permissions:
+  contents: read
+
 jobs:
-  default_build:
-    name: build
-    runs-on: ubuntu-24.04
-    permissions:
-      contents: write
-
+  build:
+    name: Build HTML
+    runs-on: ubuntu-latest
     steps:
-      - name: Install Debian dependencies
-        run: |
-          sudo apt install python3-sphinx python3-sphinx-rtd-theme python3-sphinxcontrib.spelling
-
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Checkout gh-pages branch
-        if: github.ref == 'refs/heads/main'
-        uses: actions/checkout@v4
+      - name: Set up Python and cache dependencies
+        uses: actions/setup-python@v5
         with:
-          ref: gh-pages
-          path: _build/html
+          python-version: "3.13"
+          cache: "pip"
 
-      # This shouldn't be necessary, but actions/checkout doesn't have
-      # --no-checkout support.  If we don't manually scrub the tree obsolete
-      # files won't be dropped
-      - name: Scrub gh-pages tree
-        if: github.ref == 'refs/heads/main'
-        working-directory: _build/html
-        run: |
-          git ls-files | grep -v .nojekyll | xargs rm
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
-      - name: Build
+      - name: Build HTML with Sphinx
         run: |
-          touch _build/html/.nojekyll
           sphinx-build -M html . _build
 
-      - name: Commit and push if it changed
-        if: github.ref == 'refs/heads/main'
-        working-directory: _build/html
-        run: |
-          git config user.name "Automated"
-          git config user.email "actions@users.noreply.github.com"
-          git add --all
-          git commit \
-            --message "Regenerated on $(git rev-parse --short $GITHUB_SHA)" \
-            || exit 0
-          git push
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _build/html
+
+  deploy:
+    name: Deploy to GitHub Pages
+    permissions:
+      pages: write
+      id-token: write
+
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    # The deployment environment must be configured in repository settings
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
