@@ -1,0 +1,31 @@
+on: [pull_request, push]
+
+name: Check spelling
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Run Sphinx spelling build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python and cache dependencies
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          sudo apt install enchant-2 hunspell-en-gb
+          pip install -r requirements.txt
+
+      - name: Run Sphinx spelling build
+        # Use --quiet as in this job we only need spelling results, not generic
+        # Sphinx output that would be seen in HTML jobs.
+        run: |
+          sphinx-build --quiet -b spelling . _build/spelling
