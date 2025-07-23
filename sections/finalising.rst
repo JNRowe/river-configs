@@ -14,6 +14,10 @@ Show ``sandbar``::
     ``sandbar`` is spawned hidden to allow us to issue per-tag layout changes or
     launch default applications without all the bar flashes that would result.
 
+Wait for any background jobs to complete::
+
+    wait
+
 .. _normal_exit:
 
 Exit without triggering :ref`error exit notification <exit_trap>`::
