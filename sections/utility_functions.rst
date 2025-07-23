@@ -58,4 +58,6 @@ Calculate a tag mask given a list of tags::
 
 .. spelling:word-list::
 
+    doesn
+    isn
     smoketest
