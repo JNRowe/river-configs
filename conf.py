@@ -56,7 +56,7 @@ if on_github:
             ],
             stdout=PIPE,
         )
-        html_last_updated_fmt = proc.stdout.decode()
+        html_last_updated_fmt = proc.stdout.decode().strip()
 else:
     # Use a static updated time to limit rebuilds for faster commit hooks
     html_last_updated_fmt = "[local build]"
