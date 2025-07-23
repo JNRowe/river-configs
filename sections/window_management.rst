@@ -22,7 +22,3 @@ Output bindings::
 
     riverctl map normal Super+Shift Page_up send-to-output next
     riverctl map normal Super+Shift Page_down send-to-output previous
-
-.. spelling:word-list::
-
-    fullscreen

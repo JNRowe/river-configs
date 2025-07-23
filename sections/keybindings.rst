@@ -74,4 +74,5 @@ Show all, which you can treat it like a weak Apple’s Exposé::
 .. spelling:word-list::
 
     Exposé
+    Keybindings
     Passthrough
