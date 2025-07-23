@@ -39,7 +39,8 @@ exclude_patterns: list[str] = [
 
 # Project information {{{
 project = "river-configs"
-copyright = "2024  James Rowe"  # NOQA: A001
+author = "James Rowe"
+copyright = f"2024-2025  {author}"
 
 if on_github:
     with suppress(CalledProcessError):
