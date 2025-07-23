@@ -24,6 +24,27 @@ configurations looks overcomplicated from the outside.
 .. _ninja: https://ninja-build.org/
 .. _vim: https://www.vim.org/
 
+Contents
+--------
+
+.. toctree::
+
+    sections/software_versions
+    sections/general_setup
+    sections/utility_functions
+    sections/configure_environment
+    sections/run_background_services
+    sections/keybindings
+    sections/window_management
+    sections/floating_support
+    sections/common_applications
+    sections/mouse_bindings
+    sections/theming
+    sections/input_devices
+    sections/window_rules
+    sections/layout
+    sections/finalising
+
 .. spelling:word-list::
 
     Config
