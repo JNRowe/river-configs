@@ -44,4 +44,24 @@ Configure an exit handler to display a notification if this script doesn’t
         print -u2 "Warning: Unable to configure visual error notification"
     }
 
+.. _background_fade:
+
+Attempt to fade_ background from river default to my :doc:`preferred
+colourscheme <theming>`::
+
+    () {
+        setopt local_options no_xtrace
+        if (( $+commands[pastel] )) {
+            local steps=($(pastel gradient --number 20 'rgb(0,43,54)' 'rgb(27,29,30)' |
+                pastel format hex))
+            local colour
+            for colour (${steps/\#/0x}) {
+                riverctl background-color $colour
+                zselect -t 10 || :
+            }
+        }
+    } &
+
 .. _zsh: https://www.zsh.org/
+.. _fade: https://github.com/sharkdp/pastel
+
