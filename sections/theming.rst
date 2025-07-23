@@ -1,9 +1,10 @@
 Theming
 -------
 
-Use monokai_-pro palette::
+Use monokai_-pro palette while honouring :ref:`fade-in <background_fade>` if in
+effect::
 
-    riverctl background-color 0x1b1d1e
+    (( $+commands[pastel] )) || riverctl background-color 0x1b1d1e
     riverctl border-color-focused 0xa6e22e
     riverctl border-color-unfocused 0x75715e
     riverctl border-color-urgent 0xf92672
