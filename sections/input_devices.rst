@@ -74,7 +74,5 @@ and we won’t lose a lot of keys this way::
 
 .. spelling:word-list::
 
-    escape_shifted_capslock
-    paus
-    swap_brackets
+    globbing
     touchpad

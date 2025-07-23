@@ -103,6 +103,7 @@ that come with accompanying text.
     featureful
     frontend
     isn
+    popups
     scriptable
     ve
     wasn

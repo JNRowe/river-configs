@@ -48,5 +48,4 @@ Contents
 .. spelling:word-list::
 
     Config
-    ninja
     overcomplicated
