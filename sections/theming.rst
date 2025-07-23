@@ -9,10 +9,10 @@ effect::
     riverctl border-color-unfocused 0x75715e
     riverctl border-color-urgent 0xf92672
 
-.. note::
+.. todo::
 
-    This should *really* be configured more centrally, but for the time being it
-    works.
+    Theme definitions should *really* be configured more centrally, but for the
+    time being it works.
 
 .. _monokai: https://github.com/tanvirtin/monokai.nvim
 
