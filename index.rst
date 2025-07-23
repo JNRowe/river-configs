@@ -43,5 +43,6 @@ Contents
 .. spelling:word-list::
 
     Wayland
+    ve
 
 .. _river: https://codeberg.org/river/river

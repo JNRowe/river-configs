@@ -39,9 +39,4 @@ wob_                0.14.2
 
 .. spelling:word-list::
 
-    river-tag-overlay
-    sandbar
-    swayidle
-    wideriver
-    wob
-    wlroots
+    ve

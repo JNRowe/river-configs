@@ -61,3 +61,8 @@ Configure initial per-tag layouts::
 
 .. _wideriver: https://github.com/alex-courtis/wideriver
 .. _awesomewm: https://awesomewm.org/
+
+.. spelling:word-list::
+
+    doesn
+    fullscreen
