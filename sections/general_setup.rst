@@ -63,3 +63,6 @@ Attempt to fade_ background from river default to my :doc:`preferred colourschem
 .. _zsh: https://www.zsh.org/
 .. _fade: https://github.com/sharkdp/pastel
 
+.. spelling:word-list::
+
+    doesn

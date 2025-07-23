@@ -40,3 +40,7 @@ Basic resizing bindings::
         riverctl map normal Super+Alt+Shift $key resize $dir $delta
         riverctl map float Shift $key resize $dir $delta
     }
+
+.. spelling:word-list::
+
+    aren
