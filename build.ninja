@@ -7,5 +7,5 @@ rule rst2zsh
   deps = gcc
 
 build README.html: rst2html README.rst
-build init: rst2zsh index.rst
+build init: rst2zsh init.rst
 default init
