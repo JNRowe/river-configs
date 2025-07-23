@@ -14,7 +14,7 @@ Declare floating mode::
 .. note::
 
     We declare a full mode here to make large scale changes to windows easier to
-    accomplish.  For quick changes all the modifiers aren’t a problem, but big
+    accomplish.  For quick changes all the modifiers aren't a problem, but big
     changes are easier in the dedicated mode.
 
 Basic movement bindings::
@@ -40,7 +40,3 @@ Basic resizing bindings::
         riverctl map normal Super+Alt+Shift $key resize $dir $delta
         riverctl map float Shift $key resize $dir $delta
     }
-
-.. spelling:word-list::
-
-    aren
