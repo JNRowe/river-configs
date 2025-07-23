@@ -1,7 +1,7 @@
 Mouse bindings
 --------------
 
-Configure “standard” mouse bindings::
+Configure "standard" mouse bindings::
 
     riverctl map-pointer normal Super BTN_LEFT move-view
     riverctl map-pointer normal Super BTN_RIGHT resize-view

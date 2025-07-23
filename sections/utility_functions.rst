@@ -32,14 +32,14 @@ file::
     }
     add-zsh-hook preexec _progress
 
-While startup is fast enough that a progress marker isn’t necessary, I find it
+While startup is fast enough that a progress marker isn't necessary, I find it
 quite useful as a smoketest that quickly highlights an error in the
-configuration if the progress bar doesn’t reach the end.  Also, I’ll be honest,
+configuration if the progress bar doesn't reach the end.  Also, I'll be honest,
 it felt like a fun hack.
 
 .. note::
 
-    This doesn’t strictly require :ref:`add_zsh_hook <add_zsh_hook>`, but I
+    This doesn't strictly require :ref:`add_zsh_hook <add_zsh_hook>`, but I
     prefer the interface offered by it over simply setting the hook by hand.
 
 Calculate a tag mask given a list of tags::
@@ -58,6 +58,4 @@ Calculate a tag mask given a list of tags::
 
 .. spelling:word-list::
 
-    doesn
-    isn
     smoketest
