@@ -32,3 +32,9 @@ I treat the “third” tag as media zone by default::
     It may make more sense to use a custom application identifier for the
     default apps, so that we can push them to their common tags but keep regular
     instances attached to current tag.
+
+.. spelling:word-list::
+
+   Todo
+   init
+   todo

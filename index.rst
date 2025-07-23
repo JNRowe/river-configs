@@ -43,3 +43,4 @@ Contents
 .. spelling:word-list::
 
     Wayland
+    ve
