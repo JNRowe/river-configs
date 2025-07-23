@@ -32,4 +32,16 @@ We’ll need ``zselect`` to allow us perform :manpage:`sleep(1)` without forks::
 
     autoload -Uz add-zsh-hook
 
+.. _exit_trap:
+
+Configure an exit handler to display a notification if this script doesn’t
+:ref:`exit cleanly <normal_exit>`::
+
+    notify_cmd=${commands[fyi]:-$commands[notify-send]}
+    if [[ -n $notify_cmd ]] {
+        trap $notify_cmd' --app-name river --urgency critical --icon=error "River: Unexpected exit in init" "Around line $LINENO"' EXIT
+    } else {
+        print -u2 "Warning: Unable to configure visual error notification"
+    }
+
 .. _zsh: https://www.zsh.org/
