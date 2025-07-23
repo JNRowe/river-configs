@@ -22,6 +22,10 @@ We’ll want stricter defaults out of the box::
 
     setopt extended_glob
 
+We’ll need ``zselect`` to allow us perform :manpage:`sleep(1)` without forks::
+
+    zmodload -F zsh/zselect b:zselect
+
 .. _add_zsh_hook:
 
 ``autoload`` functions we’ll need later::
