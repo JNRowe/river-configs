@@ -4,8 +4,17 @@ Utility functions
 Fetch socket path for systemd_ ``.socket`` units::
 
     find_socket() {
-        systemctl --user show $1@$WAYLAND_DISPLAY.socket --property=Listen |
-            sed 's,.*=\(.*\) .*,\1,'
+        local listen
+        for _ ({1..10}) {
+            listen=$(systemctl --user show $1@$WAYLAND_DISPLAY.socket --property=Listen 2>/dev/null)
+            if [[ -n $listen && $listen != Listen= ]] {
+                echo ${${listen#*=}%% *}
+                return
+            }
+            zselect -t 10 || :
+        }
+        print -u2 "Could not find socket for ‘$1’ after 1s"
+        return 1
     }
 
 .. _progress_bar:

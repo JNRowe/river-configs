@@ -65,6 +65,8 @@ release = html_last_updated_fmt
 version = ""
 
 trim_footnote_reference_space = True
+
+manpages_url = "https://manpages.debian.org/{path}"
 # }}}
 
 # Options for HTML output {{{
