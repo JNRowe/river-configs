@@ -78,6 +78,7 @@ html_copy_source = False
 # }}}
 
 # spelling extension settings {{{
+spelling_exclude_patterns = ["todo.rst"]
 spelling_ignore_acronyms = False
 spelling_lang = "en_GB"
 spelling_ignore_python_builtins = False
