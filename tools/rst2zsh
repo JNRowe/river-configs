@@ -20,20 +20,20 @@ parse() {
     (( $_RST2HTML_recursing )) || : >| $output
     integer in_block=0 in_toctree=0 line_nr=1
     local indent_prefix=""
-    typeset -U includes=()
     local line match mbegin mend
     while IFS='' read -r line; do
         (( line_nr++ ))
         if [[ $line =~ '^.. include:: (.*)' ]] {
-            (_RST2HTML_recursing=1 includes+=($(parse ${input:h}/$match $output)))
             includes+=(${input:h}/$match)
+            _RST2HTML_recursing=1 parse ${input:h}/$match $output
         } elif [[ $line =~ '^.. toctree::' ]] {
             in_toctree=1
         } elif (( $in_toctree )) && [[ $line =~ '^[[:space:]]+([^ :].*)' ]] {
             # Indented line within toctree, extract filename
-            (_RST2HTML_recursing=1 includes+=($(parse ${input:h}/$match[1].rst $output)))
             includes+=(${input:h}/$match[1].rst)
+            _RST2HTML_recursing=1 parse ${input:h}/$match[1].rst $output
         } elif [[ $line =~ $start_block ]] {
+            (( ++block_count))
             in_block=1
             in_toctree=0
             indent_prefix="" # Reset indent for the new block
@@ -55,7 +55,13 @@ parse() {
             echo -E "${line#$indent_prefix}" >> $output
         }
     done < $input
-    (( $_RST2HTML_recursing )) || echo $includes
+    if ! (( $_RST2HTML_recursing )) {
+        if [[ ! -s $output ]] {
+            print -u2 "Warning: No Zsh code blocks found in '$input'"
+        } else {
+            print -u2 "Extracted $block_count Zsh code blocks to '$output'"
+        }
+    }
 }
 
 
@@ -76,8 +82,10 @@ if [[ -n ${args[(I)-h]} ]] {
     exit 2
 }
 
-deps=$(parse $1 $2)
+typeset -U includes=()
+integer block_count=0
+parse $1 $2
 
-[[ -n ${args[(I)-d]} ]] && echo $2: $0 $deps >| ${args[-d]}
+[[ -n ${args[(I)-d]} ]] && echo $2: $0 $1 $includes >| ${args[-d]}
 
 :
