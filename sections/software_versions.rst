@@ -21,7 +21,7 @@ wob_                ``0.14.2``
 
 .. rubric:: Footnotes
 
-.. [#s1] I’ve added some largely uninteresting local changes from
+.. [#s1] I've added some largely uninteresting local changes from
          ``v0.3.0-39-gccd676e``, but mostly it is because there is no timeline
          for wlroots_ ``v0.18`` hitting my installations.
 
@@ -36,7 +36,3 @@ wob_                ``0.14.2``
 .. _wob: https://github.com/francma/wob
 .. _wlroots: https://gitlab.freedesktop.org/wlroots/wlroots
 .. _nerd fonts: https://www.nerdfonts.com/
-
-.. spelling:word-list::
-
-    ve
