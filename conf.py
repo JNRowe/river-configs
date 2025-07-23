@@ -8,7 +8,7 @@ from subprocess import CalledProcessError, PIPE, run
 on_github = "GITHUB_ACTIONS" in os.environ
 
 # General configuration {{{
-extensions: [str] = [
+extensions: list[str] = [
     f"sphinx.ext.{ext}"
     for ext in [
         "duration",
@@ -29,7 +29,7 @@ needs_sphinx = "4.3"
 # trigger for all configurable QA messages.
 nitpicky = True
 
-exclude_patterns: [str] = [
+exclude_patterns: list[str] = [
     ".build",
     ".github",
     "maybe",
