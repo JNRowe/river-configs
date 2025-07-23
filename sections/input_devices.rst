@@ -50,8 +50,8 @@ Configure host specific touchpad settings::
         riverctl input pointer-2-14-ETPS/2_Elantech_Touchpad pointer-accel 0.8
     }
 
-We’ll declare a mode to wrap our input bindings, mainly as their use is uncommon
-and we won’t lose a lot of keys this way::
+We'll declare a mode to wrap our input bindings, mainly as their use is uncommon
+and we won't lose a lot of keys this way::
 
     riverctl declare-mode input
     riverctl map normal Super I enter-mode input
