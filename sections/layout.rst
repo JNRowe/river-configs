@@ -1,12 +1,12 @@
 Layout
 ------
 
-wideriver_ is the layout engine that is the closest match to the behaviour I’m
+wideriver_ is the layout engine that is the closest match to the behaviour I'm
 used to with awesomewm_, and makes a great default::
 
     riverctl default-layout wideriver
 
-We’ll declare a layout mode to make it quicker — and easier on the hands — to
+We'll declare a layout mode to make it quicker — and easier on the hands — to
 cycle layout controls when trying to pin down a comfortable setup::
 
     riverctl declare-mode layout
@@ -39,7 +39,7 @@ Bindings to adjust the number of windows in main stack::
     riverctl map layout Shift H send-layout-cmd wideriver "--count +1"
     riverctl map layout Shift L send-layout-cmd wideriver "--count -1"
 
-Add top level bindings for monocle and tile-left, as they’re my most common
+Add top level bindings for monocle and tile-left, as they're my most common
 layouts that I want quick access to::
 
     riverctl map normal Super M send-layout-cmd wideriver "--layout monocle"
@@ -56,8 +56,12 @@ Configure initial per-tag layouts::
 .. note::
 
     This reflects — what is at this point — my *decades* old tradition of
-    defaulting to fullscreen on even tags.  It doesn’t really make sense, but
-    I’m quite accustomed to it.
+    defaulting to fullscreen on even tags.  It doesn't really make sense, but
+    I'm quite accustomed to it.
 
 .. _wideriver: https://github.com/alex-courtis/wideriver
 .. _awesomewm: https://awesomewm.org/
+
+.. spelling:word-list::
+
+    fullscreen

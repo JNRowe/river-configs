@@ -1,7 +1,7 @@
 General setup
 -------------
 
-We’re going to use zsh_ as it is *always* available on any system I use::
+We're going to use zsh_ as it is *always* available on any system I use::
 
     #! /bin/zsh -x
 
@@ -9,10 +9,10 @@ We’re going to use zsh_ as it is *always* available on any system I use::
 
     We set ``-x`` here because it is gives us a lazy logging mechanism to catch
     and report errors at practically zero cost.  In the initial run output will
-    end up in river’s log, and in subsequent runs it will be in the executing
+    end up in river's log, and in subsequent runs it will be in the executing
     terminal.
 
-We’ll want stricter defaults out of the box::
+We'll want stricter defaults out of the box::
 
     setopt err_exit no_unset warn_create_global
 
@@ -22,19 +22,19 @@ We’ll want stricter defaults out of the box::
 
     setopt extended_glob
 
-We’ll need ``zselect`` to allow us perform :manpage:`sleep(1)` without forks::
+We'll need ``zselect`` to allow us perform :manpage:`sleep(1)` without forks::
 
     zmodload -F zsh/zselect b:zselect
 
 .. _add_zsh_hook:
 
-``autoload`` functions we’ll need later::
+``autoload`` functions we'll need later::
 
     autoload -Uz add-zsh-hook
 
 .. _exit_trap:
 
-Configure an exit handler to display a notification if this script doesn’t
+Configure an exit handler to display a notification if this script doesn't
 :ref:`exit cleanly <normal_exit>`::
 
     notify_cmd=${commands[fyi]:-$commands[notify-send]}
@@ -64,4 +64,3 @@ colourscheme <theming>`::
 
 .. _zsh: https://www.zsh.org/
 .. _fade: https://github.com/sharkdp/pastel
-

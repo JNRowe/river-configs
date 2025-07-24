@@ -64,7 +64,7 @@ Direct key access for manipulation of tags one through nine::
         riverctl map normal Super+Shift+Control $tag toggle-view-tags $tag_id
     }
 
-Show all, which you can treat it like a weak Apple’s Exposé::
+Show all, which you can treat it like a weak Apple's Exposé::
 
     riverctl map normal Super 0 set-focused-tags $ALL_TAGS
 
@@ -74,4 +74,5 @@ Show all, which you can treat it like a weak Apple’s Exposé::
 .. spelling:word-list::
 
     Exposé
+    Keybindings
     Passthrough
