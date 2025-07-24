@@ -19,4 +19,5 @@ effect::
 .. spelling:word-list::
 
     Theming
-    monokai
+    Todo
+    todo
