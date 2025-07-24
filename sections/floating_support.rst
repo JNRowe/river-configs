@@ -14,7 +14,7 @@ Declare floating mode::
 .. note::
 
     We declare a full mode here to make large scale changes to windows easier to
-    accomplish.  For quick changes all the modifiers aren’t a problem, but big
+    accomplish.  For quick changes all the modifiers aren't a problem, but big
     changes are easier in the dedicated mode.
 
 Basic movement bindings::
