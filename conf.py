@@ -16,6 +16,7 @@ extensions: list[str] = [
         "todo",
     ]
 ] + [
+    "sphinx_rtd_theme",
     "sphinxcontrib.spelling",
 ]
 
