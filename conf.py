@@ -16,6 +16,7 @@ extensions: list[str] = [
         "todo",
     ]
 ] + [
+    "sphinx_rtd_theme",
     "sphinxcontrib.spelling",
 ]
 
@@ -23,7 +24,7 @@ rst_epilog = """
 .. |river| replace:: `river <https://codeberg.org/river/river>`__
 """
 
-needs_sphinx = "4.3"
+needs_sphinx = "8.2"
 
 # While upstream uses this purely to enable reference warnings, we’ll use it as
 # trigger for all configurable QA messages.
@@ -40,7 +41,7 @@ exclude_patterns: list[str] = [
 # Project information {{{
 project = "river-configs"
 author = "James Rowe"
-copyright = f"2024-2025  {author}"
+copyright = f"2024-%Y  {author}"
 
 if on_github:
     with suppress(CalledProcessError):
@@ -75,6 +76,10 @@ html_theme = "sphinx_rtd_theme"
 highlight_language = "zsh"
 
 html_copy_source = False
+# }}}
+
+# Options for link check builder {{{
+linkcheck_exclude_documents = ["todo.rst"]
 # }}}
 
 # spelling extension settings {{{
