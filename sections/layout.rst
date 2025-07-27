@@ -1,8 +1,8 @@
 Layout
 ------
 
-wideriver_ is the layout engine that is the closest match to the behaviour I'm
-used to with awesomewm_, and makes a great default::
+|wideriver| is the layout engine that is the closest match to the behaviour I'm
+used to with |awesomewm|, and makes a great default::
 
     riverctl default-layout wideriver
 
@@ -58,9 +58,6 @@ Configure initial per-tag layouts::
     This reflects — what is at this point — my *decades* old tradition of
     defaulting to fullscreen on even tags.  It doesn't really make sense, but
     I'm quite accustomed to it.
-
-.. _wideriver: https://github.com/alex-courtis/wideriver
-.. _awesomewm: https://awesomewm.org/
 
 .. spelling:word-list::
 

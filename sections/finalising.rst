@@ -5,7 +5,7 @@ Allow a private machine specific configuration to be loaded::
 
     [[ -f $0:a:h/local_init ]] && source $0:a:h/local_init
 
-Show ``sandbar``::
+Show |sandbar|::
 
     echo all show >>$sandbar_pipe
 
@@ -23,5 +23,3 @@ Wait for any background jobs to complete::
 Exit without triggering :ref`error exit notification <exit_trap>`::
 
     exec :
-
-.. _sandbar: https://github.com/kolunmi/sandbar

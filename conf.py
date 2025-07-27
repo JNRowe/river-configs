@@ -20,8 +20,18 @@ extensions: list[str] = [
     "sphinxcontrib.spelling",
 ]
 
+# Including a central list of common URLs here a far cleaner way to handle
+# duplication.
 rst_epilog = """
+.. |awesomewm| replace:: `awesomewm <https://awesomewm.org/>`__
+.. |foot| replace:: `foot <https://codeberg.org/dnkl/foot>`__
+.. |river-tag-overlay| replace:: `river-tag-overlay <https://git.sr.ht/~leon_plickat/river-tag-overlay>`__
 .. |river| replace:: `river <https://codeberg.org/river/river>`__
+.. |sandbar| replace:: `sandbar <https://github.com/kolunmi/sandbar>`__
+.. |swayidle| replace:: `swayidle <https://github.com/swaywm/swayidle>`__
+.. |systemd| replace:: `systemd <https://systemd.io>`__
+.. |wideriver| replace:: `wideriver <https://github.com/alex-courtis/wideriver>`__
+.. |wob| replace:: `wob <https://github.com/francma/wob>`__
 """
 
 needs_sphinx = "8.2"
