@@ -2,8 +2,7 @@
 """conf - Sphinx configuration information."""
 
 import os
-from contextlib import suppress
-from subprocess import CalledProcessError, PIPE, run
+from subprocess import check_output
 
 on_github = "GITHUB_ACTIONS" in os.environ
 
@@ -54,20 +53,19 @@ author = "James Rowe"
 copyright = f"2024-%Y  {author}"
 
 if on_github:
-    with suppress(CalledProcessError):
-        proc = run(
-            [
-                "git",
-                "-C",
-                os.path.dirname(__file__),
-                "log",
-                "--pretty=format:%ad [%h]",
-                "--date=short",
-                "-n1",
-            ],
-            stdout=PIPE,
-        )
-        html_last_updated_fmt = proc.stdout.decode().strip()
+    html_last_updated_fmt = (
+        check_output([
+            "git",
+            "-C",
+            os.path.dirname(__file__),
+            "log",
+            "--pretty=format:%ad [%h]",
+            "--date=short",
+            "-n1",
+        ])
+        .decode()
+        .strip()
+    )
 else:
     # Use a static updated time to limit rebuilds for faster commit hooks
     html_last_updated_fmt = "[local build]"
