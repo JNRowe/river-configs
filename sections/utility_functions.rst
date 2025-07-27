@@ -1,7 +1,7 @@
 Utility functions
 -----------------
 
-Fetch socket path for systemd_ ``.socket`` units::
+Fetch socket path for |systemd| ``.socket`` units::
 
     find_socket() {
         local listen
@@ -19,7 +19,7 @@ Fetch socket path for systemd_ ``.socket`` units::
 
 .. _progress_bar:
 
-Populate a wob_ progress bar, if possible, as we move through the ``init``
+Populate a |wob| progress bar, if possible, as we move through the ``init``
 file::
 
     LINES=${#${(@f)"$(< $0)"}}
@@ -52,9 +52,6 @@ Calculate a tag mask given a list of tags::
         echo $r
     }
     ALL_TAGS=$(tag_mask {1..32})
-
-.. _systemd: https://systemd.io
-.. _wob: https://github.com/francma/wob
 
 .. spelling:word-list::
 

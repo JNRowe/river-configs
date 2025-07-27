@@ -7,7 +7,7 @@ Software
 |river| is definitely the only choice I'm comfortable with right now.  The other
 tiling managers are either a little raw(dwl_) or very weak(sway_).  If the setup
 changes it will be toward ``dwl`` or something that more closely resembles
-awesomewm_.
+|awesomewm|.
 
 What I want:
 
@@ -20,7 +20,7 @@ layouts  Some tags should be tiled in fancy patterns, some should be monocle
 …        <things I depend on but haven't noticed yet>
 =======  =====================================================================
 
-wideriver_ is a great layout engine, providing the main layouts I rely on.
+|wideriver| is a great layout engine, providing the main layouts I rely on.
 I may well end up changing to one of the scriptable replacements at some point
 though, both river-luatile_ and riverguile_ look enticing.
 
@@ -54,7 +54,7 @@ accustomed to, but its stability wasn't great for me.
 ``foot`` (replacing ``alacritty``)
 ----------------------------------
 
-foot_ is amazing.  If I'd known it was available before it may have been the
+|foot| is amazing.  If I'd known it was available before it may have been the
 catalyst for me to move to Wayland before now.  Something *unimaginably amazing*
 would have to arrive for this not to be the choice going forward.
 
@@ -66,34 +66,27 @@ ligatures in editing sessions.
 ``sandbar`` (replacing built-in ``awesomewm``/``dwm`` functionality)
 --------------------------------------------------------------------
 
-sandbar_ does pretty much exactly what I want from a bar.  I'm going to miss how
-integrated the ``wibox`` is in ``awesomewm``, but I'm comfortable enough making
-the widgets I *really* care about work with ``sandbar``.
+|sandbar| does pretty much exactly what I want from a bar.  I'm going to miss
+how integrated the ``wibox`` is in ``awesomewm``, but I'm comfortable enough
+making the widgets I *really* care about work with ``sandbar``.
 
 ``wob`` (replacing ``dzen2``)
 -----------------------------
 
-wob_ is simple little progress bar tool, that can replace a fair chunk of my
+|wob| is simple little progress bar tool, that can replace a fair chunk of my
 dzen2_ usage.  It isn't featureful enough *by design* to be a full replacement,
 but it remains to be seen how much I'll miss the hover popups or context hints
 that come with accompanying text.
 
 .. _dwl: https://codeberg.org/dwl/dwl.git
 .. _sway: https://github.com/swaywm/sway/
-.. _awesomewm: https://awesomewm.org/
-.. _wideriver: https://github.com/alex-courtis/wideriver
 .. _river-luatile: https://github.com/MaxVerevkin/river-luatile
 .. _riverguile: https://git.sr.ht/~leon_plickat/riverguile
 .. _dwm: http://dwm.suckless.org/
 .. _wayfire: https://wayfire.org/
 .. _vivarium: https://github.com/inclement/vivarium
-.. _foot: https://codeberg.org/dnkl/foot
 .. _neovim: https://neovim.io/
-.. _sandbar: https://github.com/kolunmi/sandbar
-.. _wob: https://github.com/francma/wob
 .. _dzen2: https://github.com/robm/dzen
-.. _river-tag-overlay: https://git.sr.ht/~leon_plickat/river-tag-overlay
-.. _swayidle: https://github.com/swaywm/swayidle
 
 .. spelling:word-list::
 
