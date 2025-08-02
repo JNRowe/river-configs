@@ -1,6 +1,6 @@
-on: [pull_request, push]
-
 name: Generate and deploy HTML
+
+on: [pull_request, push]
 
 permissions:
   contents: read
