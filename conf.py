@@ -42,6 +42,7 @@ nitpicky = True
 exclude_patterns: list[str] = [
     ".build",
     ".github",
+    ".venv",
     "maybe",
     "README.rst",
 ]
