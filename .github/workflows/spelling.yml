@@ -1,6 +1,6 @@
-on: [pull_request, push]
-
 name: Check spelling
+
+on: [pull_request, push]
 
 permissions:
   contents: read
@@ -9,20 +9,26 @@ jobs:
   build:
     name: Run Sphinx spelling build
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.13"]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python and cache dependencies
-        uses: actions/setup-python@v5
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
         with:
-          python-version: "3.13"
-          cache: "pip"
+          python-version: ${{ matrix.python-version }}
+          version: 0.6.12
 
       - name: Install dependencies
         run: |
-          sudo apt install enchant-2 hunspell-en-gb
-          pip install -r requirements.txt
+          # We don't need man-db updates for throwaway installs
+          echo "set man-db/auto-update false" | sudo debconf-communicate
+          sudo dpkg-reconfigure man-db
+          sudo eatmydata apt-get install enchant-2 hunspell-en-gb
+          uv pip install -r requirements.txt
 
       - name: Run Sphinx spelling build
         # Use --quiet as in this job we only need spelling results, not generic
