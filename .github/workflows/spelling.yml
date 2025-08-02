@@ -27,7 +27,7 @@ jobs:
           # We don't need man-db updates for throwaway installs
           echo "set man-db/auto-update false" | sudo debconf-communicate
           sudo dpkg-reconfigure man-db
-          sudo apt install enchant-2 hunspell-en-gb
+          sudo apt-get install enchant-2 hunspell-en-gb
           uv pip install -r requirements.txt
 
       - name: Run Sphinx spelling build
