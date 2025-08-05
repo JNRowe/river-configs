@@ -3,7 +3,7 @@ Config time
 
 .. ifconfig:: not github_actions
 
-    .. note::
+    .. tip::
 
         The `generated HTML`_ will likely be a better reading experience.
 
