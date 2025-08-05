@@ -3,7 +3,8 @@ Configure environment
 
 Configure environment variables used by freedesktop.org_ specifications::
 
-    export XDG_SESSION_TYPE=wayland XDG_{CURRENT,SESSION}_DESKTOP=river
+    typeset -UTx XDG_CURRENT_DESKTOP xdg_current_desktop=(river)
+    export XDG_SESSION_DESKTOP=river XDG_SESSION_TYPE=wayland
 
 .. warning::
 
