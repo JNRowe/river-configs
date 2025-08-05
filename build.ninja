@@ -1,3 +1,8 @@
+SPHINXBUILD = sphinx-build
+SOURCEDIR = .
+BUILDDIR = _build
+SPHINXOPTS =
+
 rule rst2html
   command = PRETTYRST_EXTRAS=--no-source-link prettyrst $in $out
 
@@ -6,6 +11,18 @@ rule rst2zsh
   depfile = $out.dep
   deps = gcc
 
+rule sphinx
+  command = $SPHINXBUILD -b $builder -d $BUILDDIR/doctrees $SPHINXOPTS $
+    $SOURCEDIR $BUILDDIR/$builder
+  description = Building $builder
+
 build README.html: rst2html README.rst
 build init: rst2zsh init.rst
 default init
+
+build html: sphinx
+  builder = html
+build linkcheck: sphinx
+  builder = linkcheck
+build spelling: sphinx
+  builder = spelling
