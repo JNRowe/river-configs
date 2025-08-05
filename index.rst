@@ -8,7 +8,7 @@ River Configuration
 This is my personal |river| configuration that is shared among hosts.  Maybe
 they're useful to you too, or — better yet — you'll spot *and* fix a bug!
 
-.. note::
+.. important::
 
     I'm writing this for myself as a |WIP| notebook.  Expect foolish — or even
     downright ignorant — errors and omissions.  Feel free to `drop me a note`_
