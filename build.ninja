@@ -1,3 +1,6 @@
+# Untested with older versions
+ninja_required_version = 1.12
+
 SPHINXBUILD = sphinx-build
 SOURCEDIR = .
 BUILDDIR = _build
