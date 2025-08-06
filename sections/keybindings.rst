@@ -36,8 +36,7 @@ Configure function keys::
 
 .. note::
 
-    Media and function keys perform tasks that should work regardless of screen
-    lock state.
+    Media and function keys operate independently of the screen lock state.
 
 Passthrough mode for testing configuration
 ''''''''''''''''''''''''''''''''''''''''''
