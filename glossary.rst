@@ -1,6 +1,13 @@
 Glossary
 ========
 
+.. glossary::
+
+.. envvar:: WAYLAND_DISPLAY
+
+    Identifies the compositor to connect to, making it possible to interact
+    with more than one at a time.
+
 .. envvar:: XDG_CURRENT_DESKTOP
 
     Identifies the current desktop environment, used by the `desktop entry
