@@ -7,8 +7,8 @@ I manage all my background services with a |systemd| user session.
 status script.
 
 The interesting thing to notice below is that I use instances keyed off of
-``WAYLAND_DISPLAY`` so that it is possible to run multiple sessions, which comes
-in handy for testing as you can simply start a new nested session.
+:envvar:`WAYLAND_DISPLAY` so that it is possible to run multiple sessions, which
+comes in handy for testing as you can simply start a new nested session.
 
 Start |foot| server::
 
