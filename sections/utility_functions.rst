@@ -1,7 +1,7 @@
 Utility functions
 -----------------
 
-Fetch socket path for |systemd| ``.socket`` units::
+Fetch socket path for |systemd| `.socket units`_::
 
     find_socket() {
         local listen
@@ -51,6 +51,8 @@ Calculate a tag mask given a list of tags::
         echo $r
     }
     ALL_TAGS=$(tag_mask {1..32})
+
+.. _.socket units: https://www.freedesktop.org/software/systemd/man/latest/systemd.socket.html
 
 .. spelling:word-list::
 
