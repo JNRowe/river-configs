@@ -55,9 +55,9 @@ Configure initial per-tag layouts::
 
 .. note::
 
-    This reflects — what is at this point — my *decades* old tradition of
-    defaulting to fullscreen on even tags.  It doesn't really make sense, but
-    I'm quite accustomed to it.
+    This reflects — what is at this point — my decades-old tradition of
+    defaulting to fullscreen on even tags.  While it may not make sense, it is a
+    deeply ingrained habit.
 
 .. spelling:word-list::
 

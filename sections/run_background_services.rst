@@ -1,9 +1,10 @@
 Run background services
 -----------------------
 
-I manage all my background services with a |systemd| user session.  ``systemd``
-handles all the gory details of process supervision, so that — for example — you
-don't need to implement your own hot reloading for your status script.
+I manage all my background services with a |systemd| user session.
+:program:`systemd` handles all the gory details of process supervision, so that
+— for example — you don't need to implement your own hot reloading for your
+status script.
 
 The interesting thing to notice below is that I use instances keyed off of
 ``WAYLAND_DISPLAY`` so that it is possible to run multiple sessions, which comes
