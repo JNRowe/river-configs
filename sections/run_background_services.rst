@@ -22,8 +22,8 @@ Start |sandbar|::
 
 .. note::
 
-    We fetch the ``sandbar`` socket location so that we can issue commands to it
-    from within this file.
+    We fetch the :program:`sandbar` socket location so that we can issue
+    commands to it from within the startup file.
 
 Start |swayidle|::
 

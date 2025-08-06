@@ -16,9 +16,9 @@ structure for individual configurations looks overcomplicated from the outside.
 
 .. tip::
 
-    The output from ``tools/rst2zsh`` includes comment markers that can be used
-    to navigate back to the source in this file.  For example, in vim_ calling
-    ``gF`` will jump to the section under the cursor.
+    The output from :command:`tools/rst2zsh` includes comment markers that can
+    be used to navigate back to the source in this file.  For example, in vim_
+    calling :kbd:`gF` will jump to the section under the cursor.
 
 .. _generated HTML: https://jnrowe.github.io/river-configs/
 .. _ninja: https://ninja-build.org/
