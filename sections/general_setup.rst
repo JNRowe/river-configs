@@ -7,10 +7,9 @@ We're going to use zsh_ as it is *always* available on any system I use::
 
 .. note::
 
-    We set ``-x`` here because it is gives us a lazy logging mechanism to catch
-    and report errors at practically zero cost.  In the initial run output will
-    end up in river's log, and in subsequent runs it will be in the executing
-    terminal.
+    The ``-x`` option gives us a low-cost, lazy logging mechanism for error
+    reporting.  Output appears in river's log during the initial run and in the
+    executing terminal for subsequent runs.
 
 We'll want stricter defaults out of the box::
 
