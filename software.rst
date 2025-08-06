@@ -65,8 +65,8 @@ ligatures in editing sessions.
 --------------------------------------------------------------------
 
 |sandbar| does pretty much exactly what I want from a bar.  I'm going to miss
-how integrated the ``wibox`` is in :program:`awesome`, but I'm comfortable
-enough making the widgets I *really* care about work with, or alongside,
+how integrated the wibox_ is in :program:`awesomewm`, but I'm comfortable enough
+making the widgets I *really* care about work with, or alongside,
 :program:`sandbar`.
 
 ``wob`` (replacing ``dzen2``)
@@ -85,6 +85,7 @@ accompany text.
 .. _wayfire: https://wayfire.org/
 .. _vivarium: https://github.com/inclement/vivarium
 .. _neovim: https://neovim.io/
+.. _wibox: https://awesomewm.org/doc/api/classes/wibox.html
 .. _dzen2: https://github.com/robm/dzen
 
 .. spelling:word-list::
