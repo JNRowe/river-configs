@@ -21,7 +21,7 @@ We'll want stricter defaults out of the box::
 
     setopt extended_glob
 
-We'll need ``zselect`` to allow us perform :manpage:`sleep(1)` without forks::
+We'll need zselect_ to allow us perform :manpage:`sleep(1)` without forks::
 
     zmodload -F zsh/zselect b:zselect
 
@@ -62,4 +62,5 @@ colourscheme <theming>`::
     } &
 
 .. _zsh: https://www.zsh.org/
+.. _zselect: https://zsh.sourceforge.io/Doc/Release/Zsh-Modules.html#The-zsh_002fzselect-Module
 .. _fade: https://github.com/sharkdp/pastel
