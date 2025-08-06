@@ -6,8 +6,8 @@ Software
 
 |river| is definitely the only choice I'm comfortable with right now.  The other
 tiling managers are either a little raw(dwl_) or very weak(sway_).  If the setup
-changes it will be toward ``dwl`` or something that more closely resembles
-|awesomewm|.
+changes it will be toward :program:`dwl` or something that more closely
+resembles |awesomewm|.
 
 What I want:
 
@@ -30,21 +30,21 @@ executing commands at startup before any views are created to prevent flicker.
 Other candidates
 ''''''''''''''''
 
-``dwl`` is a near-perfect ``dwm`` replacement, though it still has some rough
-edges.  I'd recommend it to others who want a ``dwm`` experience.
+:program:`dwl` is a near-perfect dwm_ replacement, though it still has some
+rough edges.  I'd recommend it to others who want a :program:`dwm` experience.
 
-``sway``, despite its popularity and extensive user support, falls short on
-every count for me.  Its workspace implementation is ferociously under-featured,
-and its layout splitting is cumbersome.  Custom layouts require extensive
-scripting after making everything float.  Even seemingly simple tasks, such as
-window switching across branches, become tedious, often requiring significant
-code.  You'll even find yourself having to implement locking mechanisms to
-prevent key swallowing during rapid command execution.
+:program:`sway`, despite its popularity and extensive user support, falls short
+on every count for me.  Its workspace implementation is ferociously
+under-featured, and its layout splitting is cumbersome.  Custom layouts require
+extensive scripting after making everything float.  Even seemingly simple tasks,
+such as window switching across branches, become tedious, often requiring
+significant code.  You'll even find yourself having to implement locking
+mechanisms to prevent key swallowing during rapid command execution.
 
 wayfire_ is visually appealing and offers basic tiling.  It is a good choice for
-users comfortable with ``sway`` who desire a more visually engaging desktop. I
-do plan to keep an eye on it to see whether tiling extension becomes more
-featureful.
+users comfortable with :program:`sway` who desire a more visually engaging
+desktop. I do plan to keep an eye on it to see whether tiling extension becomes
+more featureful.
 
 vivarium_ shows promise, featuring most of my accustomed layouts, but its
 stability has been an issue for me in testing.
@@ -65,8 +65,9 @@ ligatures in editing sessions.
 --------------------------------------------------------------------
 
 |sandbar| does pretty much exactly what I want from a bar.  I'm going to miss
-how integrated the ``wibox`` is in ``awesomewm``, but I'm comfortable enough
-making the widgets I *really* care about work with, or alongside, ``sandbar``.
+how integrated the ``wibox`` is in :program:`awesome`, but I'm comfortable
+enough making the widgets I *really* care about work with, or alongside,
+:program:`sandbar`.
 
 ``wob`` (replacing ``dzen2``)
 -----------------------------

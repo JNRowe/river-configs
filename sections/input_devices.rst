@@ -22,17 +22,17 @@ Configure non-standard `options for keyboard`_::
 
 Perhaps those `obscure keyboard options`_ deserve an explanation:
 
-===========================  ================================================
+===========================  ==================================================
 Option                       Description
-===========================  ================================================
-``escape_shifted_capslock``  Make ``Capslock`` an alternative ``Escape`` key,
-                             but keep ``Capslock`` available with
-                             ``Shift+Capslock``
-``paus``                     Use ``Pause`` as `compose key`_
+===========================  ==================================================
+``escape_shifted_capslock``  Make :kbd:`Capslock`` an alternative :kbd:`Escape`
+                             key, but keep :kbd:`Capslock` available with
+                             :kbd:`Shift+Capslock`
+``paus``                     Use :kbd:`Pause` as `compose key`_
 ``future``                   Unicode mathematics operators, noting that ASCII
                              operators already exist on the main section
 ``swap_brackets``            Swap square bracket and parenthesis position
-===========================  ================================================
+===========================  ==================================================
 
 Configure a subset without bracket swaps for editing square bracket heavy code::
 

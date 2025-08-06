@@ -19,8 +19,7 @@ Fetch socket path for |systemd| ``.socket`` units::
 
 .. _progress_bar:
 
-Populate a |wob| progress bar, if possible, as we move through the ``init``
-file::
+Populate a |wob| progress bar, if possible, as we move through :file:`init`::
 
     LINES=${#${(@f)"$(< $0)"}}
     _progress() {

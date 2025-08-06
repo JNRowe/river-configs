@@ -11,8 +11,8 @@ Show |sandbar|::
 
 .. note::
 
-    ``sandbar`` is spawned hidden to prevent bar flashes when issuing per-tag
-    layout changes or launching default applications.
+    :command:`sandbar` is spawned hidden to prevent bar flashes when issuing
+    per-tag layout changes or launching default applications.
 
 Wait for any background jobs to complete::
 
