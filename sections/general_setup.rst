@@ -49,7 +49,12 @@ Configure an exit handler to display a notification if this script doesn't
 
     notify_cmd=${commands[fyi]:-$commands[notify-send]}
     if [[ -n $notify_cmd ]] {
-        trap $notify_cmd' --app-name river --urgency critical --icon=error "River: Unexpected exit in init" "In ${zsh_eval_context[-1]%%:*}, around line $LINENO"' EXIT
+        _river_unexpected_exit() {
+            $notify_cmd --app-name river --urgency critical --icon=error \
+                "River: Unexpected exit in init" \
+                "In ${zsh_eval_context[-1]%%:*}, around line $LINENO"
+        }
+        trap _river_unexpected_exit EXIT
     } else {
         print -u2 "Warning: Unable to configure visual error notification"
     }
