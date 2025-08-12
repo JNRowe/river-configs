@@ -20,7 +20,7 @@ structure for individual configurations looks overcomplicated from the outside.
     be used to navigate back to the source in this file.  For example, in vim_
     calling :kbd:`gF` will jump to the section under the cursor.
 
-.. _generated HTML: https://jnrowe.github.io/river-configs/
+.. _generated HTML: https://jnrowe.github.io/river-configs/init.html
 .. _ninja: https://ninja-build.org/
 .. _vim: https://www.vim.org/
 
