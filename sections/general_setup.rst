@@ -11,7 +11,18 @@ We're going to use zsh_ as it is *always* available on any system I use::
     reporting.  Output appears in river's log during the initial run and in the
     executing terminal for subsequent runs.
 
-We'll want stricter defaults out of the box::
+We'll want stricter defaults out of the box:
+
+=======================  ===================================================
+Option                   Description
+=======================  ===================================================
+``err_exit``             Exit immediately if a command exits with a non-zero
+                         status.
+``no_unset``             Treat unset variables as an error.
+``warn_create_global``   Warn when a global variable is created.
+=======================  ===================================================
+
+::
 
     setopt err_exit no_unset warn_create_global
 
