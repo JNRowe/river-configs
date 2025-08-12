@@ -14,6 +14,15 @@ rule rst2zsh
   depfile = $out.dep
   deps = gcc
 
+# This *awful* hack is to allow us extract rst2zsh, but not give ninja the
+# circular dependency information.  Obviously, it does mean the dependencies are
+# incorrect for this rule though.
+rule rst2zsh-boot
+  command = tools/rst2zsh -d $out.dep $in $out && chmod +x $out; $
+    sed -i "s,^$out,XX,;s,$out,,g;s,XX,$out," $out.dep
+  depfile = $out.dep
+  deps = gcc
+
 rule sphinx
   command = $SPHINXBUILD -b $builder -d $BUILDDIR/doctrees $SPHINXOPTS $
     $SOURCEDIR $BUILDDIR/$builder
@@ -22,6 +31,8 @@ rule sphinx
 build README.html: rst2html README.rst
 build init: rst2zsh init.rst
 default init
+build tools/rst2zsh: rst2zsh-boot rst2zsh.rst
+default tools/rst2zsh
 
 build html: sphinx
   builder = html
