@@ -10,9 +10,10 @@ they're useful to you too, or — better yet — you'll spot *and* fix a bug!
 
 .. important::
 
-    I'm writing this for myself as a |WIP| notebook.  Expect foolish — or even
-    downright ignorant — errors and omissions.  Feel free to `drop me a note`_
-    for clarifications or to fix my invalid assumptions.
+    I'm writing this for myself as a :abbr:`WIP (Work In Progress)` notebook.
+    Expect foolish — or even downright ignorant — errors and omissions.  Feel
+    free to `drop me a note`_ for clarifications or to fix my invalid
+    assumptions.
 
 This is in a very early state; basically the result of needing to get up and
 running quickly, without breaking my workflow too much.  I haven't decided on a
@@ -36,10 +37,6 @@ Contents
     todo
 
 .. _drop me a note: mailto:jnrowe@gmail.com
-
-.. |WIP| raw:: html
-
-    <abbr title="Work In Progress">WIP</abbr>
 
 .. spelling:word-list::
 
