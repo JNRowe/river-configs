@@ -81,7 +81,7 @@ manpages_url = "https://manpages.debian.org/{path}"
 
 # Options for HTML output {{{
 html_theme = "sphinx_rtd_theme"
-html_logo = ".images/logo.jpg"
+html_logo = ".images/logo.svg"
 
 highlight_language = "zsh"
 
