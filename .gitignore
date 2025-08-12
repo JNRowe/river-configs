@@ -1,4 +1,5 @@
 _build/
+tools/rst2zsh
 .ninja_deps
 .ninja_log
 README.html
