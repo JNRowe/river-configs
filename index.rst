@@ -34,6 +34,7 @@ Contents
     software
     init
     rst2zsh
+    generate_versions
     FAQ
     glossary
     support

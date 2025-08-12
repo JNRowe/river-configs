@@ -32,6 +32,7 @@ rule versions
 build README.html: rst2html README.rst
 build init: rst2zsh init.rst | tools/rst2zsh
 default init
+build tools/generate_versions: rst2zsh generate_versions.rst | tools/rst2zsh
 build tools/rst2zsh: rst2zsh-boot rst2zsh.rst $
   sections/rst2zsh/setup.rst $
   sections/rst2zsh/block_definition.rst $
