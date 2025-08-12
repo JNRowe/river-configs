@@ -6,8 +6,8 @@ Software
 
 |river| is definitely the only choice I'm comfortable with right now.  The other
 tiling managers are either a little raw(dwl_) or very weak(sway_).  If the setup
-changes it will be toward ``dwl`` or something that more closely resembles
-|awesomewm|.
+changes it will be toward :program:`dwl` or something that more closely
+resembles |awesomewm|.
 
 What I want:
 
@@ -24,32 +24,30 @@ layouts  Some tags should be tiled in fancy patterns, some should be monocle
 I may well end up changing to one of the scriptable replacements at some point
 though, both river-luatile_ and riverguile_ look enticing.
 
-The main thing I'm missing right now is per-tag default layouts, but you can
-work around that by issuing a heap of commands at startup(before any views are
-created to prevent flicker).
+While per-tag default layouts are currently absent, this can be mitigated by
+executing commands at startup before any views are created to prevent flicker.
 
 Other candidates
 ''''''''''''''''
 
-``dwl`` is close to perfect as a dwm_ replacement, but there a few rough edges
-that need ironing out.  I'd recommend it to others who want a ``dwm``
-experience.
+:program:`dwl` is a near-perfect dwm_ replacement, though it still has some
+rough edges.  I'd recommend it to others who want a :program:`dwm` experience.
 
-``sway`` is popular with lots of support, but fails on every count for me.  Its
-workspace implementation is ferociously under-featured.  Its layout splitting
-feels like a chore.  Custom layouts require endless scripting after making
-everything float.  Even seemingly simple things like window switching across
-branches tends toward drudgery requiring heaps of code, you'll even need to
-implement locking to make sure keys aren't swallowed if you execute commands
-quickly.
+:program:`sway`, despite its popularity and extensive user support, falls short
+on every count for me.  Its workspace implementation is ferociously
+under-featured, and its layout splitting is cumbersome.  Custom layouts require
+extensive scripting after making everything float.  Even seemingly simple tasks,
+such as window switching across branches, become tedious, often requiring
+significant code.  You'll even find yourself having to implement locking
+mechanisms to prevent key swallowing during rapid command execution.
 
-wayfire_ is very visually attractive and offers some basic tiling support.  If
-you're comfortable with ``sway`` then it is probably an excellent choice for a
-more visually appealing desktop.  I do plan to keep an eye on it to see whether
-tiling extension becomes more featureful.
+wayfire_ is visually appealing and offers basic tiling.  It is a good choice for
+users comfortable with :program:`sway` who desire a more visually engaging
+desktop. I do plan to keep an eye on it to see whether tiling extension becomes
+more featureful.
 
-vivarium_ feels very promising.  It features most of the layouts I've become
-accustomed to, but its stability wasn't great for me.
+vivarium_ shows promise, featuring most of my accustomed layouts, but its
+stability has been an issue for me in testing.
 
 ``foot`` (replacing ``alacritty``)
 ----------------------------------
@@ -67,16 +65,17 @@ ligatures in editing sessions.
 --------------------------------------------------------------------
 
 |sandbar| does pretty much exactly what I want from a bar.  I'm going to miss
-how integrated the ``wibox`` is in ``awesomewm``, but I'm comfortable enough
-making the widgets I *really* care about work with ``sandbar``.
+how integrated the wibox_ is in :program:`awesomewm`, but I'm comfortable enough
+making the widgets I *really* care about work with, or alongside,
+:program:`sandbar`.
 
 ``wob`` (replacing ``dzen2``)
 -----------------------------
 
-|wob| is simple little progress bar tool, that can replace a fair chunk of my
-dzen2_ usage.  It isn't featureful enough *by design* to be a full replacement,
-but it remains to be seen how much I'll miss the hover popups or context hints
-that come with accompanying text.
+|wob| is a simple progress bar tool that can replace much of my dzen2_ usage.
+By design, it is not feature-rich enough to be a complete replacement, but it
+remains to be seen how much I will miss the hover popups or context hints that
+accompany text.
 
 .. _dwl: https://codeberg.org/dwl/dwl.git
 .. _sway: https://github.com/swaywm/sway/
@@ -86,6 +85,7 @@ that come with accompanying text.
 .. _wayfire: https://wayfire.org/
 .. _vivarium: https://github.com/inclement/vivarium
 .. _neovim: https://neovim.io/
+.. _wibox: https://awesomewm.org/doc/api/classes/wibox.html
 .. _dzen2: https://github.com/robm/dzen
 
 .. spelling:word-list::

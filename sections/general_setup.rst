@@ -7,12 +7,22 @@ We're going to use zsh_ as it is *always* available on any system I use::
 
 .. note::
 
-    We set ``-x`` here because it is gives us a lazy logging mechanism to catch
-    and report errors at practically zero cost.  In the initial run output will
-    end up in river's log, and in subsequent runs it will be in the executing
-    terminal.
+    The ``-x`` option gives us a low-cost, lazy logging mechanism for error
+    reporting.  Output appears in river's log during the initial run and in the
+    executing terminal for subsequent runs.
 
-We'll want stricter defaults out of the box::
+We'll want stricter defaults out of the box:
+
+=======================  ===================================================
+Option                   Description
+=======================  ===================================================
+``err_exit``             Exit immediately if a command exits with a non-zero
+                         status.
+``no_unset``             Treat unset variables as an error.
+``warn_create_global``   Warn when a global variable is created.
+=======================  ===================================================
+
+::
 
     setopt err_exit no_unset warn_create_global
 
@@ -22,7 +32,7 @@ We'll want stricter defaults out of the box::
 
     setopt extended_glob
 
-We'll need ``zselect`` to allow us perform :manpage:`sleep(1)` without forks::
+We'll need zselect_ to allow us perform :manpage:`sleep(1)` without forks::
 
     zmodload -F zsh/zselect b:zselect
 
@@ -63,4 +73,5 @@ colourscheme <theming>`::
     } &
 
 .. _zsh: https://www.zsh.org/
+.. _zselect: https://zsh.sourceforge.io/Doc/Release/Zsh-Modules.html#The-zsh_002fzselect-Module
 .. _fade: https://github.com/sharkdp/pastel

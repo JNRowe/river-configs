@@ -5,12 +5,12 @@ Software versions
 Package              Version
 ===================  ===============================
 |foot|               ``1.21.0``
-|river|              ``0.3.0+git76~gbe7c6dc`` [#s1]_
-|river-tag-overlay|  ``1.0.0``
-|sandbar|            ``0.1+git23~g0e942af`` [#s2]_
+|river|              ``0.3.0+git91~g82cbe78`` [#s1]_
+|river-tag-overlay|  ``1.0.0+git16~g11d2dc4``
+|sandbar|            ``0.1+git36~gf080371`` [#s2]_
 |swayidle|           ``1.8.0``
-|wideriver|          ``1.2.0+git20~ge4d64c0`` [#s2]_
-|wob|                ``0.14.2``
+|wideriver|          ``1.2.0+git35~g8c25ebf`` [#s2]_
+|wob|                ``0.16+git14~g0a6ba9b``
 ===================  ===============================
 
 .. note::
@@ -21,9 +21,9 @@ Package              Version
 
 .. rubric:: Footnotes
 
-.. [#s1] I've added some largely uninteresting local changes from
-         ``v0.3.0-39-gccd676e``, but mostly it is because there is no timeline
-         for wlroots_ ``v0.18`` hitting my installations.
+.. [#s1] I've added some largely uninteresting local changes from upstream, I'm
+         purposely not changing anything in the hope I can smoothly transition
+         to an official Debian package at some point.
 
 .. [#s2] Beyond packaging changes there are only light hacks to use `Nerd
          Fonts`_ for icons.

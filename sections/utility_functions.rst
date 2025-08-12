@@ -1,7 +1,7 @@
 Utility functions
 -----------------
 
-Fetch socket path for |systemd| ``.socket`` units::
+Fetch socket path for |systemd| `.socket units`_::
 
     find_socket() {
         local listen
@@ -19,8 +19,7 @@ Fetch socket path for |systemd| ``.socket`` units::
 
 .. _progress_bar:
 
-Populate a |wob| progress bar, if possible, as we move through the ``init``
-file::
+Populate a |wob| progress bar, if possible, as we move through :file:`init`::
 
     LINES=${#${(@f)"$(< $0)"}}
     _progress() {
@@ -32,10 +31,10 @@ file::
     }
     add-zsh-hook preexec _progress
 
-While startup is fast enough that a progress marker isn't necessary, I find it
-quite useful as a smoketest that quickly highlights an error in the
-configuration if the progress bar doesn't reach the end.  Also, I'll be honest,
-it felt like a fun hack.
+Although startup is quick enough that a progress marker isn't strictly
+necessary, it serves as a useful smoketest, quickly highlighting configuration
+errors if the progress bar fails to reach the end.  Also, I'll be honest, it
+felt like a fun hack.
 
 .. note::
 
@@ -52,6 +51,8 @@ Calculate a tag mask given a list of tags::
         echo $r
     }
     ALL_TAGS=$(tag_mask {1..32})
+
+.. _.socket units: https://www.freedesktop.org/software/systemd/man/latest/systemd.socket.html
 
 .. spelling:word-list::
 
