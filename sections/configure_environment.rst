@@ -3,13 +3,15 @@ Configure environment
 
 Configure environment variables used by freedesktop.org_ specifications::
 
-    export XDG_SESSION_TYPE=wayland XDG_{CURRENT,SESSION}_DESKTOP=river
+    typeset -UTx XDG_CURRENT_DESKTOP xdg_current_desktop=(river)
+    export XDG_SESSION_DESKTOP=river XDG_SESSION_TYPE=wayland
 
 .. warning::
 
     It is important to be aware that ``river`` is not a standard compliant value
-    for ``XDG_*_DESKTOP``, but I'm already using it locally to trigger
-    behaviour.  I'll change it if a better option appears later.
+    for :envvar:`XDG_CURRENT_DESKTOP` or :envvar:`XDG_SESSION_DESKTOP`, but
+    I'm already using it locally to trigger behaviour.  I'll change it if a
+    better option appears later.
 
 Make important environment variables available to dbus_ and |systemd| units::
 
