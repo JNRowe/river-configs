@@ -33,6 +33,7 @@ Contents
 
     software
     init
+    FAQ
     glossary
     todo
 
