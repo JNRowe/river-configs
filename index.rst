@@ -33,6 +33,7 @@ Contents
 
     software
     init
+    rst2zsh
     FAQ
     glossary
     todo
