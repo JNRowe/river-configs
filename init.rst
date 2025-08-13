@@ -29,21 +29,21 @@ Contents
 
 .. toctree::
 
-    sections/software_versions
-    sections/general_setup
-    sections/utility_functions
-    sections/configure_environment
-    sections/run_background_services
-    sections/keybindings
-    sections/window_management
-    sections/floating_support
-    sections/common_applications
-    sections/mouse_bindings
-    sections/theming
-    sections/input_devices
-    sections/window_rules
-    sections/layout
-    sections/finalising
+    sections/river/software_versions
+    sections/river/general_setup
+    sections/river/utility_functions
+    sections/river/configure_environment
+    sections/river/run_background_services
+    sections/river/keybindings
+    sections/river/window_management
+    sections/river/floating_support
+    sections/river/common_applications
+    sections/river/mouse_bindings
+    sections/river/theming
+    sections/river/input_devices
+    sections/river/window_rules
+    sections/river/layout
+    sections/river/finalising
 
 .. spelling:word-list::
 
