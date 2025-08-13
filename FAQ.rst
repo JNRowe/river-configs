@@ -18,8 +18,8 @@ How do you decide what version of $tool you support?
 ----------------------------------------------------
 
 Right now, it is :doc:`whatever version I've bothered to package
-<sections/software_versions>`.  When I have a spare minute or find a bug, I'll
-update the sources and re-package.
+<sections/river/software_versions>`.  When I have a spare minute or find a bug,
+I'll update the sources and re-package.
 
 In the ideal case I'll simply defer to Debian_, but that'll have to wait until
 the software is actually available in Debian.
