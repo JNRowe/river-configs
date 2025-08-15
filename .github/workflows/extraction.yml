@@ -1,6 +1,6 @@
 name: Test rst2zsh extraction
 
-on: [pull_request, push]
+on: push
 
 permissions:
   contents: read

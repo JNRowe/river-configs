@@ -1,6 +1,6 @@
 name: Lint reStructuredText files
 
-on: [pull_request, push]
+on: push
 
 permissions:
   contents: read
