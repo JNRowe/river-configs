@@ -1,6 +1,6 @@
 name: Check spelling
 
-on: [pull_request, push]
+on: push
 
 permissions:
   contents: read
