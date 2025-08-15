@@ -1,0 +1,33 @@
+name: Test rst2zsh extraction
+
+on: push
+
+permissions:
+  contents: read
+
+jobs:
+  test_extraction:
+    name: Run Ninja build and test extraction
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare Debian environment
+        run: |
+          # We don't need man-db updates for throwaway installs
+          echo "set man-db/auto-update false" | sudo debconf-communicate
+          sudo dpkg-reconfigure man-db
+
+      - name: Install Debian dependencies
+        run: sudo eatmydata apt-get install ninja-build python3-docutils zsh
+
+      - name: Run build
+        run: ninja
+
+      - name: Verify rst2zsh output
+        run: |
+          tmpfile=$(mktemp)
+          tools/rst2zsh rst2zsh.rst $tmpfile
+          diff -u tools/rst2zsh $tmpfile
