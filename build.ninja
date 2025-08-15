@@ -15,7 +15,7 @@ rule rst2zsh
   deps = gcc
 
 rule rst2zsh-boot
-  command = sh -c 'master=$$1; shift; components="$$@"; $
+  command = sh -exc 'master=$$1; shift; components="$$@"; $
     tools/rst2zsh-docutils $$components > $out && $
     chmod +x $out && $
     ./$out -d $out.d $$master $out.tmp && $
