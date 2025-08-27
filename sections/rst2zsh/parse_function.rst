@@ -79,11 +79,22 @@ Capture the indentation of the first line of the block::
                     [[ $line =~ '^([[:space:]]+)' ]] && indent_prefix=$match[1]
                 }
 
-Remove the captured indentation prefix from the line::
+Remove the indentation prefix from the line::
 
-                echo -E "${line#$indent_prefix}" >> $output
+                if (( DYNAMIC_INDENT )) {
+                    echo -E "${line#$indent_prefix}" >> $output
+                } else {
+                    echo -E "${line[5,-1]}" >> $output
+                }
             }
         done < $input
+
+.. note::
+
+    We default to a strict four space removal unless the ``-i`` option is given
+    even though it violates that reST specification, as our code blocks are
+    only partial entities and dynamic whitespace removal breaks indentation in
+    the final output.
 
 Finally, if we're in the final call of ``parse`` we'll display the status of
 this parsing run::
