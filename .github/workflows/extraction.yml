@@ -21,7 +21,7 @@ jobs:
           sudo dpkg-reconfigure man-db
 
       - name: Install Debian dependencies
-        run: sudo eatmydata apt-get install ninja-build python3-docutils zsh
+        run: sudo eatmydata apt-get install ninja-build zsh
 
       - name: Run build
         run: ninja
