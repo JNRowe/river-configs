@@ -1,0 +1,24 @@
+#!/bin/env zsh
+# This is not a general-purpose script.  It is a minimal, one-off hack
+# to solve the bootstrapping problem of extracting the rst2zsh script
+# from its own literate source.  It has no error handling.
+
+setopt err_exit no_unset
+
+integer in_code_block=0
+while IFS='' read -r line; do
+    if (( in_code_block )) {
+        if [[ $line =~ '^ ' ]] {
+            print -r -- "$line"
+        } elif [[ ! -z $line ]] {
+            in_code_block=0
+        }
+    }
+    if (( ! in_code_block )) {
+        if [[ $line == :: ||
+              $line == '.. code:: zsh' ||
+              $line =~ '^[^\. ][^\.].*::$' ]] {
+            in_code_block=1
+        }
+    }
+done
