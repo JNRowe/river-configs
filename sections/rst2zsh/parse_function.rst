@@ -33,6 +33,7 @@ to :abbr:`reST (reStructuredText)` content when debugging output::
 
 ::
 
+        local indent_prefix=""
         local line match mbegin mend
         while IFS='' read -r line; do
             (( line_nr++ ))
@@ -52,6 +53,10 @@ We'll have indented filenames within toctree_ directive::
                 in_block=1
                 in_toctree=0
 
+Reset indent for the new block::
+
+                indent_prefix=""
+
 Add source map, but not if we're at the very start of a non-recursive call.
 The reason is that this would break the output if first line is a shebang.
 
@@ -67,12 +72,29 @@ When we leave the code block we need to reset our state::
                 in_block=0
                 in_toctree=0
             } elif (( $in_block )) && [[ -n $line ]] {
+                if [[ -z $indent_prefix ]] {
 
-Remove the captured indentation prefix from the line::
+Capture the indentation of the first line of the block::
 
-                echo -E "${line[5,-1]}" >> $output
+                    [[ $line =~ '^([[:space:]]+)' ]] && indent_prefix=$match[1]
+                }
+
+Remove the indentation prefix from the line::
+
+                if (( DYNAMIC_INDENT )) {
+                    echo -E "${line#$indent_prefix}" >> $output
+                } else {
+                    echo -E "${line[5,-1]}" >> $output
+                }
             }
         done < $input
+
+.. note::
+
+    We default to a strict four space removal unless the ``-i`` option is given
+    even though it violates that reST specification, as our code blocks are
+    only partial entities and dynamic whitespace removal breaks indentation in
+    the final output.
 
 Finally, if we're in the final call of ``parse`` we'll display the status of
 this parsing run::
