@@ -33,7 +33,6 @@ to :abbr:`reST (reStructuredText)` content when debugging output::
 
 ::
 
-        local indent_prefix=""
         local line match mbegin mend
         while IFS='' read -r line; do
             (( line_nr++ ))
@@ -53,10 +52,6 @@ We'll have indented filenames within toctree_ directive::
                 in_block=1
                 in_toctree=0
 
-Reset indent for the new block::
-
-                indent_prefix=""
-
 Add source map, but not if we're at the very start of a non-recursive call.
 The reason is that this would break the output if first line is a shebang.
 
@@ -72,16 +67,10 @@ When we leave the code block we need to reset our state::
                 in_block=0
                 in_toctree=0
             } elif (( $in_block )) && [[ -n $line ]] {
-                if [[ -z $indent_prefix ]] {
-
-Capture the indentation of the first line of the block::
-
-                    [[ $line =~ '^([[:space:]]+)' ]] && indent_prefix=$match[1]
-                }
 
 Remove the captured indentation prefix from the line::
 
-                echo -E "${line#$indent_prefix}" >> $output
+                echo -E "${line[5,-1]}" >> $output
             }
         done < $input
 
