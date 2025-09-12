@@ -16,11 +16,10 @@ rule rst2zsh
 
 rule rst2zsh-boot
   command = sh -c 'main=$$1; shift; components="$$@"; $
-    tools/rst2zsh-docutils $$components > $out && $
-    chmod +x $out && $
-    ./$out $$main $out.tmp && $
+      cat $$components | tools/rst2zsh-boot > $out && $
+      zsh ./$out $$main $out.tmp' -- $in && $
     mv $out.tmp $out && $
-    chmod +x $out' -- $in
+    chmod +x $out
 
 rule sphinx
   command = $SPHINXBUILD -b $builder -d $BUILDDIR/doctrees $SPHINXOPTS $
