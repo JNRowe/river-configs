@@ -43,3 +43,6 @@ build linkcheck: sphinx
   builder = linkcheck
 build spelling: sphinx
   builder = spelling
+
+build completions/_rst2zsh: rst2zsh sections/rst2zsh/completion.rst | tools/rst2zsh
+default completions/_rst2zsh
