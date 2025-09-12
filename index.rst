@@ -36,6 +36,7 @@ Contents
     rst2zsh
     FAQ
     glossary
+    support
     todo
 
 .. _drop me a note: mailto:jnrowe@gmail.com

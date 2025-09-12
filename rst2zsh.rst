@@ -25,3 +25,7 @@ Contents
     sections/rst2zsh/block_definition
     sections/rst2zsh/parse_function
     sections/rst2zsh/main_logic
+
+.. seealso::
+
+    A :doc:`completion script </sections/rst2zsh/completion>` is also available.
