@@ -1,0 +1,42 @@
+#!/bin/env zsh
+# This script generates a CSV file with software versions for use with
+# the csv-table directive in reStructuredText.
+
+setopt err_exit noclobber no_unset warn_create_global
+
+readonly output=$1
+
+readonly packages=(
+    foot
+    river
+    river-tag-overlay
+    sandbar
+    swayidle
+    wideriver
+    wob
+)
+
+# Associative array mapping commands to their footnote references.
+readonly -A footnotes=(
+    [river]=1
+    [sandbar]=2
+    [wideriver]=2
+)
+
+() {
+    readonly tmp=$1
+    local package version footnote
+    print '"Package","Version"' >> $tmp
+    for package ($packages) {
+        # At some point this won't be enough, but for now relying on dpkg-query
+        # Works For Me™
+        version=$(dpkg-query -W -f='${Version}' $package)
+
+        footnote=${footnotes[$package]:-}
+        if [[ $footnote ]] {
+            footnote=" [#s$footnote]_"
+        }
+        print "\"|$package|\",\"\`\`$version\`\`$footnote\"" >> $tmp
+    }
+    mv $tmp $output
+} =(:)
