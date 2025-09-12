@@ -6,13 +6,13 @@ This section handles command-line argument parsing and the main execution flow.
 .. code:: zsh
 
     typeset -A args
-    zparseopts -D -K -E -A args d: h
+    zparseopts -D -K -E -A args -M -- d: -depfile:=d h -help=h
 
     if [[ -n ${args[(I)-h]} ]] {
         print -P "Usage: %B$0%b [option…] <input> <output>"
         echo "Options:"
-        echo "    -d <file>  File to write dependencies to"
-        echo "    -h         This message"
+        echo "    -d, --depfile <file>          File to write dependencies to"
+        echo "    -h, --help                    This message"
         exit 0
     } elif [[ -z ${1:-} ]] {
         echo "Error: No input given"
