@@ -6,12 +6,13 @@ This section handles command-line argument parsing and the main execution flow.
 .. code:: zsh
 
     typeset -A args
-    zparseopts -D -K -E -A args -M -- d: -depfile:=d h -help=h
+    zparseopts -D -K -E -A args -M -- d: -depfile:=d i -indent=i h -help=h
 
     if [[ -n ${args[(I)-h]} ]] {
         print -P "Usage: %B$0%b [option…] <input> <output>"
         echo "Options:"
         echo "    -d, --depfile <file>          File to write dependencies to"
+        echo "    -i, --indent                  Strip leading code block indent"
         echo "    -h, --help                    This message"
         exit 0
     } elif [[ -z ${1:-} ]] {
@@ -21,6 +22,7 @@ This section handles command-line argument parsing and the main execution flow.
         echo "Error: No output given"
         exit 2
     }
+    DYNAMIC_INDENT=${+args[-i]}
 
 Thanks to :program:`zsh`'s ``-U`` flag we can ignore duplicate includes, and
 simply let :command:`zsh` uniquify our array::
