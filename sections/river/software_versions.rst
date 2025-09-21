@@ -1,17 +1,8 @@
 Software versions
 -----------------
 
-===================  ===============================
-Package              Version
-===================  ===============================
-|foot|               ``1.21.0``
-|river|              ``0.3.0+git91~g82cbe78`` [#s1]_
-|river-tag-overlay|  ``1.0.0+git16~g11d2dc4``
-|sandbar|            ``0.1+git36~gf080371`` [#s2]_
-|swayidle|           ``1.8.0``
-|wideriver|          ``1.2.0+git35~g8c25ebf`` [#s2]_
-|wob|                ``0.16+git14~g0a6ba9b``
-===================  ===============================
+.. csv-table::
+   :file: software_versions.csv
 
 .. note::
 

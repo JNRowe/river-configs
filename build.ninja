@@ -26,6 +26,9 @@ rule sphinx
     $SOURCEDIR $BUILDDIR/$builder
   description = Building $builder
 
+rule versions
+  command = tools/generate_versions $out
+
 build README.html: rst2html README.rst
 build init: rst2zsh init.rst | tools/rst2zsh
 default init
@@ -36,12 +39,13 @@ build tools/rst2zsh: rst2zsh-boot rst2zsh.rst $
   sections/rst2zsh/main_logic.rst
 default tools/rst2zsh
 
-build html: sphinx
+build html: sphinx | sections/river/software_versions.csv
   builder = html
-build linkcheck: sphinx
+build linkcheck: sphinx | sections/river/software_versions.csv
   builder = linkcheck
-build spelling: sphinx
+build spelling: sphinx | sections/river/software_versions.csv
   builder = spelling
 
 build completions/_rst2zsh: rst2zsh sections/rst2zsh/completion.rst | tools/rst2zsh
 default completions/_rst2zsh
+build sections/river/software_versions.csv: versions | tools/generate_versions /var/lib/dpkg/status
