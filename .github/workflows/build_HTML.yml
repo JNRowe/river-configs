@@ -37,6 +37,8 @@ jobs:
       - name: Build HTML with Sphinx
         run: |
           uv run sphinx-build -M html . _build
+          # upload-pages-artifact@v4 doesn't include files beginning with a dot
+          mv _build/html/{.,_}buildinfo
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
