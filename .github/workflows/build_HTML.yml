@@ -1,6 +1,13 @@
 name: Generate and deploy HTML
 
-on: push
+on:
+  push:
+    paths:
+      - .github/workflows/build_HTML.yml
+      - .images/**
+      - conf.py
+      - requirements.txt
+      - "**.rst"
 
 permissions:
   contents: read

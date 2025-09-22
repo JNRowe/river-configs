@@ -1,6 +1,12 @@
 name: Test rst2zsh extraction
 
-on: push
+on:
+  push:
+    paths:
+      - .github/workflows/extraction.yml
+      - sections/rst2zsh/*.rst
+      - requirements.txt
+      - rst2zsh.rst
 
 permissions:
   contents: read

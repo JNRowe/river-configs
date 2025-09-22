@@ -1,6 +1,12 @@
 name: Check spelling
 
-on: push
+on:
+  push:
+    paths:
+      - .github/workflows/spelling.yml
+      - conf.py
+      - requirements.txt
+      - "**.rst"
 
 permissions:
   contents: read
