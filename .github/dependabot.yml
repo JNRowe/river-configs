@@ -7,6 +7,17 @@ updates:
     target-branch: "main"
     labels:
       - "dependencies"
+    groups:
+      main:
+        patterns:
+          - "sphinx"
+          - "sphinx_rtd_theme"
+          - "sphinxcontrib-spelling"
+      lint:
+        patterns:
+          - "restructuredtext-lint"
+      runtime:
+        dependency-type: "production"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
