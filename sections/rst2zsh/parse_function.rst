@@ -11,12 +11,12 @@ included files.
 .. code:: zsh
 
     parse() {
-        local input=$1 output=$2
+        readonly input=$1 output=$2
 
 We need to know whether we are recursing at various points within this function,
 this allows us to track it::
 
-        local _RST2HTML_recursing=${_RST2HTML_recursing:-0}
+        integer _RST2HTML_recursing=${_RST2HTML_recursing:-0}
 
 If this is our first entry into ``parse``, we'll truncate the output file::
 
@@ -34,7 +34,8 @@ to :abbr:`reST (reStructuredText)` content when debugging output::
 ::
 
         local indent_prefix=""
-        local line match mbegin mend
+        local line match
+        integer mbegin mend
         while IFS='' read -r line; do
             (( line_nr++ ))
             if [[ $line =~ '^.. include:: (.*)' ]] {
