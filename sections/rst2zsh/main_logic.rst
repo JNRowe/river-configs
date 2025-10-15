@@ -49,8 +49,8 @@ ninja_
 
     [[ -n ${args[(I)-d]} ]] && echo $2: $0 $1 $includes >| ${args[-d]}
 
-If we've reached this far exit with ``0``.  This mainly exists so we never need
-to worry about a dangling conditional causing failures if this script is
+If we have reached this far exit with ``0``.  This mainly exists so we never
+need to worry about a dangling conditional causing failures if this script is
 extended. 
 
 ::

@@ -114,4 +114,6 @@ this parsing run::
 
 .. spelling:word-list::
 
+    reST
     recursing
+    whitespace
