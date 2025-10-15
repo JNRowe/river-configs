@@ -4,6 +4,8 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    cooldown:
+      default-days: 7
     target-branch: "main"
     labels:
       - "dependencies"
@@ -22,6 +24,8 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    cooldown:
+      default-days: 7
     target-branch: "main"
     labels:
       - "github-actions"
