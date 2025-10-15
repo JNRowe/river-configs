@@ -50,7 +50,7 @@ flesh out so that they’ll make sense when I come back to them.
     If I’ve forgotten to include your name I wholeheartedly apologise.  Just
     drop me a mail_ and I’ll update the list!
 
-.. _river: https://codeberg.org/river/river
+.. _river: https://codeberg.org/river/river-classic
 .. _drop me a note: mailto:jnrowe@gmail.com
 
 .. |WIP| raw:: html
