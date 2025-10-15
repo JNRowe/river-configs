@@ -67,7 +67,7 @@ Show all, which you can treat it like a weak Apple's Exposé::
 
     riverctl map normal Super 0 set-focused-tags $ALL_TAGS
 
-.. _example river init file: https://codeberg.org/river/river/src/branch/master/example/init
+.. _example river init file: https://codeberg.org/river/river-classic/src/branch/master/example/init
 
 .. spelling:word-list::
 
