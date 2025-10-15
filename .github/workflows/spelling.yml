@@ -59,7 +59,7 @@ jobs:
           echo "set man-db/auto-update false" | sudo debconf-communicate
           sudo dpkg-reconfigure man-db
           sudo eatmydata apt-get install -qq enchant-2 hunspell-en-gb
-          uv sync --active --no-install-project
+          uv sync --active --no-install-project --group lint
 
       - name: Run Sphinx spelling build
         # Use --quiet as in this job we only need spelling results, not generic
