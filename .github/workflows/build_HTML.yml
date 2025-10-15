@@ -29,7 +29,7 @@ jobs:
         uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6.8.0
         with:
           python-version: ${{ matrix.python-version }}
-          version: 0.8.9
+          version: 0.9.2
           activate-environment: true
           cache-dependency-glob: requirements.txt
 
