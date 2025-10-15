@@ -11,10 +11,10 @@ resembles |awesomewm|.
 
 .. tip::
 
-    |river| is in a state of flux right now.  The `main repository`_ on codeberg
+    |river| is in a state of flux right now.  The `main repository`_ on Codeberg
     is to become a staging area for the ``river`` rewrite, with the original
-    river codebase moving to ``river-classic``.  This configuration targets
-    ``river-classic`` now, you can check :doc:`specific versions
+    river code continuing development in ``river-classic``.  This configuration
+    targets ``river-classic`` now, you can check :doc:`specific versions
     <sections/river/software_versions>` to see what is supported.
 
 What I want:
@@ -85,7 +85,7 @@ By design, it is not feature-rich enough to be a complete replacement, but it
 remains to be seen how much I will miss the hover popups or context hints that
 accompany text.
 
-.. _dwl: https://codeberg.org/dwl/dwl.git
+.. _dwl: https://codeberg.org/dwl/dwl
 .. _main repository: https://codeberg.org/river/river
 .. _sway: https://github.com/swaywm/sway/
 .. _river-luatile: https://github.com/MaxVerevkin/river-luatile
@@ -99,6 +99,7 @@ accompany text.
 
 .. spelling:word-list::
 
+    Codeberg
     Wayland
     Workspaces
     featureful

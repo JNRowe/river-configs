@@ -33,12 +33,12 @@ Populate a |wob| progress bar, if possible, as we move through :file:`init`::
 
 Although startup is quick enough that a progress marker isn't strictly
 necessary, it serves as a useful smoketest, quickly highlighting configuration
-errors if the progress bar fails to reach the end.  Also, I'll be honest, it
-felt like a fun hack.
+errors if the progress bar fails to reach the end.  Also — and I will be honest
+— it felt like a fun hack.
 
 .. note::
 
-    This doesn't strictly require :ref:`add_zsh_hook <add_zsh_hook>`, but I
+    This does not strictly require :ref:`add_zsh_hook <add_zsh_hook>`, but I
     prefer the interface offered by it over simply setting the hook by hand.
 
 Calculate a tag mask given a list of tags::

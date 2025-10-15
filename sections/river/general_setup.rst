@@ -44,7 +44,7 @@ We'll need zselect_ to allow us perform :manpage:`sleep(1)` without forks::
 
 .. _exit_trap:
 
-Configure an exit handler to display a notification if this script doesn't
+Configure an exit handler to display a notification if this script does not
 :ref:`exit cleanly <normal_exit>`::
 
     notify_cmd=${commands[fyi]:-$commands[notify-send]}
