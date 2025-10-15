@@ -46,7 +46,7 @@ way.
 
 .. tip::
 
-    **Co-workers**:  You can find recordings of old sessions on µfilm under
+    **Co-workers**: You can find recordings of old sessions on µfilm under
     ``JNRowe/river``, and you should feel free to ask |river| questions by the
     other methods in my contact details too!
 

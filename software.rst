@@ -85,7 +85,7 @@ By design, it is not feature-rich enough to be a complete replacement, but it
 remains to be seen how much I will miss the hover popups or context hints that
 accompany text.
 
-.. _dwl: https://codeberg.org/dwl/dwl.git
+.. _dwl: https://codeberg.org/dwl/dwl
 .. _main repository: https://codeberg.org/river/river
 .. _sway: https://github.com/swaywm/sway/
 .. _river-luatile: https://github.com/MaxVerevkin/river-luatile
