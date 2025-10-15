@@ -1,2 +1,0 @@
--r requirements.txt
-restructuredtext-lint>=1.4
