@@ -57,7 +57,7 @@ jobs:
             requirements-lint.txt
 
       - name: Install dependencies
-        run: uv pip install -r requirements-lint.txt
+        run: uv sync --active --no-install-project --group lint
 
       - name: Run linter
         run: |
