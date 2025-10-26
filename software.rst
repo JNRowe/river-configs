@@ -28,7 +28,7 @@ layouts  Some tags should be tiled in fancy patterns, some should be monocle
 …        <things I depend on but haven't noticed yet>
 =======  =====================================================================
 
-|wideriver| is a great layout engine, providing the main layouts I rely on.
+|rivercarro| is a great layout engine, providing the main layouts I rely on.
 I may well end up changing to one of the scriptable replacements at some point
 though, both river-luatile_ and riverguile_ look enticing.
 
