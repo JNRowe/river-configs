@@ -19,5 +19,8 @@ Software versions
 .. [#s2] Beyond packaging changes there are only light hacks to use `Nerd
          Fonts`_ for icons.
 
+.. [#s3] Beyond packaging changes there are only light changes to support my
+         preferred layouts, that I'll push upstream if I keep using.
+
 .. _wlroots: https://gitlab.freedesktop.org/wlroots/wlroots
 .. _nerd fonts: https://www.nerdfonts.com/

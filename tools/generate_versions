@@ -10,17 +10,17 @@ readonly packages=(
     foot
     river
     river-tag-overlay
+    river-ultitile
     sandbar
     swayidle
-    wideriver
     wob
 )
 
 # Associative array mapping commands to their footnote references.
 readonly -A footnotes=(
+    [river-ultitile]=3
     [river]=1
     [sandbar]=2
-    [wideriver]=2
 )
 
 () {
