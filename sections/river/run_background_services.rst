@@ -29,9 +29,9 @@ Start |swayidle|::
 
     systemctl --user start swayidle@$WAYLAND_DISPLAY
 
-Start |wideriver|::
+Start |rivercarro|::
 
-    systemctl --user start wideriver@$WAYLAND_DISPLAY
+    systemctl --user start rivercarro@$WAYLAND_DISPLAY
 
 Start |wob|::
 

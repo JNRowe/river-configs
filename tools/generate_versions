@@ -10,9 +10,9 @@ readonly packages=(
     foot
     river
     river-tag-overlay
+    rivercarro
     sandbar
     swayidle
-    wideriver
     wob
 )
 
@@ -20,7 +20,6 @@ readonly packages=(
 readonly -A footnotes=(
     [river]=1
     [sandbar]=2
-    [wideriver]=2
 )
 
 () {
