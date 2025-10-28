@@ -31,7 +31,7 @@ rst_epilog = """
 .. |sandbar| replace:: `sandbar <https://github.com/kolunmi/sandbar>`__
 .. |swayidle| replace:: `swayidle <https://github.com/swaywm/swayidle>`__
 .. |systemd| replace:: `systemd <https://systemd.io>`__
-.. |wideriver| replace:: `wideriver <https://github.com/alex-courtis/wideriver>`__
+.. |river-ultitile| replace:: `river-ultitile <https://sr.ht/~midgard/river-ultitile/>`__
 .. |wob| replace:: `wob <https://github.com/francma/wob>`__
 """
 

@@ -4,6 +4,6 @@
 2024-07-02 Add foot-server +systemd service file p:1
 2024-07-02 Add sandbar +systemd service file p:1
 2024-07-02 Add swayidle +systemd service file p:1
-2024-07-02 Add wideriver +systemd service file p:1
+2025-10-26 Add river-ultitile +systemd service file p:1
 2024-07-02 Add wob +systemd service file p:1
 (M) 2024-07-02 Add a fancy little graphic for bindings
