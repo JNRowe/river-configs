@@ -33,6 +33,7 @@ rst_epilog = """
 .. |systemd| replace:: `systemd <https://systemd.io>`__
 .. |wideriver| replace:: `wideriver <https://github.com/alex-courtis/wideriver>`__
 .. |wob| replace:: `wob <https://github.com/francma/wob>`__
+.. |zsh| replace:: `zsh <https://www.zsh.org/>`__
 """
 
 needs_sphinx = "8.2"

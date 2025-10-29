@@ -1,7 +1,7 @@
 General setup
 -------------
 
-We're going to use zsh_ as it is *always* available on any system I use::
+We're going to use |zsh| as it is *always* available on any system I use::
 
     #! /bin/zsh -x
 
@@ -77,6 +77,5 @@ colourscheme <theming>`::
         }
     } &
 
-.. _zsh: https://www.zsh.org/
 .. _zselect: https://zsh.sourceforge.io/Doc/Release/Zsh-Modules.html#The-zsh_002fzselect-Module
 .. _fade: https://github.com/sharkdp/pastel
