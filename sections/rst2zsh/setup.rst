@@ -1,7 +1,7 @@
 Setup
 =====
 
-We're going to use zsh_ as it is *always* available on any system I use::
+We're going to use |zsh| as it is *always* available on any system I use::
 
     #! /bin/zsh -f
 
@@ -31,5 +31,4 @@ We'll need zutil_ to allow us to process command line arguments::
 
     zmodload -F zsh/zutil +b:zparseopts
 
-.. _zsh: https://www.zsh.org/
 .. _zutil: https://zsh.sourceforge.io/Doc/Release/Zsh-Modules.html#The-zsh_002fzutil-Module
