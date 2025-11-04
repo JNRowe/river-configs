@@ -65,5 +65,5 @@ jobs:
         # Use --quiet as in this job we only need spelling results, not generic
         # Sphinx output that would be seen in HTML jobs.
         run: |
-          sphinx-build --quiet --fail-on-warning --keep-going -b spelling . \
-            _build/spelling
+          uv run sphinx-build --quiet --fail-on-warning --keep-going \
+            -b spelling . _build/spelling
