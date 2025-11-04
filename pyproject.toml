@@ -4,7 +4,11 @@ version = "0.1.0"
 description = "river configuration"
 authors = [{ name = "James Rowe", email = "jnrowe@gmail.com" }]
 requires-python = ">=3.11"
-dependencies = ["sphinx>=8.2", "sphinx-rtd-theme>=3.0"]
+dependencies = [
+    "sphinx-rtd-theme>=3.0",
+    "sphinx>=8.2",
+    "sphinxcontrib-spelling>=8.0",
+]
 
 [dependency-groups]
-lint = ["restructuredtext-lint>=1.4", "sphinxcontrib-spelling>=8.0"]
+lint = ["restructuredtext-lint>=1.4"]

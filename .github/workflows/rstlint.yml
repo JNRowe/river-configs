@@ -64,4 +64,6 @@ jobs:
           uv run rst-lint README.rst
 
       - name: Run Sphinx dummy build to check for errors
-        run: uv run sphinx-build -b dummy . _build/dummy
+        run: |
+          uv run sphinx-build --fail-on-warning --keep-going \
+            --doctree-dir build/doctrees --builder dummy . _build/dummy

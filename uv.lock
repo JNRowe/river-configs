@@ -284,25 +284,23 @@ source = { virtual = "." }
 dependencies = [
     { name = "sphinx" },
     { name = "sphinx-rtd-theme" },
+    { name = "sphinxcontrib-spelling" },
 ]
 
 [package.dev-dependencies]
 lint = [
     { name = "restructuredtext-lint" },
-    { name = "sphinxcontrib-spelling" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "sphinx", specifier = ">=8.2" },
     { name = "sphinx-rtd-theme", specifier = ">=3.0" },
+    { name = "sphinxcontrib-spelling", specifier = ">=8.0" },
 ]
 
 [package.metadata.requires-dev]
-lint = [
-    { name = "restructuredtext-lint", specifier = ">=1.4" },
-    { name = "sphinxcontrib-spelling", specifier = ">=8.0" },
-]
+lint = [{ name = "restructuredtext-lint", specifier = ">=1.4" }]
 
 [[package]]
 name = "roman-numerals-py"
