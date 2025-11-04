@@ -11,6 +11,7 @@ extensions: list[str] = [
     f"sphinx.ext.{ext}"
     for ext in [
         "duration",
+        "extlinks",
         "ifconfig",
         "todo",
     ]
@@ -91,6 +92,12 @@ html_copy_source = False
 
 # Options for link check builder {{{
 linkcheck_exclude_documents = ["todo.rst"]
+# }}}
+
+# extlinks extension settings {{{
+extlinks = {
+    "pr": ("https://github.com/JNRowe/river-configs/pull/%s", "#%s"),
+}
 # }}}
 
 # spelling extension settings {{{
