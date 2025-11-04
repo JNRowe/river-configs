@@ -35,8 +35,21 @@ though, both river-luatile_ and riverguile_ look enticing.
 While per-tag default layouts are currently absent, this can be mitigated by
 executing commands at startup before any views are created to prevent flicker.
 
-Other candidates
-''''''''''''''''
+Other layout engines
+''''''''''''''''''''
+
+I've played around with a few layout generators, and you can see the remnants of
+few on GitHub:
+
+===============  ============
+Package          Pull request
+===============  ============
+river-ultitile_  :pr:`28`
+rivercarro_      :pr:`27`
+===============  ============
+
+Other compositors
+'''''''''''''''''
 
 :program:`dwl` is a near-perfect dwm_ replacement, though it still has some
 rough edges.  I'd recommend it to others who want a :program:`dwm` experience.
@@ -87,6 +100,8 @@ accompany text.
 
 .. _dwl: https://codeberg.org/dwl/dwl
 .. _main repository: https://codeberg.org/river/river
+.. _river-ultitile: https://git.sr.ht/~midgard/river-ultitile
+.. _rivercarro: https://git.sr.ht/~novakane/rivercarro
 .. _sway: https://github.com/swaywm/sway/
 .. _river-luatile: https://github.com/MaxVerevkin/river-luatile
 .. _riverguile: https://git.sr.ht/~leon_plickat/riverguile
