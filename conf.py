@@ -2,7 +2,6 @@
 """conf - Sphinx configuration information."""
 
 import os
-import importlib.util
 from subprocess import check_output
 
 on_github = "GITHUB_ACTIONS" in os.environ
@@ -17,9 +16,8 @@ extensions: list[str] = [
     ]
 ] + [
     "sphinx_rtd_theme",
+    "sphinxcontrib.spelling",
 ]
-if importlib.util.find_spec("sphinxcontrib.spelling"):
-    extensions.append("sphinxcontrib.spelling")
 
 # Including a central list of common URLs here a far cleaner way to handle
 # duplication.
