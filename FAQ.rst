@@ -57,4 +57,5 @@ way.
 .. spelling:word-list::
 
     filetype
+    plugin
     µfilm
