@@ -66,4 +66,4 @@ jobs:
         # Sphinx output that would be seen in HTML jobs.
         run: |
           uv run sphinx-build --quiet --fail-on-warning --keep-going \
-            -b spelling . _build/spelling
+            --doctree-dir build/doctrees --builder spelling . _build/spelling

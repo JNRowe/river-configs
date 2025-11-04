@@ -65,5 +65,5 @@ jobs:
 
       - name: Run Sphinx dummy build to check for errors
         run: |
-          uv run sphinx-build --fail-on-warning --keep-going -b dummy . \
-            _build/dummy
+          uv run sphinx-build --fail-on-warning --keep-going \
+            --doctree-dir build/doctrees --builder dummy . _build/dummy
