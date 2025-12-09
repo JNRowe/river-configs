@@ -43,6 +43,12 @@ Start |wob|::
     We fetch the socket location so that we can use it for a :ref:`progress bar
     within this file <progress_bar>`.
 
+Start ydotool_ daemon::
+
+    systemctl --user start ydotoold
+
 Start |river-tag-overlay|::
 
     systemctl --user start river-tag-overlay@$WAYLAND_DISPLAY
+
+.. _ydotool: https://github.com/ReimuNotMoe/ydotool
