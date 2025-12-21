@@ -1,10 +1,6 @@
 Floating support
 ''''''''''''''''
 
-::
-
-    ARROW_KEYS=(Left Down Up Right)
-
 Declare floating mode::
 
     riverctl declare-mode float

@@ -42,6 +42,10 @@ We'll need zselect_ to allow us perform :manpage:`sleep(1)` without forks::
 
     autoload -Uz add-zsh-hook
 
+Array for arrow keys that will be used in various bindings later on::
+
+    ARROW_KEYS=(Left Down Up Right)
+
 .. _exit_trap:
 
 Configure an exit handler to display a notification if this script does not
