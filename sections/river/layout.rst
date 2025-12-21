@@ -21,6 +21,14 @@ Layout format manipulation bindings::
     riverctl map layout Control T send-layout-cmd wideriver "--layout right"
     riverctl map layout None Space send-layout-cmd wideriver "--layout-toggle"
 
+Shift the location for the main window::
+
+    xs=(left bottom top right)
+    for key main (${ARROW_KEYS:^xs}) {
+        riverctl map normal Super $key \
+            send-layout-cmd wideriver "--layout $main"
+    }
+
 Layout style manipulation bindings::
 
     riverctl map layout None E send-layout-cmd wideriver "--stack even"
