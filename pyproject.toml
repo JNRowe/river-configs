@@ -11,4 +11,4 @@ dependencies = [
 ]
 
 [dependency-groups]
-lint = ["restructuredtext-lint>=1.4"]
+lint = ["restructuredtext-lint>=2.0"]
