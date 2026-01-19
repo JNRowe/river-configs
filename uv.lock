@@ -270,12 +270,15 @@ wheels = [
 
 [[package]]
 name = "restructuredtext-lint"
-version = "1.4.0"
+version = "2.0.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "docutils" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/48/9c/6d8035cafa2d2d314f34e6cd9313a299de095b26e96f1c7312878f988eec/restructuredtext_lint-1.4.0.tar.gz", hash = "sha256:1b235c0c922341ab6c530390892eb9e92f90b9b75046063e047cacfb0f050c45", size = 16723, upload-time = "2022-02-24T05:51:10.907Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ca/e6/eefcad2228f4124f17e01064428fbcd0ade06a274f3063ce3a126a569d6b/restructuredtext_lint-2.0.2.tar.gz", hash = "sha256:dd25209b9e0b726929d8306339faf723734a3137db382bcf27294fa18a6bc52b", size = 17494, upload-time = "2025-11-23T08:05:18.585Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/af/63/ac52b32b33ae62f2076ed5c4f6b00e065e3ccbb2063e9a2e813b2bfc95bf/restructuredtext_lint-2.0.2-py3-none-any.whl", hash = "sha256:374c0d3e7e0867b2335146a145343ac619400623716b211b9a010c94426bbed7", size = 14198, upload-time = "2025-11-23T08:05:23.267Z" },
+]
 
 [[package]]
 name = "river-configs"
@@ -300,7 +303,7 @@ requires-dist = [
 ]
 
 [package.metadata.requires-dev]
-lint = [{ name = "restructuredtext-lint", specifier = ">=1.4" }]
+lint = [{ name = "restructuredtext-lint", specifier = ">=2.0" }]
 
 [[package]]
 name = "roman-numerals-py"
