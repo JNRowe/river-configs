@@ -6,7 +6,7 @@ authors = [{ name = "James Rowe", email = "jnrowe@gmail.com" }]
 requires-python = ">=3.11"
 dependencies = [
     "sphinx-rtd-theme>=3.0",
-    "sphinx>=8.2",
+    "sphinx>=9.0",
     "sphinxcontrib-spelling>=8.0",
 ]
 
